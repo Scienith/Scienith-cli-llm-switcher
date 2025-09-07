@@ -1,0 +1,165 @@
+# CLI LLM Switcher Configuration Template
+# Copy this file to 'providers.ini' and fill in your API keys
+# 
+# Configuration format:
+# - Each provider has a main section: [provider_name]
+# - Models are listed in: [provider_name.models]
+# - Fill in your API keys in the api_key= fields
+
+# =====================================
+# DeepSeek Configuration
+# Based on: https://api-docs.deepseek.com/
+# =====================================
+[deepseek]
+name=DeepSeek
+api_key=
+base_url=https://api.deepseek.com/v1
+anthropic_url=https://api.deepseek.com/anthropic
+default_model=deepseek-chat
+models=deepseek-chat,deepseek-reasoner
+
+[deepseek.models]
+deepseek-chat=
+deepseek-reasoner=
+
+# =====================================
+# Alibaba Qwen Configuration
+# =====================================
+
+# Qwen International (Global users)
+[qwen-intl]
+name=Alibaba Qwen (International)
+api_key=
+base_url=https://dashscope-intl.aliyuncs.com/compatible-mode/v1
+anthropic_url=https://dashscope-intl.aliyuncs.com/api/v2/apps/claude-code-proxy
+default_model=qwen3-coder-plus
+models=qwen-max,qwen-plus,qwen-turbo,qwen3-coder-plus,qwen2.5-72b-instruct,qwen2.5-7b-instruct
+
+# Qwen China (中国大陆用户)
+[qwen-cn]
+name=阿里通义千问 (中国)
+api_key=
+base_url=https://dashscope.aliyuncs.com/compatible-mode/v1
+anthropic_url=https://dashscope.aliyuncs.com/api/v2/apps/claude-code-proxy
+default_model=qwen3-coder-plus
+models=qwen-max,qwen-plus,qwen-turbo,qwen3-coder-plus,qwen2.5-72b-instruct,qwen2.5-7b-instruct
+
+# Models are shared between qwen-intl and qwen-cn
+[qwen-intl.models]
+qwen-max=
+qwen-plus=
+qwen-turbo=
+qwen3-coder-plus=
+qwen2.5-72b-instruct=
+qwen2.5-7b-instruct=
+
+[qwen-cn.models]
+qwen-max=
+qwen-plus=
+qwen-turbo=
+qwen3-coder-plus=
+qwen2.5-72b-instruct=
+qwen2.5-7b-instruct=
+
+# =====================================
+# Zhipu GLM Configuration
+# Based on: https://open.bigmodel.cn/
+# =====================================
+[zhipu]
+name=Zhipu GLM
+api_key=
+base_url=https://open.bigmodel.cn/api/paas/v4
+anthropic_url=https://open.bigmodel.cn/api/anthropic
+default_model=glm-4.5
+models=glm-4.5,glm-4.5-air,glm-4.5-x,glm-4.5-airx,glm-4.5-flash
+
+[zhipu.models]
+glm-4.5=GLM-4.5 旗舰模型，355B参数，32B激活
+glm-4.5-air=GLM-4.5-Air 轻量版，106B参数，12B激活
+glm-4.5-x=GLM-4.5-X 高速版，生成速度超过100 tokens/秒
+glm-4.5-airx=GLM-4.5-AirX 轻量高速版
+glm-4.5-flash=GLM-4.5-Flash 快速响应版
+
+# =====================================
+# Kimi (Moonshot AI) Configuration
+# Based on: https://platform.moonshot.cn/
+# =====================================
+[kimi]
+name=Kimi (Moonshot AI)
+api_key=
+base_url=https://api.moonshot.cn/v1
+anthropic_url=https://api.moonshot.cn/anthropic
+default_model=moonshot-v1-32k
+models=moonshot-v1-8k,moonshot-v1-32k,moonshot-v1-128k
+
+[kimi.models]
+moonshot-v1-8k=
+moonshot-v1-32k=
+moonshot-v1-128k=
+
+# =====================================
+# Claude (Anthropic) Configuration
+# Based on: https://docs.anthropic.com/
+# =====================================
+[claude]
+name=Claude (Anthropic)
+api_key=
+base_url=https://api.anthropic.com
+default_model=claude-3-5-sonnet-20241022
+models=claude-3-5-sonnet-20241022,claude-3-5-haiku-20241022,claude-3-opus-20240229,claude-3-sonnet-20240229
+
+[claude.models]
+claude-3-5-sonnet-20241022=
+claude-3-5-haiku-20241022=
+claude-3-opus-20240229=
+claude-3-sonnet-20240229=
+
+# =====================================
+# OpenAI Configuration
+# Based on: https://platform.openai.com/docs/models
+# =====================================
+[openai]
+name=OpenAI
+api_key=
+base_url=https://api.openai.com/v1
+default_model=gpt-4o
+models=gpt-4.1,gpt-4.1-mini,gpt-4.1-nano,gpt-4o,gpt-4o-mini,o3,o3-mini,o4-mini
+
+[openai.models]
+gpt-4.1=
+gpt-4.1-mini=
+gpt-4.1-nano=
+gpt-4o=
+gpt-4o-mini=
+o3=
+o3-mini=
+o4-mini=
+
+# =====================================
+# Groq Configuration
+# Based on: https://console.groq.com/docs/models
+# =====================================
+[groq]
+name=Groq
+api_key=
+base_url=https://api.groq.com/openai/v1
+default_model=llama-3.3-70b-versatile
+models=llama-3.3-70b-versatile,llama-3.1-70b-versatile,llama-3.1-8b-instant,mixtral-8x7b-32768,gemma2-9b-it,gemma-7b-it
+
+[groq.models]
+llama-3.3-70b-versatile=
+llama-3.1-70b-versatile=
+llama-3.1-8b-instant=
+mixtral-8x7b-32768=
+gemma2-9b-it=
+gemma-7b-it=
+
+# =====================================
+# Configuration Notes
+# =====================================
+# 1. Copy this file to 'providers.ini' and fill in your API keys
+# 2. You can customize default_model for each provider
+# 3. Models list is based on official documentation as of 2025
+# 4. Some providers may require different authentication methods
+# 5. Keep this file secure - it contains your API keys
+# 6. See README for API key application links and setup guides

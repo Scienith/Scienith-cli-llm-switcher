@@ -1,0 +1,17 @@
+{
+  "name": "cli-llm-switcher",
+  "version": "0.1.0a1",
+  "description": "A command-line tool for seamlessly switching between multiple LLM providers",
+  "private": true,
+  "scripts": {
+    "generate-readme": "node scripts/generate-readme.js"
+  },
+  "devDependencies": {
+    "js-yaml": "^4.1.0"
+  },
+  "repository": {
+    "type": "git", 
+    "url": "https://github.com/Scienith/Scienith-cli-llm-switcher.git"
+  },
+  "license": "MIT"
+}

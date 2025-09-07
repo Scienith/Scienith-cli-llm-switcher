@@ -1,0 +1,100 @@
+# README 内容结构
+home:
+  title: "CLI LLM 切换器"
+  description: "一个用于在多个LLM提供商之间无缝切换的命令行工具"
+  subtitle: "**一键切换DeepSeek、通义千问、智谱GLM、Kimi、Claude、OpenAI和Groq**，完美适配Claude Code等兼容CLI工具。"
+  
+  # Quick Start section
+  quick_start: "快速开始"
+  installation_commands:
+    - "# 克隆并设置"
+    - "git clone https://github.com/Scienith/Scienith-cli-llm-switcher"
+    - "cd cli-llm-switcher"
+    - "./install.sh"
+    - ""
+    - "# 配置提供商（交互式设置）"
+    - "llm-switch config"
+    - "# 按提示输入 API 密钥并选择默认模型"
+    - ""
+    - "# 切换到 DeepSeek"
+    - "llm-switch deepseek"
+    - ""
+    - "# 现在可以直接使用 Claude Code！"
+    - "claude"
+  
+  # Features section
+  features: "核心功能"
+  features_list:
+    - "**🔄 多提供商支持**: DeepSeek、通义千问、智谱GLM-4.5、Kimi、Claude、OpenAI、Groq"
+    - "**🌍 跨平台兼容**: macOS、Linux、Windows (Git Bash/Cygwin)"
+    - "**🔧 智能Shell集成**: 自动检测并集成 bash、zsh、fish"
+    - "**⚙️ 交互式配置向导**: 安全的API密钥输入、模型选择"
+    - "**📦 完整的安装/卸载**: 一键安装，干净移除"
+    - "**🌐 多语言文档**: 支持英文和中文文档"
+  
+  # Installation section
+  installation_title: "安装"
+  installation_methods:
+    - "**自动安装**（推荐）"
+    - "**手动安装**"
+    - "**从源码安装**"
+  installation_auto_desc: "安装 CLI LLM 切换器最简单的方式："
+  installation_manual_desc: "手动安装："
+  installation_source_desc: "从源码安装："
+  
+  # Supported Providers section
+  supported_providers_title: "支持的提供商"
+  providers_table:
+    provider: "提供商"
+    shortcut: "快捷键"
+    default_model: "默认模型"
+    api_key_application: "API 密钥申请"
+  
+  # Configuration section
+  configuration_title: "配置"
+  configuration_desc: "安装后，你需要为要使用的提供商配置 API 密钥。"
+  configuration_steps:
+    - "复制配置模板"
+    - "编辑配置文件"
+    - "为每个提供商添加 API 密钥"
+    - "测试配置"
+  
+  # Usage section
+  usage_title: "使用方法"
+  usage_desc: "配置完成后，你可以轻松在提供商之间切换："
+  usage_examples:
+    - "切换到提供商"
+    - "使用快捷键"
+    - "显示当前提供商"
+    - "列出所有提供商"
+    - "显示可用模型"
+    - "显示所有模型"
+    - "显示特定提供商的模型"
+    - "配置 API 密钥"
+    - "配置全部"
+    - "配置特定提供商"
+  
+  # Troubleshooting section
+  troubleshooting_title: "故障排除"
+  troubleshooting_common: "常见问题"
+  troubleshooting_tips:
+    - "**权限被拒绝**: 确保脚本可执行 `chmod +x bin/llm-switch`"
+    - "**找不到配置**: 确保你已经复制并编辑了 `config/providers.ini`"
+    - "**API 密钥错误**: 验证你的 API 密钥是否正确且具有适当权限"
+    - "**Shell 集成**: 确保执行输出或添加到你的 shell 配置文件中"
+  
+  # Contributing section
+  contributing: "贡献"
+  contributing_text: "欢迎贡献！请随时提交 Pull Request。"
+  
+  # Acknowledgments section
+  acknowledgments: "致谢"
+  acknowledgments_text: "特别感谢 **季海东** 提供的原始灵感和初始脚本，促成了这个项目的诞生。季海东是三本经典SQL Server教材的合著者，他的见解对塑造这个工具非常宝贵。"
+  acknowledgments_link: "🔗 **了解更多关于季海东**: https://www.haidongji.com/about-me/"
+  
+  # License section
+  license: "许可证"
+  license_text: "本项目基于 MIT 许可证 - 详情请参阅 [LICENSE](LICENSE) 文件。"
+  
+  # Help section
+  need_help: "**需要帮助？** 查看完整文档以获取详细指南和故障排除。"

@@ -1,0 +1,100 @@
+# README content structure
+home:
+  title: "CLI LLM Switcher"
+  description: "A command-line tool for seamlessly switching between multiple LLM providers"
+  subtitle: "**Switch between DeepSeek, Qwen, Zhipu GLM, Kimi, Claude, OpenAI, and Groq** with a single command when using Claude Code or compatible CLI tools."
+  
+  # Quick Start section
+  quick_start: "Quick Start"
+  installation_commands:
+    - "# Clone and setup"
+    - "git clone https://github.com/Scienith/Scienith-cli-llm-switcher"
+    - "cd cli-llm-switcher"
+    - "./install.sh"
+    - ""
+    - "# Configure providers (interactive setup)"
+    - "llm-switch config"
+    - "# Follow prompts to enter API keys and select default models"
+    - ""
+    - "# Switch to DeepSeek"
+    - "llm-switch deepseek"
+    - ""
+    - "# Now you can use Claude Code directly!"
+    - "claude"
+  
+  # Features section
+  features: "Core Features"
+  features_list:
+    - "**🔄 Multi-Provider Support**: DeepSeek, Qwen, Zhipu GLM-4.5, Kimi, Claude, OpenAI, Groq"
+    - "**🌍 Cross-Platform Compatible**: macOS, Linux, Windows (Git Bash/Cygwin)"
+    - "**🔧 Smart Shell Integration**: Auto-detects and integrates with bash, zsh, fish"
+    - "**⚙️ Interactive Configuration Wizard**: Secure API key input, model selection"
+    - "**📦 Complete Install/Uninstall**: One-click installation, clean removal"
+    - "**🌐 Multi-Language Documentation**: English and Chinese documentation support"
+  
+  # Installation section
+  installation_title: "Installation"
+  installation_methods:
+    - "**Automatic Installation** (Recommended)"
+    - "**Manual Installation**"
+    - "**From Source**"
+  installation_auto_desc: "The easiest way to install CLI LLM Switcher:"
+  installation_manual_desc: "For manual installation:"
+  installation_source_desc: "To install from source:"
+  
+  # Supported Providers section
+  supported_providers_title: "Supported Providers"
+  providers_table:
+    provider: "Provider"
+    shortcut: "Shortcut"
+    default_model: "Default Model"
+    api_key_application: "API Key Application"
+  
+  # Configuration section
+  configuration_title: "Configuration"
+  configuration_desc: "After installation, you need to configure your API keys for the providers you want to use."
+  configuration_steps:
+    - "Copy the configuration template"
+    - "Edit the configuration file"
+    - "Add your API keys for each provider"
+    - "Test the configuration"
+  
+  # Usage section
+  usage_title: "Usage"
+  usage_desc: "Once configured, you can easily switch between providers:"
+  usage_examples:
+    - "Switch to a provider"
+    - "Use shortcuts"
+    - "Show current provider"
+    - "List all providers"
+    - "Show available models"
+    - "Show all models"
+    - "Show models for specific provider"
+    - "Configure API keys"
+    - "Configure all"
+    - "Configure specific provider"
+  
+  # Troubleshooting section
+  troubleshooting_title: "Troubleshooting"
+  troubleshooting_common: "Common Issues"
+  troubleshooting_tips:
+    - "**Permission denied**: Make sure the script is executable with `chmod +x bin/llm-switch`"
+    - "**Config not found**: Ensure you've copied and edited `config/providers.ini`"
+    - "**API key errors**: Verify your API keys are correct and have proper permissions"
+    - "**Shell integration**: Make sure to source the output or add to your shell profile"
+  
+  # Contributing section
+  contributing: "Contributing"
+  contributing_text: "Contributions are welcome! Please feel free to submit a Pull Request."
+  
+  # Acknowledgments section
+  acknowledgments: "Acknowledgments"
+  acknowledgments_text: "Special thanks to **Haidong Ji** for the original inspiration and initial scripts that led to this project. Haidong is a co-author of three classic SQL Server textbooks and his insights were invaluable in shaping this tool."
+  acknowledgments_link: "🔗 **Learn more about Haidong Ji**: https://www.haidongji.com/about-me/"
+  
+  # License section
+  license: "License"
+  license_text: "This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details."
+  
+  # Help section
+  need_help: "**Need help?** Check the complete documentation for detailed guides and troubleshooting."

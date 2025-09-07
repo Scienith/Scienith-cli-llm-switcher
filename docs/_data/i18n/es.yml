@@ -1,0 +1,49 @@
+# README content structure
+home:
+  title: "Conmutador CLI LLM"
+  description: "Una herramienta de línea de comandos para cambiar sin problemas entre múltiples proveedores LLM"
+  subtitle: "**Cambia entre DeepSeek, Qwen, Zhipu GLM, Kimi, Claude, OpenAI y Groq** con un solo comando al usar Claude Code o herramientas CLI compatibles."
+  
+  # Quick Start section
+  quick_start: "Inicio rápido"
+  installation_commands:
+    - "# Clonar y configurar"
+    - "git clone https://github.com/Scienith/Scienith-cli-llm-switcher"
+    - "cd cli-llm-switcher"
+    - "./install.sh"
+    - ""
+    - "# Configurar proveedores (configuración interactiva)"
+    - "llm-switch config"
+    - "# Sigue las indicaciones para ingresar la clave API y seleccionar el modelo predeterminado"
+    - ""
+    - "# Cambiar a DeepSeek"
+    - "llm-switch deepseek"
+    - ""
+    - "# ¡Ahora puedes usar Claude Code directamente!"
+    - "claude"
+  
+  # Features section
+  features: "Características principales"
+  features_list:
+    - "**🔄 Soporte multi-proveedor**: DeepSeek, Qwen, Zhipu GLM-4.5, Kimi, Claude, OpenAI, Groq"
+    - "**🌍 Compatible multiplataforma**: macOS, Linux, Windows (Git Bash/Cygwin)"
+    - "**🔧 Integración inteligente de shell**: Detección e integración automática de bash, zsh, fish"
+    - "**⚙️ Asistente de configuración interactivo**: Entrada segura de claves API, selección de modelos"
+    - "**📦 Instalación/desinstalación completa**: Instalación con un clic, eliminación limpia"
+    - "**🌐 Documentación multiidioma**: Soporte de documentación en inglés y chino"
+  
+  # Contributing section
+  contributing: "Contribución"
+  contributing_text: "¡Las contribuciones son bienvenidas! No dudes en enviar un Pull Request."
+  
+  # Acknowledgments section
+  acknowledgments: "Agradecimientos"
+  acknowledgments_text: "Agradecimientos especiales a **Haidong Ji** por la inspiración original y los scripts iniciales que llevaron a este proyecto. Haidong es coautor de tres libros de texto clásicos de SQL Server y sus ideas fueron invaluables para dar forma a esta herramienta."
+  acknowledgments_link: "🔗 **Conoce más sobre Haidong Ji**: https://www.haidongji.com/about-me/"
+  
+  # License section
+  license: "Licencia"
+  license_text: "Este proyecto está licenciado bajo la Licencia MIT - consulta el archivo [LICENSE](LICENSE) para más detalles."
+  
+  # Help section
+  need_help: "**¿Necesitas ayuda?** Consulta la documentación completa para guías detalladas y solución de problemas."
