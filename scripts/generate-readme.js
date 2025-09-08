@@ -32,7 +32,7 @@ function getVersion() {
     } catch (e) {
       // ignore
     }
-    return '0.1.0a1'; // final fallback
+    return 'v0.2.0'; // final fallback
   }
 }
 

@@ -22,16 +22,17 @@
 git clone https://github.com/Scienith/Scienith-cli-llm-switcher
 cd cli-llm-switcher
 ./install.sh
+source ~/.bashrc  # 或者 source ~/.zshrc (Zsh用户)
 
-# 配置提供商（交互式设置）
-llm-switch config
+# 配置提供商的 API 密钥
+lms config
 # 按提示输入 API 密钥并选择默认模型
 
-# 切换到 DeepSeek
-llm-switch deepseek
+# 切换到智谱 GLM
+lms switch zhipu
 
-# 现在可以直接使用 Claude Code！
-claude
+# 使用当前提供商运行 Claude
+lms run claude
 ```
 
 ## 核心功能

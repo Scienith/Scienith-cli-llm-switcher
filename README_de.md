@@ -22,16 +22,17 @@
 git clone https://github.com/Scienith/Scienith-cli-llm-switcher
 cd cli-llm-switcher
 ./install.sh
+source ~/.bashrc  # oder source ~/.zshrc (für Zsh)
 
-# Anbieter konfigurieren (interaktive Einrichtung)
-llm-switch config
+# API-Schlüssel für Anbieter konfigurieren
+lms config
 # Befolgen Sie die Eingabeaufforderungen zur Eingabe des API-Schlüssels und zur Auswahl des Standardmodells
 
-# Zu DeepSeek wechseln
-llm-switch deepseek
+# Zu Zhipu GLM wechseln
+lms switch zhipu
 
-# Jetzt können Sie Claude Code direkt verwenden!
-claude
+# Claude mit dem aktuellen Anbieter ausführen
+lms run claude
 ```
 
 ## Hauptmerkmale
