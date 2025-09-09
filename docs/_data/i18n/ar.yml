@@ -42,8 +42,9 @@ home:
   why_practices_title: 🎯 أفضل الممارسات الرسمية
   why_practices_items:
     - '**التكوينات الموصى بها من المزودين**: يتبع إرشادات التكامل الرسمية لكل مزود'
-    - '**تكوين النموذج المزدوج لـ Claude Code**: النموذج الرئيسي للمحادثة/التخطيط/توليد الكود/التفكير المعقد، النموذج السريع (يستخدم Claude نموذج Haiku مثل 3.5 Haiku) للبحث في الملفات/فحص بناء الجملة والمهام المساعدة - يحسن الأداء والتكلفة بذكاء'
+    - '**تكوين النموذج المزدوج لـ Claude Code**: النموذج الرئيسي للمهام المعقدة، النموذج السريع للمهام البسيطة - يحسن الأداء والتكلفة بذكاء'
   provider_integration_title: 🤖 تكامل المزودين
+  zhipu_logo_path: assets/images/logo/zhipu_logo_cn.png
   zhipu_description: '**Zhipu GLM** هي سلسلة نماذج لغة صينية قوية طورتها Zhipu AI، تقدم أداءً متطورًا لمختلف المهام.'
   zhipu_models_title: النماذج المتاحة
   zhipu_models:
@@ -53,36 +54,10 @@ home:
   zhipu_api_links:
     - '**🇨🇳 الصين**: [https://bigmodel.cn/](https://bigmodel.cn/)'
     - '**🌍 دولي**: [https://z.ai/model-api](https://z.ai/model-api)'
-  deepseek_description: '[NEEDS TRANSLATION] **DeepSeek** is an advanced AI model series focused on deep reasoning and code understanding, providing exceptional performance for programming tasks.'
-  deepseek_models_title: '[NEEDS TRANSLATION] Available Models'
-  deepseek_models:
-    - '[NEEDS TRANSLATION] **deepseek-chat**: Versatile model for both complex reasoning and quick responses'
-  deepseek_api_title: '[NEEDS TRANSLATION] Get Your API Key'
-  deepseek_api_links:
-    - '[NEEDS TRANSLATION] **Platform**: [https://platform.deepseek.com/](https://platform.deepseek.com/)'
-  alibaba_int_description: '[NEEDS TRANSLATION] **Alibaba Cloud Qwen (International)** offers powerful large language models with excellent multilingual capabilities and code generation features.'
-  alibaba_int_api_title: '[NEEDS TRANSLATION] Get Your API Key'
-  alibaba_int_api_links:
-    - '[NEEDS TRANSLATION] **🌍 International**: [https://modelstudio.console.alibabacloud.com/](https://modelstudio.console.alibabacloud.com/)'
-  alibaba_description: '[NEEDS TRANSLATION] **Alibaba Cloud Qwen (China)** offers powerful large language models with excellent multilingual capabilities and code generation features.'
-  alibaba_models_title: '[NEEDS TRANSLATION] Available Models'
-  alibaba_models:
-    - '[NEEDS TRANSLATION] **qwen3-coder-plus**: Main model for advanced code generation and analysis'
-    - '[NEEDS TRANSLATION] **qwen3-coder-flash**: Fast model for quick code completions and syntax checking'
-  alibaba_api_title: '[NEEDS TRANSLATION] Get Your API Key'
-  alibaba_api_links:
-    - '[NEEDS TRANSLATION] **🇨🇳 China**: [https://bailian.console.aliyun.com/](https://bailian.console.aliyun.com/)'
-  moonshot_description: '[NEEDS TRANSLATION] **Moonshot AI (Kimi)** provides intelligent language models with strong context understanding and conversational abilities.'
-  moonshot_models_title: '[NEEDS TRANSLATION] Available Models'
-  moonshot_models:
-    - '[NEEDS TRANSLATION] **K2-Instruct-0905**: Advanced model with excellent instruction-following capabilities'
-  moonshot_api_title: '[NEEDS TRANSLATION] Get Your API Key'
-  moonshot_api_links:
-    - '[NEEDS TRANSLATION] **Platform**: [https://platform.moonshot.ai/](https://platform.moonshot.ai/)'
   model_config_title: تكوين النموذج
   model_config_desc: 'تقوم الأداة تلقائيًا بتكوين النماذج المثلى لأغراض مختلفة:'
-  model_config_main: '**[NEEDS TRANSLATION] Main Model**'
-  model_config_fast: '**[NEEDS TRANSLATION] Fast Model**'
+  model_config_main: '**النموذج الرئيسي**: يُستخدم للمهام المعقدة وتوليد الكود والتفكير'
+  model_config_fast: '**النموذج السريع**: يُستخدم للعمليات البسيطة مثل البحث في الملفات والتحقق من بناء الجملة'
   model_config_example: 'على سبيل المثال، يستخدم Zhipu GLM:'
   model_config_example_main: '- النموذج الرئيسي: `glm-4.5` - أكثر قوة، مناسب للمهام المعقدة'
   model_config_example_fast: '- النموذج السريع: `glm-4.5-air` - أخف وزنًا، محسّن للسرعة'
@@ -133,9 +108,3 @@ home:
   license: الترخيص
   license_text: هذا المشروع مرخص تحت رخصة MIT - انظر ملف [LICENSE](LICENSE) للتفاصيل.
   need_help: '**تحتاج مساعدة؟** تحقق من الوثائق الكاملة للحصول على أدلة مفصلة واستكشاف الأخطاء وإصلاحها.'
-  references_title: '[NEEDS TRANSLATION] References'
-  references_text: '[NEEDS TRANSLATION] Official provider configuration guides for Claude Code integration:'
-  references_links:
-    - '[DeepSeek Anthropic API Guide](https://api-docs.deepseek.com/guides/anthropic_api)'
-    - '[Alibaba Cloud Model Studio - Claude Code Integration](https://help.aliyun.com/zh/model-studio/claude-code)'
-    - '[Zhipu GLM - Claude Development Guide](https://docs.bigmodel.cn/cn/guide/develop/claude)'

@@ -25,32 +25,12 @@ export interface I18nHome {
   
   // Provider Integration section
   provider_integration_title: string;
-  
-  // Provider specific fields
+  zhipu_logo_path: string;
   zhipu_description: string;
   zhipu_models_title: string;
   zhipu_models: string[];
   zhipu_api_title: string;
   zhipu_api_links: string[];
-  
-  // Additional providers
-  deepseek_description: string;
-  deepseek_models_title: string;
-  deepseek_models: string[];
-  deepseek_api_title: string;
-  deepseek_api_links: string[];
-  
-  alibaba_description: string;
-  alibaba_models_title: string;
-  alibaba_models: string[];
-  alibaba_api_title: string;
-  alibaba_api_links: string[];
-  
-  moonshot_description: string;
-  moonshot_models_title: string;
-  moonshot_models: string[];
-  moonshot_api_title: string;
-  moonshot_api_links: string[];
   
   // Model Configuration section
   model_config_title: string;
@@ -113,11 +93,8 @@ export function isValidI18nData(data: any): data is I18nData {
   const requiredStringFields = [
     'description', 'subtitle', 'prerequisites_title', 'prerequisites_desc',
     'prerequisites_node_title', 'quick_start', 'why_title', 'why_isolated_title',
-    'why_practices_title', 'provider_integration_title',
+    'why_practices_title', 'provider_integration_title', 'zhipu_logo_path',
     'zhipu_description', 'zhipu_models_title', 'zhipu_api_title',
-    'deepseek_description', 'deepseek_models_title', 'deepseek_api_title',
-    'alibaba_description', 'alibaba_models_title', 'alibaba_api_title',
-    'moonshot_description', 'moonshot_models_title', 'moonshot_api_title',
     'model_config_title', 'model_config_desc', 'model_config_main',
     'model_config_fast', 'model_config_example', 'model_config_example_main',
     'model_config_example_fast', 'configuration_title', 'configuration_desc',
@@ -130,9 +107,6 @@ export function isValidI18nData(data: any): data is I18nData {
   const requiredArrayFields = [
     'prerequisites_node_options', 'installation_commands', 'why_isolated_items',
     'why_practices_items', 'zhipu_models', 'zhipu_api_links',
-    'deepseek_models', 'deepseek_api_links',
-    'alibaba_models', 'alibaba_api_links',
-    'moonshot_models', 'moonshot_api_links',
     'configuration_steps', 'usage_examples', 'troubleshooting_tips'
   ];
   

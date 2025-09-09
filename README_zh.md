@@ -6,7 +6,7 @@
 
 *一个用于在多个LLM提供商之间无缝切换的命令行工具*
 
-[![Version](https://img.shields.io/badge/version-v0.3.1-blue.svg)](https://github.com/Scienith/Scienith-cli-llm-switcher/releases)
+[![Version](https://img.shields.io/badge/version-v0.2.0-blue.svg)](https://github.com/Scienith/Scienith-cli-llm-switcher/releases)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 **🌍 Languages**: [English](README.md) | 中文 | [日本語](README_ja.md) | [한국어](README_ko.md) | [Français](README_fr.md) | [Deutsch](README_de.md) | [Español](README_es.md) | [Русский](README_ru.md) | [العربية](README_ar.md)
@@ -23,7 +23,7 @@
 
 ### 🎯 官方最佳实践
 - **提供商推荐配置**: 遵循各供应商的官方集成指南
-- **Claude Code 双模型配置**: 主模型用于对话/规划/代码编写/复杂推理等场景，快速模型（Claude使用Haiku如3.5 Haiku）用于文件搜索/语法检查等辅助场景，智能优化性能与成本
+- **Claude Code 双模型配置**: 主模型处理复杂任务，快速模型处理简单任务，智能优化性能与成本
 
 
 ## 📋 前置要求
@@ -67,81 +67,19 @@ lms run claude
 
 ## 🤖 供应商集成
 
-### DeepSeek
-
-<div align="center">
-<img src="https://raw.githubusercontent.com/Scienith/Scienith-cli-llm-switcher/main/assets/images/logo/deepseek_logo.png" alt="DeepSeek" width="200">
-</div>
-
-### 模型配置
-- **主模型**: `deepseek-chat`
-- **快速模型**: `deepseek-chat`
-
-### 获取您的API密钥
-- **平台**: [https://platform.deepseek.com/](https://platform.deepseek.com/)
-
----
-
-### AlibabaCloud (International)
-
-<div align="center">
-<img src="https://raw.githubusercontent.com/Scienith/Scienith-cli-llm-switcher/main/assets/images/logo/alibaba_cloud.png" alt="AlibabaCloud (International)" width="200">
-</div>
-
-### 模型配置
-- **主模型**: `qwen3-coder-plus`
-- **快速模型**: `qwen3-coder-flash`
-
-### 获取您的API密钥
-- **🌍 国际版**: [https://modelstudio.console.alibabacloud.com/](https://modelstudio.console.alibabacloud.com/)
-
----
-
-### AlibabaCloud (China)
-
-<div align="center">
-<img src="https://raw.githubusercontent.com/Scienith/Scienith-cli-llm-switcher/main/assets/images/logo/alibaba_cloud.png" alt="AlibabaCloud (China)" width="200">
-</div>
-
-### 模型配置
-- **主模型**: `qwen3-coder-plus`
-- **快速模型**: `qwen3-coder-flash`
-
-### 获取您的API密钥
-- **🇨🇳 中国**: [https://bailian.console.aliyun.com/](https://bailian.console.aliyun.com/)
-
----
-
-### Moonshot AI
-
-<div align="center">
-<img src="https://raw.githubusercontent.com/Scienith/Scienith-cli-llm-switcher/main/assets/images/logo/moonshot_logo.png" alt="Moonshot AI" width="200">
-</div>
-
-### 模型配置
-- **主模型**: `K2-Instruct-0905`
-- **快速模型**: `K2-Instruct-0905`
-
-### 获取您的API密钥
-- **平台**: [https://platform.moonshot.ai/](https://platform.moonshot.ai/)
-
----
-
-### Zhipu GLM
-
 <div align="center">
 <img src="https://raw.githubusercontent.com/Scienith/Scienith-cli-llm-switcher/main/assets/images/logo/zhipu.jpg" alt="Zhipu GLM" width="200">
 </div>
 
-### 模型配置
-- **主模型**: `glm-4.5`
-- **快速模型**: `glm-4.5-air`
+**智谱GLM** 是由智谱AI开发的强大中文大语言模型系列，为各种任务提供最先进的性能。
+
+### 可用模型
+- **glm-4.5**: 用于复杂推理和生成任务的主要模型
+- **glm-4.5-air**: 优化快速响应的轻量模型
 
 ### 获取您的API密钥
 - **🇨🇳 中国**: [https://bigmodel.cn/](https://bigmodel.cn/)
 - **🌍 国际版**: [https://z.ai/model-api](https://z.ai/model-api)
-
----
 
 
 
@@ -182,14 +120,6 @@ rmdir /s /q "%USERPROFILE%\.llm-switch"
 ## 许可证
 
 本项目基于 MIT 许可证 - 详情请参阅 [LICENSE](LICENSE) 文件。
-
-## 参考资料
-
-官方提供的 Claude Code 集成配置指南：
-
-- [DeepSeek Anthropic API 指南](https://api-docs.deepseek.com/guides/anthropic_api)
-- [阿里云模型服务 - Claude Code 集成](https://help.aliyun.com/zh/model-studio/claude-code)
-- [智谱 GLM - Claude 开发指南](https://docs.bigmodel.cn/cn/guide/develop/claude)
 
 ---
 

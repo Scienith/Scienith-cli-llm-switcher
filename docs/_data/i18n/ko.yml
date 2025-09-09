@@ -42,8 +42,9 @@ home:
   why_practices_title: 🎯 공식 모범 사례
   why_practices_items:
     - '**공급자 권장 구성**: 각 공급자의 공식 통합 지침 준수'
-    - '**Claude Code 듀얼 모델 구성**: 메인 모델은 대화/계획/코드 생성/복잡한 추론에 사용, 빠른 모델(Claude는 3.5 Haiku 등 사용)은 파일 검색/구문 검사 등 보조 작업에 사용 - 성능과 비용을 지능적으로 최적화'
+    - '**Claude Code 듀얼 모델 구성**: 복잡한 작업용 메인 모델, 간단한 작업용 빠른 모델 - 성능과 비용을 지능적으로 최적화'
   provider_integration_title: 🤖 공급자 통합
+  zhipu_logo_path: assets/images/logo/zhipu_logo_cn.png
   zhipu_description: '**Zhipu GLM**은 Zhipu AI가 개발한 강력한 중국어 대규모 언어 모델 시리즈로, 다양한 작업에 최첨단 성능을 제공합니다.'
   zhipu_models_title: 사용 가능한 모델
   zhipu_models:
@@ -53,36 +54,10 @@ home:
   zhipu_api_links:
     - '**🇨🇳 중국**: [https://bigmodel.cn/](https://bigmodel.cn/)'
     - '**🌍 국제**: [https://z.ai/model-api](https://z.ai/model-api)'
-  deepseek_description: '[NEEDS TRANSLATION] **DeepSeek** is an advanced AI model series focused on deep reasoning and code understanding, providing exceptional performance for programming tasks.'
-  deepseek_models_title: '[NEEDS TRANSLATION] Available Models'
-  deepseek_models:
-    - '[NEEDS TRANSLATION] **deepseek-chat**: Versatile model for both complex reasoning and quick responses'
-  deepseek_api_title: '[NEEDS TRANSLATION] Get Your API Key'
-  deepseek_api_links:
-    - '[NEEDS TRANSLATION] **Platform**: [https://platform.deepseek.com/](https://platform.deepseek.com/)'
-  alibaba_int_description: '[NEEDS TRANSLATION] **Alibaba Cloud Qwen (International)** offers powerful large language models with excellent multilingual capabilities and code generation features.'
-  alibaba_int_api_title: '[NEEDS TRANSLATION] Get Your API Key'
-  alibaba_int_api_links:
-    - '[NEEDS TRANSLATION] **🌍 International**: [https://modelstudio.console.alibabacloud.com/](https://modelstudio.console.alibabacloud.com/)'
-  alibaba_description: '[NEEDS TRANSLATION] **Alibaba Cloud Qwen (China)** offers powerful large language models with excellent multilingual capabilities and code generation features.'
-  alibaba_models_title: '[NEEDS TRANSLATION] Available Models'
-  alibaba_models:
-    - '[NEEDS TRANSLATION] **qwen3-coder-plus**: Main model for advanced code generation and analysis'
-    - '[NEEDS TRANSLATION] **qwen3-coder-flash**: Fast model for quick code completions and syntax checking'
-  alibaba_api_title: '[NEEDS TRANSLATION] Get Your API Key'
-  alibaba_api_links:
-    - '[NEEDS TRANSLATION] **🇨🇳 China**: [https://bailian.console.aliyun.com/](https://bailian.console.aliyun.com/)'
-  moonshot_description: '[NEEDS TRANSLATION] **Moonshot AI (Kimi)** provides intelligent language models with strong context understanding and conversational abilities.'
-  moonshot_models_title: '[NEEDS TRANSLATION] Available Models'
-  moonshot_models:
-    - '[NEEDS TRANSLATION] **K2-Instruct-0905**: Advanced model with excellent instruction-following capabilities'
-  moonshot_api_title: '[NEEDS TRANSLATION] Get Your API Key'
-  moonshot_api_links:
-    - '[NEEDS TRANSLATION] **Platform**: [https://platform.moonshot.ai/](https://platform.moonshot.ai/)'
   model_config_title: 모델 구성
   model_config_desc: '도구는 다양한 용도에 최적의 모델을 자동으로 구성합니다:'
-  model_config_main: '**[NEEDS TRANSLATION] Main Model**'
-  model_config_fast: '**[NEEDS TRANSLATION] Fast Model**'
+  model_config_main: '**메인 모델**: 복잡한 작업, 코드 생성 및 추론에 사용'
+  model_config_fast: '**빠른 모델**: 파일 검색 및 구문 확인과 같은 간단한 작업에 사용'
   model_config_example: '예를 들어 Zhipu GLM의 경우:'
   model_config_example_main: '- 메인 모델: `glm-4.5` - 더 강력하고 복잡한 작업에 적합'
   model_config_example_fast: '- 빠른 모델: `glm-4.5-air` - 더 가볍고 속도 우선'
@@ -133,9 +108,3 @@ home:
   license: 라이선스
   license_text: 이 프로젝트는 MIT 라이선스 하에 라이선스가 부여됩니다 - 자세한 내용은 [LICENSE](LICENSE) 파일을 참조하세요.
   need_help: '**도움이 필요하신가요?** 자세한 가이드와 문제 해결을 위해 전체 문서를 확인하세요.'
-  references_title: '[NEEDS TRANSLATION] References'
-  references_text: '[NEEDS TRANSLATION] Official provider configuration guides for Claude Code integration:'
-  references_links:
-    - '[DeepSeek Anthropic API Guide](https://api-docs.deepseek.com/guides/anthropic_api)'
-    - '[Alibaba Cloud Model Studio - Claude Code Integration](https://help.aliyun.com/zh/model-studio/claude-code)'
-    - '[Zhipu GLM - Claude Development Guide](https://docs.bigmodel.cn/cn/guide/develop/claude)'
