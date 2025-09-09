@@ -183,6 +183,14 @@ rmdir /s /q "%USERPROFILE%\.llm-switch"
 
 이 프로젝트는 MIT 라이선스 하에 라이선스가 부여됩니다 - 자세한 내용은 [LICENSE](LICENSE) 파일을 참조하세요.
 
+## [NEEDS TRANSLATION] References
+
+[NEEDS TRANSLATION] Official provider configuration guides for Claude Code integration:
+
+- [DeepSeek Anthropic API Guide](https://api-docs.deepseek.com/guides/anthropic_api)
+- [Alibaba Cloud Model Studio - Claude Code Integration](https://help.aliyun.com/zh/model-studio/claude-code)
+- [Zhipu GLM - Claude Development Guide](https://docs.bigmodel.cn/cn/guide/develop/claude)
+
 ---
 
 **도움이 필요하신가요?** 자세한 가이드와 문제 해결을 위해 전체 문서를 확인하세요.

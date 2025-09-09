@@ -183,6 +183,14 @@ rmdir /s /q "%USERPROFILE%\.llm-switch"
 
 本项目基于 MIT 许可证 - 详情请参阅 [LICENSE](LICENSE) 文件。
 
+## 参考资料
+
+官方提供的 Claude Code 集成配置指南：
+
+- [DeepSeek Anthropic API 指南](https://api-docs.deepseek.com/guides/anthropic_api)
+- [阿里云模型服务 - Claude Code 集成](https://help.aliyun.com/zh/model-studio/claude-code)
+- [智谱 GLM - Claude 开发指南](https://docs.bigmodel.cn/cn/guide/develop/claude)
+
 ---
 
 **需要帮助？** 查看完整文档以获取详细指南和故障排除。

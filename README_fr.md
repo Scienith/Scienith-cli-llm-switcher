@@ -183,6 +183,14 @@ Les contributions sont les bienvenues ! N'hésitez pas à soumettre une Pull Req
 
 Ce projet est sous licence MIT - voir le fichier [LICENSE](LICENSE) pour plus de détails.
 
+## [NEEDS TRANSLATION] References
+
+[NEEDS TRANSLATION] Official provider configuration guides for Claude Code integration:
+
+- [DeepSeek Anthropic API Guide](https://api-docs.deepseek.com/guides/anthropic_api)
+- [Alibaba Cloud Model Studio - Claude Code Integration](https://help.aliyun.com/zh/model-studio/claude-code)
+- [Zhipu GLM - Claude Development Guide](https://docs.bigmodel.cn/cn/guide/develop/claude)
+
 ---
 
 **Besoin d'aide ?** Consultez la documentation complète pour des guides détaillés et le dépannage.

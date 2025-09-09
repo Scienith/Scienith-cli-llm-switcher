@@ -329,6 +329,12 @@ ${L.home.contributing_text || ''}
 
 ${L.home.license_text || ''}
 
+## ${L.home.references_title || 'References'}
+
+${L.home.references_text || ''}
+
+${L.home.references_links ? L.home.references_links.map(link => `- ${link}`).join('\n') : ''}
+
 ---
 
 ${L.home.need_help || ''}`;
