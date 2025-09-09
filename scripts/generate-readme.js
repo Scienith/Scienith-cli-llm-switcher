@@ -11,6 +11,16 @@ const yaml = require('js-yaml');
 const PROJECT_ROOT = path.resolve(__dirname, '..');
 const I18N_DIR = path.join(PROJECT_ROOT, 'docs', '_data', 'i18n');
 
+// Import PROVIDER_CONFIGS from compiled types - single source of truth
+const typesModule = require('../dist/core/types.js');
+const PROVIDER_CONFIGS = typesModule.PROVIDER_CONFIGS;
+
+if (!PROVIDER_CONFIGS) {
+  console.error('Error: PROVIDER_CONFIGS not found in dist/core/types.js');
+  console.error('Please run "npm run build" before generating README files');
+  process.exit(1);
+}
+
 // Get version from git tags
 function getVersion() {
   try {
@@ -67,6 +77,72 @@ function loadI18nData() {
   return i18nData;
 }
 
+// Generate providers table with API URLs
+function generateProvidersTable(locale) {
+  // Import PROVIDER_KEYS for use
+  const PROVIDER_KEYS = typesModule.PROVIDER_KEYS;
+  
+  const providers = [
+    {
+      key: PROVIDER_KEYS.ZHIPU,
+      name: 'Zhipu GLM',
+      models: 'glm-4.5, glm-4.5-air',
+      urls: PROVIDER_CONFIGS[PROVIDER_KEYS.ZHIPU]?.apiUrls || [],
+      labels: PROVIDER_CONFIGS[PROVIDER_KEYS.ZHIPU]?.apiUrlLabels || ['China', 'International']
+    },
+    {
+      key: PROVIDER_KEYS.DEEPSEEK,
+      name: 'DeepSeek',
+      models: 'deepseek-chat',
+      urls: PROVIDER_CONFIGS[PROVIDER_KEYS.DEEPSEEK]?.apiUrls || []
+    },
+    {
+      key: PROVIDER_KEYS.ALIBABACLOUD_INT,
+      name: 'Alibaba-Int',
+      models: 'qwen3-coder-plus, qwen3-coder-flash',
+      urls: PROVIDER_CONFIGS[PROVIDER_KEYS.ALIBABACLOUD_INT]?.apiUrls || []
+    },
+    {
+      key: PROVIDER_KEYS.ALIBABACLOUD,
+      name: 'Alibaba',
+      models: 'qwen3-coder-plus, qwen3-coder-flash',
+      urls: PROVIDER_CONFIGS[PROVIDER_KEYS.ALIBABACLOUD]?.apiUrls || []
+    },
+    {
+      key: PROVIDER_KEYS.KIMI,
+      name: 'Kimi (Moonshot AI)',
+      models: 'K2-Instruct-0905',
+      urls: PROVIDER_CONFIGS[PROVIDER_KEYS.KIMI]?.apiUrls || []
+    }
+  ];
+
+  const headerProvider = locale === 'zh' ? '供应商' : 'Provider';
+  const headerModels = locale === 'zh' ? '模型' : 'Models';
+  const headerAPI = locale === 'zh' ? 'API 申请' : 'API Registration';
+
+  let table = `## ${locale === 'zh' ? '支持的供应商' : 'Supported Providers'}\n\n`;
+  table += `| ${headerProvider} | ${headerModels} | ${headerAPI} |\n`;
+  table += '|----------|--------|------------------|\n';
+
+  for (const provider of providers) {
+    let apiLinks = '';
+    if (provider.urls.length === 1) {
+      const label = locale === 'zh' ? '申请' : 'Apply';
+      apiLinks = `[${label}](${provider.urls[0]})`;
+    } else if (provider.urls.length > 1) {
+      const links = provider.urls.map((url, index) => {
+        const label = provider.labels?.[index] || `Link ${index + 1}`;
+        return `[${label}](${url})`;
+      });
+      apiLinks = links.join(' \\| ');
+    }
+    
+    table += `| **${provider.name}** | ${provider.models} | ${apiLinks} |\n`;
+  }
+
+  return table;
+}
+
 // Generate language switcher links
 function generateLangLinks(currentLocale, locales) {
   const links = [];
@@ -110,6 +186,22 @@ claude "Help me write a Python function"`;
 - 📦 **Complete Install/Uninstall**: One-click installation, clean removal
 - 🌐 **Multi-Language Documentation**: English and Chinese documentation support`;
 
+  // Generate Why LLM Switcher section
+  let whySection = '';
+  if (L.home.why_title) {
+    whySection = `\n## 💡 ${L.home.why_title}\n\n`;
+    
+    if (L.home.why_isolated_title && L.home.why_isolated_items) {
+      whySection += `### ${L.home.why_isolated_title}\n`;
+      whySection += L.home.why_isolated_items.map(item => `- ${item}`).join('\n') + '\n\n';
+    }
+    
+    if (L.home.why_practices_title && L.home.why_practices_items) {
+      whySection += `### ${L.home.why_practices_title}\n`;
+      whySection += L.home.why_practices_items.map(item => `- ${item}`).join('\n') + '\n';
+    }
+  }
+
   const quickStartTitle = L.home.quick_start || 'Quick Start';
   const featuresTitle = L.home.features || 'Features';
   
@@ -130,7 +222,7 @@ ${langLinks}
 </div>
 
 ${L.home.subtitle || '**Switch between multiple LLM providers** with a single command when using Claude Code or compatible CLI tools.'}
-
+${whySection}
 ## 🚀 ${quickStartTitle}
 
 \`\`\`bash
@@ -140,6 +232,35 @@ ${quickStartCommands}
 ## ${featuresTitle}
 
 ${featuresList}
+
+${generateProvidersTable(locale)}
+
+## ${L.home.uninstallation_title || 'Uninstallation'}
+
+### ${L.home.uninstallation_basic_title || 'Basic Uninstall (keeps configuration)'}
+
+\`\`\`bash
+${L.home.uninstallation_commands?.basic || 'npm uninstall -g cli-llm-switcher'}
+\`\`\`
+
+### ${L.home.uninstallation_complete_title || 'Complete Uninstall (removes everything)'}
+
+${L.home.uninstallation_note || 'Note: Run `lms status` to see the configuration directory path before uninstalling.'}
+
+**macOS/Linux:**
+\`\`\`bash
+${L.home.uninstallation_commands?.macos_linux?.join('\n') || 'npm uninstall -g cli-llm-switcher\nrm -rf ~/.llm-switch'}
+\`\`\`
+
+**Windows (PowerShell):**
+\`\`\`powershell
+${L.home.uninstallation_commands?.windows_ps?.join('\n') || 'npm uninstall -g cli-llm-switcher\nRemove-Item -Recurse -Force "$env:USERPROFILE\\.llm-switch"'}
+\`\`\`
+
+**Windows (Command Prompt):**
+\`\`\`cmd
+${L.home.uninstallation_commands?.windows_cmd?.join('\n') || 'npm uninstall -g cli-llm-switcher\nrmdir /s /q "%USERPROFILE%\\.llm-switch"'}
+\`\`\`
 
 ## ${L.home.contributing || 'Contributing'}
 

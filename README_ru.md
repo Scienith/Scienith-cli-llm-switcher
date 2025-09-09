@@ -6,14 +6,14 @@
 
 *Инструмент командной строки для беспрепятственного переключения между несколькими провайдерами LLM*
 
-[![Version](https://img.shields.io/badge/version-v0.1.0a1-blue.svg)](https://github.com/Scienith/Scienith-cli-llm-switcher/releases)
+[![Version](https://img.shields.io/badge/version-v0.1.0a2-blue.svg)](https://github.com/Scienith/Scienith-cli-llm-switcher/releases)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 **🌍 Languages**: [English](README.md) | [中文](README_zh.md) | [日本語](README_ja.md) | [한국어](README_ko.md) | [Français](README_fr.md) | [Deutsch](README_de.md) | [Español](README_es.md) | Русский | [العربية](README_ar.md)
 
 </div>
 
-**Переключайтесь между DeepSeek, Qwen, Zhipu GLM, Kimi, Claude, OpenAI и Groq** одной командой при использовании Claude Code или совместимых CLI инструментов.
+**Переключайтесь между DeepSeek, Qwen, Zhipu GLM, Kimi, OpenAI и Groq** одной командой при использовании Claude Code или совместимых CLI инструментов.
 
 ## 🚀 Быстрый старт
 
@@ -37,12 +37,53 @@ lms run claude
 
 ## Основные функции
 
-- **🔄 Поддержка нескольких провайдеров**: DeepSeek, Qwen, Zhipu GLM-4.5, Kimi, Claude, OpenAI, Groq
+- **🔄 Поддержка нескольких провайдеров**: DeepSeek, Qwen, Zhipu GLM-4.5, Kimi
 - **🌍 Кроссплатформенная совместимость**: macOS, Linux, Windows (Git Bash/Cygwin)
 - **🔧 Умная интеграция с shell**: Автоопределение и интеграция bash, zsh, fish
 - **⚙️ Интерактивный мастер настройки**: Безопасный ввод API ключей, выбор моделей
 - **📦 Полная установка/удаление**: Установка в один клик, чистое удаление
 - **🌐 Многоязычная документация**: Поддержка документации на английском и китайском языках
+
+## Supported Providers
+
+| Provider | Models | API Registration |
+|----------|--------|------------------|
+| **Zhipu GLM** | glm-4.5, glm-4.5-air | [China](https://bigmodel.cn/) \| [International](https://z.ai/model-api) |
+| **DeepSeek** | deepseek-chat | [Apply](https://platform.deepseek.com/) |
+| **Alibaba-Int** | qwen3-coder-plus, qwen3-coder-flash | [Apply](https://modelstudio.console.alibabacloud.com/) |
+| **Alibaba** | qwen3-coder-plus, qwen3-coder-flash | [Apply](https://bailian.console.aliyun.com/) |
+| **Kimi (Moonshot AI)** | K2-Instruct-0905 | [Apply](https://platform.moonshot.ai/) |
+
+
+## Uninstallation
+
+### Basic Uninstall (keeps configuration)
+
+```bash
+npm uninstall -g cli-llm-switcher
+```
+
+### Complete Uninstall (removes everything)
+
+Note: Run `lms status` to see the configuration directory path before uninstalling.
+
+**macOS/Linux:**
+```bash
+npm uninstall -g cli-llm-switcher
+rm -rf ~/.llm-switch
+```
+
+**Windows (PowerShell):**
+```powershell
+npm uninstall -g cli-llm-switcher
+Remove-Item -Recurse -Force "$env:USERPROFILE\.llm-switch"
+```
+
+**Windows (Command Prompt):**
+```cmd
+npm uninstall -g cli-llm-switcher
+rmdir /s /q "%USERPROFILE%\.llm-switch"
+```
 
 ## Вклад в разработку
 

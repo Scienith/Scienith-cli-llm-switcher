@@ -11,7 +11,8 @@ export interface JsonProvider {
   baseUrl?: string;
   anthropicUrl?: string;
   defaultModel?: string;
-  models?: string[];
+  fastModel?: string;
+  models?: string[];  // Optional, no longer used
 }
 
 export interface JsonConfigData {

@@ -1,45 +1,78 @@
 /**
- * Run CLI tools (claude/qwen) with current provider
+ * Run CLI tools (e.g., qwen) with current provider or selected provider
  */
 
 import { spawn } from 'child_process';
 import { ConfigManager } from '../core/ConfigManager';
 import { ProviderManager } from '../core/ProviderManager';
 import { Logger } from '../utils/logger';
+import { prompt } from '../utils/prompt';
+import chalk from 'chalk';
 
 export async function runCLI(cliTool: string, args: string[] = []): Promise<void> {
   try {
     const configManager = new ConfigManager();
     const providerManager = new ProviderManager(configManager);
 
-    // Load config to get current provider
+    // Load config
     await configManager.loadConfig();
 
+    // Get all providers with configured API keys
+    const allProviders = configManager.getAllProviders();
+    const configuredProviders = Array.from(allProviders.entries())
+      .filter(([_, provider]) => provider.apiKey)
+      .map(([key, provider]) => ({ key, name: provider.name }));
+
+    if (configuredProviders.length === 0) {
+      Logger.error('No providers have API keys configured');
+      Logger.error('Run \'lms config\' to set up providers first');
+      process.exit(1);
+    }
+
     // Get current provider
-    const currentProvider = configManager.getCurrentProvider();
+    let selectedProvider = configManager.getCurrentProvider();
     
-    if (!currentProvider) {
-      Logger.error('No provider currently active');
-      Logger.error('Run \'llm-switch switch <provider>\' to activate a provider first');
+    // Show provider selection menu
+    console.log(chalk.bold(`\nSelect provider for ${cliTool}:\n`));
+    
+    configuredProviders.forEach((provider, index) => {
+      const isCurrent = provider.key === selectedProvider;
+      const marker = isCurrent ? chalk.green(' ← current') : '';
+      console.log(`  ${chalk.cyan(`${index + 1}.`)} ${provider.name}${marker}`);
+    });
+    
+    console.log('');
+    const defaultChoice = selectedProvider 
+      ? configuredProviders.findIndex(p => p.key === selectedProvider) + 1
+      : 1;
+    
+    const choice = await prompt(`Select provider (1-${configuredProviders.length}) [${defaultChoice}]: `);
+    
+    // Use default if empty input
+    const selectedIndex = choice.trim() === '' 
+      ? defaultChoice - 1 
+      : parseInt(choice) - 1;
+    
+    if (isNaN(selectedIndex) || selectedIndex < 0 || selectedIndex >= configuredProviders.length) {
+      Logger.error('Invalid selection');
       process.exit(1);
     }
-
-    Logger.info(`Using ${currentProvider} provider for ${cliTool}...`);
     
-    const provider = configManager.getProvider(currentProvider);
+    selectedProvider = configuredProviders[selectedIndex].key;
+    
+    // Save the selected provider as current
+    await configManager.setCurrentProvider(selectedProvider);
+    
+    Logger.info(`Using ${configuredProviders[selectedIndex].name} for ${cliTool}...`);
+    
+    const provider = configManager.getProvider(selectedProvider);
     if (!provider) {
-      Logger.error(`Provider '${currentProvider}' not found`);
-      process.exit(1);
-    }
-
-    if (!provider.apiKey) {
-      Logger.error(`API key not configured for ${currentProvider}`);
-      Logger.error(`Run 'llm-switch config ${currentProvider}' to set it up`);
+      Logger.error(`Provider '${selectedProvider}' not found`);
       process.exit(1);
     }
 
     // Get environment variables for the provider
-    const envVars = await providerManager.switchProvider(currentProvider);
+    const envVars = await providerManager.switchProvider(selectedProvider);
     
     // Set up environment for the CLI tool
     const env = { ...process.env };

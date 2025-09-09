@@ -6,7 +6,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as os from 'os';
 import { JsonConfig, JsonConfigData, JsonProvider } from './JsonConfig';
-import { Provider, Config, LastProviderState, PROVIDER_SHORTCUTS } from './types';
+import { Provider, Config, LastProviderState, PROVIDER_SHORTCUTS, PROVIDER_KEYS } from './types';
 
 export class ConfigManager {
   private configDir: string;
@@ -60,14 +60,31 @@ export class ConfigManager {
 
       // Parse providers from JSON data
       for (const [key, jsonProvider] of Object.entries(jsonData.providers)) {
+        // Get default fastModel based on provider
+        let defaultFastModel = jsonProvider.defaultModel || '';
+        if (key === PROVIDER_KEYS.ZHIPU && jsonProvider.defaultModel === 'glm-4.5') {
+          defaultFastModel = 'glm-4.5-air';
+        } else if (key === PROVIDER_KEYS.DEEPSEEK) {
+          defaultFastModel = 'deepseek-chat';
+        } else if (key === PROVIDER_KEYS.ALIBABACLOUD_INT || key === PROVIDER_KEYS.ALIBABACLOUD) {
+          defaultFastModel = 'qwen3-coder-flash';
+        } else if (key === PROVIDER_KEYS.KIMI) {
+          defaultFastModel = 'K2-Instruct-0905';
+        }
+        
         const provider: Provider = {
           name: jsonProvider.name,
           apiKey: jsonProvider.apiKey,
           baseUrl: jsonProvider.baseUrl,
           anthropicUrl: jsonProvider.anthropicUrl,
           defaultModel: jsonProvider.defaultModel || '',
-          models: jsonProvider.models || []
+          fastModel: jsonProvider.fastModel || defaultFastModel
         };
+        
+        // Only add models if they exist (for backward compatibility)
+        if (jsonProvider.models && jsonProvider.models.length > 0) {
+          provider.models = jsonProvider.models;
+        }
 
         providers.set(key, provider);
       }
@@ -114,6 +131,7 @@ export class ConfigManager {
       if (provider.baseUrl) jsonProvider.baseUrl = provider.baseUrl;
       if (provider.anthropicUrl) jsonProvider.anthropicUrl = provider.anthropicUrl;
       if (provider.defaultModel) jsonProvider.defaultModel = provider.defaultModel;
+      if (provider.fastModel) jsonProvider.fastModel = provider.fastModel;
       if (provider.models && provider.models.length > 0) {
         jsonProvider.models = provider.models;
       }

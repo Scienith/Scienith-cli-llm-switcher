@@ -2,16 +2,19 @@
 home:
   title: "CLI LLM Switcher"
   description: "A command-line tool for seamlessly switching between multiple LLM providers"
-  subtitle: "**Switch between DeepSeek, Qwen, Zhipu GLM, Kimi, Claude, OpenAI, and Groq** with a single command when using Claude Code or compatible CLI tools."
+  subtitle: "**Seamlessly switch between LLM providers without affecting your native Claude Code setup.** Isolated configuration with official best practices from model providers."
   
   # Quick Start section
   quick_start: "Quick Start"
   installation_commands:
-    - "# Clone and setup"
+    - "# Install via npm (recommended)"
+    - "npm install -g cli-llm-switcher"
+    - ""
+    - "# Or clone and setup from source"
     - "git clone https://github.com/Scienith/Scienith-cli-llm-switcher"
     - "cd cli-llm-switcher"
-    - "./install.sh"
-    - "source ~/.bashrc  # or source ~/.zshrc for Zsh"
+    - "npm install && npm run build"
+    - "npm link"
     - ""
     - "# Configure API keys for providers"
     - "lms config"
@@ -20,18 +23,31 @@ home:
     - "# Switch to Zhipu GLM"
     - "lms switch zhipu"
     - ""
-    - "# Run Claude with the current provider"
-    - "lms run claude"
+    - "# Run qwen CLI with the current provider"
+    - "lms run qwen"
+  
+  # Why Choose section
+  why_title: "Why LLM Switcher?"
+  why_isolated_title: "🔒 Isolated Configuration Environment"
+  why_isolated_items:
+    - "**Zero impact on native Claude Code**: Your original Claude setup remains untouched"
+    - "**Per-session provider switching**: Each terminal session can use different providers"
+    - "**Secure API key management**: Isolated configuration in `~/.llm-switch/`"
+  why_practices_title: "🎯 Official Best Practices"
+  why_practices_items:
+    - "**Provider-recommended configurations**: Following official integration guidelines from Zhipu, Alibaba, DeepSeek"
+    - "**Dual API support**: Both OpenAI-compatible and Anthropic-compatible endpoints"
+    - "**Optimized model selection**: Pre-configured main and fast models for each provider"
   
   # Features section
   features: "Core Features"
   features_list:
-    - "**🔄 Multi-Provider Support**: DeepSeek, Qwen, Zhipu GLM-4.5, Kimi, Claude, OpenAI, Groq"
-    - "**🌍 Cross-Platform Compatible**: macOS, Linux, Windows (Git Bash/Cygwin)"
-    - "**🔧 Smart Shell Integration**: Auto-detects and integrates with bash, zsh, fish"
-    - "**⚙️ Interactive Configuration Wizard**: Secure API key input, model selection"
-    - "**📦 Complete Install/Uninstall**: One-click installation, clean removal"
-    - "**🌐 Multi-Language Documentation**: English and Chinese documentation support"
+    - "**🔒 Isolated Environment**: Doesn't affect your native Claude Code configuration"
+    - "**🎯 Official Integration**: Follows each provider's recommended best practices"
+    - "**🔄 Multi-Provider Support**: DeepSeek, AlibabaCloud, Zhipu GLM, Kimi"
+    - "**⚡ Zero Conflict**: Run multiple providers in different terminal sessions"
+    - "**🌍 Cross-Platform**: macOS, Linux, Windows (via npm)"
+    - "**📦 Easy Installation**: Single npm command, no shell configuration needed"
   
   # Installation section
   installation_title: "Installation"
@@ -49,7 +65,27 @@ home:
     provider: "Provider"
     shortcut: "Shortcut"
     default_model: "Default Model"
+    fast_model: "Fast Model"
     api_key_application: "API Key Application"
+  
+  # API Registration section
+  api_registration_title: "API Key Registration"
+  api_registration_desc: "Register for API keys from the following providers:"
+  api_providers:
+    - "**Zhipu GLM**: [China Mainland](https://bigmodel.cn/) | [International](https://z.ai/model-api)"
+    - "**DeepSeek**: [Official Site](https://platform.deepseek.com/)"
+    - "**Alibaba (International)**: [Model Studio Console](https://modelstudio.console.alibabacloud.com/)"
+    - "**Alibaba (China)**: [百炼控制台](https://bailian.console.aliyun.com/)"
+    - "**Kimi (Moonshot)**: [Official Site](https://platform.moonshot.ai/)"
+  
+  # Model Configuration section
+  model_config_title: "Model Configuration"
+  model_config_desc: "The tool automatically configures optimal models for different purposes:"
+  model_config_main: "**Main Model**: Used for complex tasks, code generation, and reasoning"
+  model_config_fast: "**Fast Model**: Used for quick operations like file search and syntax checking"
+  model_config_example: "For example, Zhipu GLM uses:"
+  model_config_example_main: "- Main Model: `glm-4.5` - More powerful, suitable for complex tasks"
+  model_config_example_fast: "- Fast Model: `glm-4.5-air` - Lighter weight, optimized for speed"
   
   # Configuration section
   configuration_title: "Configuration"
@@ -83,6 +119,23 @@ home:
     - "**Config not found**: Ensure you've copied and edited `config/providers.ini`"
     - "**API key errors**: Verify your API keys are correct and have proper permissions"
     - "**Shell integration**: Make sure to source the output or add to your shell profile"
+  
+  # Uninstallation section
+  uninstallation_title: "Uninstallation"
+  uninstallation_basic_title: "Basic Uninstall (keeps configuration)"
+  uninstallation_complete_title: "Complete Uninstall (removes everything)"
+  uninstallation_note: "Note: Run `lms status` to see the configuration directory path before uninstalling."
+  uninstallation_commands:
+    basic: "npm uninstall -g cli-llm-switcher"
+    macos_linux:
+      - "npm uninstall -g cli-llm-switcher"
+      - "rm -rf ~/.llm-switch"
+    windows_ps:
+      - "npm uninstall -g cli-llm-switcher"
+      - "Remove-Item -Recurse -Force \"$env:USERPROFILE\\.llm-switch\""
+    windows_cmd:
+      - "npm uninstall -g cli-llm-switcher"
+      - "rmdir /s /q \"%USERPROFILE%\\.llm-switch\""
   
   # Contributing section
   contributing: "Contributing"

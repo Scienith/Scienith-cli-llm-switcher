@@ -6,14 +6,26 @@
 
 *一个用于在多个LLM提供商之间无缝切换的命令行工具*
 
-[![Version](https://img.shields.io/badge/version-v0.1.0a1-blue.svg)](https://github.com/Scienith/Scienith-cli-llm-switcher/releases)
+[![Version](https://img.shields.io/badge/version-v0.1.0a2-blue.svg)](https://github.com/Scienith/Scienith-cli-llm-switcher/releases)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 **🌍 Languages**: [English](README.md) | 中文 | [日本語](README_ja.md) | [한국어](README_ko.md) | [Français](README_fr.md) | [Deutsch](README_de.md) | [Español](README_es.md) | [Русский](README_ru.md) | [العربية](README_ar.md)
 
 </div>
 
-**一键切换DeepSeek、通义千问、智谱GLM、Kimi、Claude、OpenAI和Groq**，完美适配Claude Code等兼容CLI工具。
+**在不影响原生 Claude Code 设置的情况下，无缝切换 LLM 提供商。** 采用模型提供商官方最佳实践的隔离配置。
+
+## 💡 为什么选择 LLM 切换器？
+
+### 🔒 隔离的配置环境
+- **对原生 Claude Code 零影响**: 您的原始 Claude 设置保持不变
+- **按会话切换提供商**: 每个终端会话可以使用不同的提供商
+- **安全的 API 密钥管理**: 配置隔离在 `~/.llm-switch/` 中
+
+### 🎯 官方最佳实践
+- **提供商推荐配置**: 遵循智谱、阿里、DeepSeek 的官方集成指南
+- **双 API 支持**: 同时支持 OpenAI 兼容和 Anthropic 兼容端点
+- **优化的模型选择**: 为每个提供商预配置主模型和快速模型
 
 ## 🚀 快速开始
 
@@ -37,12 +49,53 @@ lms run claude
 
 ## 核心功能
 
-- **🔄 多提供商支持**: DeepSeek、通义千问、智谱GLM-4.5、Kimi、Claude、OpenAI、Groq
+- **🔄 多提供商支持**: DeepSeek、通义千问、智谱GLM-4.5、Kimi
 - **🌍 跨平台兼容**: macOS、Linux、Windows (Git Bash/Cygwin)
 - **🔧 智能Shell集成**: 自动检测并集成 bash、zsh、fish
 - **⚙️ 交互式配置向导**: 安全的API密钥输入、模型选择
 - **📦 完整的安装/卸载**: 一键安装，干净移除
 - **🌐 多语言文档**: 支持英文和中文文档
+
+## 支持的供应商
+
+| 供应商 | 模型 | API 申请 |
+|----------|--------|------------------|
+| **Zhipu GLM** | glm-4.5, glm-4.5-air | [China](https://bigmodel.cn/) \| [International](https://z.ai/model-api) |
+| **DeepSeek** | deepseek-chat | [申请](https://platform.deepseek.com/) |
+| **Alibaba-Int** | qwen3-coder-plus, qwen3-coder-flash | [申请](https://modelstudio.console.alibabacloud.com/) |
+| **Alibaba** | qwen3-coder-plus, qwen3-coder-flash | [申请](https://bailian.console.aliyun.com/) |
+| **Kimi (Moonshot AI)** | K2-Instruct-0905 | [申请](https://platform.moonshot.ai/) |
+
+
+## Uninstallation
+
+### Basic Uninstall (keeps configuration)
+
+```bash
+npm uninstall -g cli-llm-switcher
+```
+
+### Complete Uninstall (removes everything)
+
+Note: Run `lms status` to see the configuration directory path before uninstalling.
+
+**macOS/Linux:**
+```bash
+npm uninstall -g cli-llm-switcher
+rm -rf ~/.llm-switch
+```
+
+**Windows (PowerShell):**
+```powershell
+npm uninstall -g cli-llm-switcher
+Remove-Item -Recurse -Force "$env:USERPROFILE\.llm-switch"
+```
+
+**Windows (Command Prompt):**
+```cmd
+npm uninstall -g cli-llm-switcher
+rmdir /s /q "%USERPROFILE%\.llm-switch"
+```
 
 ## 贡献
 

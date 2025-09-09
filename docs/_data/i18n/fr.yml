@@ -2,7 +2,7 @@
 home:
   title: "Commutateur CLI LLM"
   description: "Un outil en ligne de commande pour basculer facilement entre plusieurs fournisseurs LLM"
-  subtitle: "**Basculez entre DeepSeek, Qwen, Zhipu GLM, Kimi, Claude, OpenAI et Groq** d'une seule commande avec Claude Code ou des outils CLI compatibles."
+  subtitle: "**Basculez entre DeepSeek, Qwen, Zhipu GLM, Kimi** d'une seule commande avec Claude Code ou des outils CLI compatibles."
   
   # Quick Start section
   quick_start: "Démarrage rapide"
@@ -26,7 +26,7 @@ home:
   # Features section
   features: "Fonctionnalités principales"
   features_list:
-    - "**🔄 Support multi-fournisseur**: DeepSeek, Qwen, Zhipu GLM-4.5, Kimi, Claude, OpenAI, Groq"
+    - "**🔄 Support multi-fournisseur**: DeepSeek, Qwen, Zhipu GLM-4.5, Kimi"
     - "**🌍 Compatible multiplateforme**: macOS, Linux, Windows (Git Bash/Cygwin)"
     - "**🔧 Intégration shell intelligente**: Détection et intégration automatiques bash, zsh, fish"
     - "**⚙️ Assistant de configuration interactif**: Saisie sécurisée des clés API, sélection de modèles"
@@ -45,6 +45,16 @@ home:
   # License section
   license: "Licence"
   license_text: "Ce projet est sous licence MIT - voir le fichier [LICENSE](LICENSE) pour plus de détails."
+  
+  # API Registration section
+  api_registration_title: "Enregistrement de clé API"
+  api_registration_desc: "Enregistrez les clés API auprès des fournisseurs suivants:"
+  api_providers:
+    - "**Zhipu GLM**: [Chine continentale](https://bigmodel.cn/) | [International](https://z.ai/model-api)"
+    - "**DeepSeek**: [Site officiel](https://platform.deepseek.com/)"
+    - "**Alibaba (International)**: [Console Model Studio](https://modelstudio.console.alibabacloud.com/)"
+    - "**Alibaba (Chine)**: [Console Bailian](https://bailian.console.aliyun.com/)"
+    - "**Kimi (Moonshot)**: [Site officiel](https://platform.moonshot.ai/)"
   
   # Help section
   need_help: "**Besoin d'aide ?** Consultez la documentation complète pour des guides détaillés et le dépannage."

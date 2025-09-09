@@ -62,8 +62,8 @@ llm-switch() {
         status|list|models|config|help|version|--help|-h|--version|-v)
             command llm-switch "\$@"
             ;;
-        claude|qwen)
-            # Special case: these commands launch CLI tools directly
+        qwen)
+            # Special case: this command launches CLI tool directly
             command llm-switch "\$@"
             ;;
         *)
@@ -80,9 +80,9 @@ llm-switch() {
 
 # Optional: Add completion
 if [[ -n "\$BASH_VERSION" ]]; then
-    complete -W "qwen zhipu kimi deepseek claude openai groq status list models config help version" llm-switch
+    complete -W "qwen zhipu kimi deepseek status list models config help version" llm-switch
 elif [[ -n "\$ZSH_VERSION" ]]; then
-    compdef "_arguments \\"1:provider:(qwen zhipu kimi deepseek claude openai groq status list models config help version)\\"" llm-switch
+    compdef "_arguments \\"1:provider:(qwen zhipu kimi deepseek status list models config help version)\\"" llm-switch
 fi
 `;
   }
@@ -104,8 +104,8 @@ function llm-switch
     switch \$argv[1]
         case status list models config help version --help -h --version -v
             command llm-switch \$argv
-        case claude qwen
-            # Special case: these commands launch CLI tools directly
+        case qwen
+            # Special case: this command launches CLI tool directly
             command llm-switch \$argv
         case "*"
             eval (command llm-switch \$argv 2>/dev/null)
@@ -118,7 +118,7 @@ function llm-switch
 end
 
 # Add completion
-complete -c llm-switch -a "qwen zhipu kimi deepseek claude openai groq status list models config help version"
+complete -c llm-switch -a "qwen zhipu kimi deepseek status list models config help version"
 `;
   }
 

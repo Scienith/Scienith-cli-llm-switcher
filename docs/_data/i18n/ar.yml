@@ -26,7 +26,7 @@ home:
   # Features section
   features: "الميزات الأساسية"
   features_list:
-    - "**🔄 دعم متعدد المقدمين**: DeepSeek, Qwen, Zhipu GLM-4.5, Kimi, Claude, OpenAI, Groq"
+    - "**🔄 دعم متعدد المقدمين**: DeepSeek, Qwen, Zhipu GLM-4.5, Kimi"
     - "**🌍 التوافق عبر المنصات**: macOS, Linux, Windows (Git Bash/Cygwin)"
     - "**🔧 تكامل ذكي مع Shell**: الكشف والتكامل التلقائي لـ bash, zsh, fish"
     - "**⚙️ معالج التكوين التفاعلي**: إدخال آمن لمفاتيح API، اختيار النماذج"
@@ -45,6 +45,16 @@ home:
   # License section
   license: "الترخيص"
   license_text: "هذا المشروع مرخص تحت رخصة MIT - انظر ملف [LICENSE](LICENSE) للتفاصيل."
+  
+  # API Registration section
+  api_registration_title: "تسجيل مفاتيح API"
+  api_registration_desc: "سجل مفاتيح API من مقدمي الخدمة التاليين:"
+  api_providers:
+    - "**Zhipu GLM**: [الصين](https://bigmodel.cn/) | [دولي](https://z.ai/model-api)"
+    - "**DeepSeek**: [الموقع الرسمي](https://platform.deepseek.com/)"
+    - "**Alibaba (دولي)**: [وحدة التحكم Model Studio](https://modelstudio.console.alibabacloud.com/)"
+    - "**Alibaba (الصين)**: [وحدة التحكم Bailian](https://bailian.console.aliyun.com/)"
+    - "**Kimi (Moonshot)**: [الموقع الرسمي](https://platform.moonshot.ai/)"
   
   # Help section
   need_help: "**تحتاج مساعدة؟** تحقق من الوثائق الكاملة للحصول على أدلة مفصلة واستكشاف الأخطاء وإصلاحها."

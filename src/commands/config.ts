@@ -2,9 +2,9 @@
  * Configure provider settings
  */
 
-import * as readline from 'readline';
 import { ConfigManager } from '../core/ConfigManager';
 import { Logger } from '../utils/logger';
+import { prompt } from '../utils/prompt';
 import chalk from 'chalk';
 
 async function interactiveConfig(configManager: ConfigManager): Promise<void> {
@@ -84,19 +84,6 @@ async function configureProviderInteractive(configManager: ConfigManager, provid
   Logger.success(`Configuration saved for ${provider.name}`);
 }
 
-function prompt(question: string): Promise<string> {
-  const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-  });
-
-  return new Promise((resolve) => {
-    rl.question(question, (answer) => {
-      rl.close();
-      resolve(answer);
-    });
-  });
-}
 
 export async function configureProvider(providerName?: string): Promise<void> {
   try {

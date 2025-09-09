@@ -46,5 +46,15 @@ home:
   license: "ライセンス"
   license_text: "本プロジェクトはMITライセンスの下でライセンスされています - 詳細については[LICENSE](LICENSE)ファイルをご覧ください。"
   
+  # API Registration section
+  api_registration_title: "APIキー登録"
+  api_registration_desc: "以下のプロバイダーからAPIキーを登録："
+  api_providers:
+    - "**Zhipu GLM**: [中国本土](https://bigmodel.cn/) | [国際版](https://z.ai/model-api)"
+    - "**DeepSeek**: [公式サイト](https://platform.deepseek.com/)"
+    - "**アリババ（国際版）**: [Model Studioコンソール](https://modelstudio.console.alibabacloud.com/)"
+    - "**アリババ（中国版）**: [百煉コンソール](https://bailian.console.aliyun.com/)"
+    - "**Kimi (Moonshot)**: [公式サイト](https://platform.moonshot.ai/)"
+  
   # Help section
   need_help: "**ヘルプが必要ですか？** 詳細なガイドとトラブルシューティングについては、完全なドキュメントをご確認ください。"

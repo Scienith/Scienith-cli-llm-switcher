@@ -42,20 +42,8 @@ export class ProviderManager {
       unset: []
     };
 
+    // All providers use OpenAI-compatible or Anthropic-compatible APIs
     switch (providerName) {
-      case 'claude':
-        // Claude native API
-        envVars.set['ANTHROPIC_API_KEY'] = provider.apiKey!;
-        envVars.unset = ['OPENAI_API_KEY', 'OPENAI_BASE_URL', 'OPENAI_MODEL'];
-        envVars.unset.push('ANTHROPIC_BASE_URL', 'ANTHROPIC_AUTH_TOKEN');
-        
-        // Set Claude Code model configuration
-        if (provider.defaultModel) {
-          envVars.set['ANTHROPIC_MODEL'] = provider.defaultModel;
-          envVars.set['ANTHROPIC_SMALL_FAST_MODEL'] = provider.defaultModel;
-        }
-        break;
-
       default:
         // OpenAI-compatible providers
         envVars.set['OPENAI_API_KEY'] = provider.apiKey!;
@@ -75,7 +63,8 @@ export class ProviderManager {
           
           if (provider.defaultModel) {
             envVars.set['ANTHROPIC_MODEL'] = provider.defaultModel;
-            envVars.set['ANTHROPIC_SMALL_FAST_MODEL'] = provider.defaultModel;
+            // Always use fastModel for ANTHROPIC_SMALL_FAST_MODEL
+            envVars.set['ANTHROPIC_SMALL_FAST_MODEL'] = provider.fastModel;
           }
         } else {
           envVars.unset = ['ANTHROPIC_MODEL', 'ANTHROPIC_SMALL_FAST_MODEL', 

@@ -2,7 +2,20 @@
 home:
   title: "CLI LLM 切换器"
   description: "一个用于在多个LLM提供商之间无缝切换的命令行工具"
-  subtitle: "**一键切换DeepSeek、通义千问、智谱GLM、Kimi、Claude、OpenAI和Groq**，完美适配Claude Code等兼容CLI工具。"
+  subtitle: "**在不影响原生 Claude Code 设置的情况下，无缝切换 LLM 提供商。** 采用模型提供商官方最佳实践的隔离配置。"
+  
+  # Why Choose section
+  why_title: "为什么选择 LLM 切换器？"
+  why_isolated_title: "🔒 隔离的配置环境"
+  why_isolated_items:
+    - "**对原生 Claude Code 零影响**: 您的原始 Claude 设置保持不变"
+    - "**按会话切换提供商**: 每个终端会话可以使用不同的提供商"
+    - "**安全的 API 密钥管理**: 配置隔离在 `~/.llm-switch/` 中"
+  why_practices_title: "🎯 官方最佳实践"
+  why_practices_items:
+    - "**提供商推荐配置**: 遵循智谱、阿里、DeepSeek 的官方集成指南"
+    - "**双 API 支持**: 同时支持 OpenAI 兼容和 Anthropic 兼容端点"
+    - "**优化的模型选择**: 为每个提供商预配置主模型和快速模型"
   
   # Quick Start section
   quick_start: "快速开始"
@@ -26,7 +39,7 @@ home:
   # Features section
   features: "核心功能"
   features_list:
-    - "**🔄 多提供商支持**: DeepSeek、通义千问、智谱GLM-4.5、Kimi、Claude、OpenAI、Groq"
+    - "**🔄 多提供商支持**: DeepSeek、通义千问、智谱GLM-4.5、Kimi"
     - "**🌍 跨平台兼容**: macOS、Linux、Windows (Git Bash/Cygwin)"
     - "**🔧 智能Shell集成**: 自动检测并集成 bash、zsh、fish"
     - "**⚙️ 交互式配置向导**: 安全的API密钥输入、模型选择"
@@ -49,7 +62,27 @@ home:
     provider: "提供商"
     shortcut: "快捷键"
     default_model: "默认模型"
+    fast_model: "快速模型"
     api_key_application: "API 密钥申请"
+  
+  # API Registration section
+  api_registration_title: "API 密钥注册"
+  api_registration_desc: "从以下提供商注册 API 密钥："
+  api_providers:
+    - "**智谱 GLM：** [中国大陆](https://bigmodel.cn/) | [国际版](https://z.ai/model-api)"
+    - "**DeepSeek：** [官方网站](https://platform.deepseek.com/)"
+    - "**阿里巴巴（国际）：** [Model Studio控制台](https://modelstudio.console.alibabacloud.com/)"
+    - "**阿里巴巴（中国）：** [百炼控制台](https://bailian.console.aliyun.com/)"
+    - "**Kimi（Moonshot）：** [官方网站](https://platform.moonshot.ai/)"
+  
+  # Model Configuration section
+  model_config_title: "模型配置"
+  model_config_desc: "工具会自动为不同用途配置最佳模型："
+  model_config_main: "––主模型： 用于复杂任务、代码生成和推理"
+  model_config_fast: "––快速模型： 用于快速操作，如文件搜索和语法检查"
+  model_config_example: "例如，智谱 GLM 使用："
+  model_config_example_main: "- 主模型：`glm-4.5` - 更强大，适合复杂任务"
+  model_config_example_fast: "- 快速模型：`glm-4.5-air` - 更轻量，速度优先"
   
   # Configuration section
   configuration_title: "配置"
