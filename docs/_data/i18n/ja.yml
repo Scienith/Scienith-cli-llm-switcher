@@ -11,16 +11,17 @@ home:
     - "git clone https://github.com/Scienith/Scienith-cli-llm-switcher"
     - "cd cli-llm-switcher"
     - "./install.sh"
+    - "source ~/.bashrc  # または source ~/.zshrc (Zshユーザー)"
     - ""
-    - "# プロバイダー設定（インタラクティブセットアップ）"
-    - "llm-switch config"
+    - "# プロバイダーのAPIキーを設定"
+    - "lms config"
     - "# プロンプトに従ってAPIキーを入力しデフォルトモデルを選択"
     - ""
-    - "# DeepSeekに切り替え"
-    - "llm-switch deepseek"
+    - "# Zhipu GLMに切り替え"
+    - "lms switch zhipu"
     - ""
-    - "# Claude Codeが直接使用可能になりました！"
-    - "claude"
+    - "# 現在のプロバイダーでClaudeを実行"
+    - "lms run claude"
   
   # Features section
   features: "主要機能"
@@ -36,14 +37,20 @@ home:
   contributing: "貢献"
   contributing_text: "貢献を歓迎します！プルリクエストをお気軽にお送りください。"
   
-  # Acknowledgments section
-  acknowledgments: "謝辞"
-  acknowledgments_text: "このプロジェクトの元となるインスピレーションと初期スクリプトを提供いただいた **季海東** に特別な感謝を申し上げます。季海東は3冊のSQL Server経典教科書の共著者であり、このツールの構築において彼の洞察は非常に貴重でした。"
-  acknowledgments_link: "🔗 **季海東についてもっと知る**: https://www.haidongji.com/about-me/"
   
   # License section
   license: "ライセンス"
   license_text: "本プロジェクトはMITライセンスの下でライセンスされています - 詳細については[LICENSE](LICENSE)ファイルをご覧ください。"
+  
+  # API Registration section
+  api_registration_title: "APIキー登録"
+  api_registration_desc: "以下のプロバイダーからAPIキーを登録："
+  api_providers:
+    - "**Zhipu GLM**: [中国本土](https://bigmodel.cn/) | [国際版](https://z.ai/model-api)"
+    - "**DeepSeek**: [公式サイト](https://platform.deepseek.com/)"
+    - "**アリババ（国際版）**: [Model Studioコンソール](https://modelstudio.console.alibabacloud.com/)"
+    - "**アリババ（中国版）**: [百煉コンソール](https://bailian.console.aliyun.com/)"
+    - "**Kimi (Moonshot)**: [公式サイト](https://platform.moonshot.ai/)"
   
   # Help section
   need_help: "**ヘルプが必要ですか？** 詳細なガイドとトラブルシューティングについては、完全なドキュメントをご確認ください。"

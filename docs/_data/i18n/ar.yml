@@ -11,21 +11,22 @@ home:
     - "git clone https://github.com/Scienith/Scienith-cli-llm-switcher"
     - "cd cli-llm-switcher"
     - "./install.sh"
+    - "source ~/.bashrc  # أو source ~/.zshrc (لمستخدمي Zsh)"
     - ""
-    - "# تكوين مقدمي الخدمة (إعداد تفاعلي)"
-    - "llm-switch config"
+    - "# تكوين مفاتيح API لمقدمي الخدمة"
+    - "lms config"
     - "# اتبع المطالبات لإدخال مفتاح API واختيار النموذج الافتراضي"
     - ""
-    - "# التبديل إلى DeepSeek"
-    - "llm-switch deepseek"
+    - "# التبديل إلى Zhipu GLM"
+    - "lms switch zhipu"
     - ""
-    - "# يمكنك الآن استخدام Claude Code مباشرة!"
-    - "claude"
+    - "# تشغيل Claude بالمزود الحالي"
+    - "lms run claude"
   
   # Features section
   features: "الميزات الأساسية"
   features_list:
-    - "**🔄 دعم متعدد المقدمين**: DeepSeek, Qwen, Zhipu GLM-4.5, Kimi, Claude, OpenAI, Groq"
+    - "**🔄 دعم متعدد المقدمين**: DeepSeek, Qwen, Zhipu GLM-4.5, Kimi"
     - "**🌍 التوافق عبر المنصات**: macOS, Linux, Windows (Git Bash/Cygwin)"
     - "**🔧 تكامل ذكي مع Shell**: الكشف والتكامل التلقائي لـ bash, zsh, fish"
     - "**⚙️ معالج التكوين التفاعلي**: إدخال آمن لمفاتيح API، اختيار النماذج"
@@ -36,14 +37,20 @@ home:
   contributing: "المساهمة"
   contributing_text: "المساهمات مرحب بها! لا تتردد في إرسال Pull Request."
   
-  # Acknowledgments section
-  acknowledgments: "الشكر والتقدير"
-  acknowledgments_text: "شكر خاص لـ **Haidong Ji** على الإلهام الأصلي والنصوص البرمجية الأولية التي أدت إلى هذا المشروع. Haidong هو مؤلف مشارك لثلاثة كتب كلاسيكية حول SQL Server ورؤاه كانت لا تقدر بثمن في تشكيل هذه الأداة."
-  acknowledgments_link: "🔗 **تعرف على المزيد حول Haidong Ji**: https://www.haidongji.com/about-me/"
   
   # License section
   license: "الترخيص"
   license_text: "هذا المشروع مرخص تحت رخصة MIT - انظر ملف [LICENSE](LICENSE) للتفاصيل."
+  
+  # API Registration section
+  api_registration_title: "تسجيل مفاتيح API"
+  api_registration_desc: "سجل مفاتيح API من مقدمي الخدمة التاليين:"
+  api_providers:
+    - "**Zhipu GLM**: [الصين](https://bigmodel.cn/) | [دولي](https://z.ai/model-api)"
+    - "**DeepSeek**: [الموقع الرسمي](https://platform.deepseek.com/)"
+    - "**Alibaba (دولي)**: [وحدة التحكم Model Studio](https://modelstudio.console.alibabacloud.com/)"
+    - "**Alibaba (الصين)**: [وحدة التحكم Bailian](https://bailian.console.aliyun.com/)"
+    - "**Kimi (Moonshot)**: [الموقع الرسمي](https://platform.moonshot.ai/)"
   
   # Help section
   need_help: "**تحتاج مساعدة؟** تحقق من الوثائق الكاملة للحصول على أدلة مفصلة واستكشاف الأخطاء وإصلاحها."

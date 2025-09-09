@@ -11,6 +11,16 @@ const yaml = require('js-yaml');
 const PROJECT_ROOT = path.resolve(__dirname, '..');
 const I18N_DIR = path.join(PROJECT_ROOT, 'docs', '_data', 'i18n');
 
+// Import PROVIDER_CONFIGS from compiled types - single source of truth
+const typesModule = require('../dist/core/types.js');
+const PROVIDER_CONFIGS = typesModule.PROVIDER_CONFIGS;
+
+if (!PROVIDER_CONFIGS) {
+  console.error('Error: PROVIDER_CONFIGS not found in dist/core/types.js');
+  console.error('Please run "npm run build" before generating README files');
+  process.exit(1);
+}
+
 // Get version from git tags
 function getVersion() {
   try {
@@ -32,7 +42,7 @@ function getVersion() {
     } catch (e) {
       // ignore
     }
-    return '0.1.0a1'; // final fallback
+    return 'v0.2.0'; // final fallback
   }
 }
 
@@ -65,6 +75,53 @@ function loadI18nData() {
   });
   
   return i18nData;
+}
+
+// Generate Zhipu GLM integration section
+function generateProvidersTable(locale) {
+  // Import PROVIDER_KEYS for use
+  const PROVIDER_KEYS = typesModule.PROVIDER_KEYS;
+  
+  const zhipuConfig = PROVIDER_CONFIGS[PROVIDER_KEYS.ZHIPU];
+  if (!zhipuConfig) {
+    return '';
+  }
+
+  const title = locale === 'zh' ? '🤖 智谱GLM集成' : '🤖 Zhipu GLM Integration';
+  const logoPath = 'https://raw.githubusercontent.com/Scienith/Scienith-cli-llm-switcher/main/assets/images/logo/zhipu.png';
+  const description = locale === 'zh' 
+    ? '**智谱GLM** 是由智谱AI开发的强大中文大语言模型系列，为各种任务提供最先进的性能。'
+    : '**Zhipu GLM** is a powerful Chinese large language model series developed by Zhipu AI, offering state-of-the-art performance for various tasks.';
+  
+  const modelsTitle = locale === 'zh' ? '可用模型' : 'Available Models';
+  const mainModel = locale === 'zh' 
+    ? '**glm-4.5**: 用于复杂推理和生成任务的主要模型'
+    : '**glm-4.5**: Main model for complex reasoning and generation tasks';
+  const fastModel = locale === 'zh'
+    ? '**glm-4.5-air**: 优化快速响应的轻量模型'
+    : '**glm-4.5-air**: Fast model optimized for quick responses';
+  
+  const apiTitle = locale === 'zh' ? '获取您的API密钥' : 'Get Your API Key';
+  const chinaLabel = locale === 'zh' ? '🇨🇳 中国' : '🇨🇳 China';
+  const intlLabel = locale === 'zh' ? '🌍 国际版' : '🌍 International';
+
+  return `## ${title}
+
+<div align="center">
+<img src="${logoPath}" alt="Zhipu GLM" width="200">
+</div>
+
+${description}
+
+### ${modelsTitle}
+- ${mainModel}
+- ${fastModel}
+
+### ${apiTitle}
+- **${chinaLabel}**: [https://bigmodel.cn/](https://bigmodel.cn/)
+- **${intlLabel}**: [https://z.ai/model-api](https://z.ai/model-api)
+
+`;
 }
 
 // Generate language switcher links
@@ -110,6 +167,22 @@ claude "Help me write a Python function"`;
 - 📦 **Complete Install/Uninstall**: One-click installation, clean removal
 - 🌐 **Multi-Language Documentation**: English and Chinese documentation support`;
 
+  // Generate Why LLM Switcher section
+  let whySection = '';
+  if (L.home.why_title) {
+    whySection = `\n## 💡 ${L.home.why_title}\n\n`;
+    
+    if (L.home.why_isolated_title && L.home.why_isolated_items) {
+      whySection += `### ${L.home.why_isolated_title}\n`;
+      whySection += L.home.why_isolated_items.map(item => `- ${item}`).join('\n') + '\n\n';
+    }
+    
+    if (L.home.why_practices_title && L.home.why_practices_items) {
+      whySection += `### ${L.home.why_practices_title}\n`;
+      whySection += L.home.why_practices_items.map(item => `- ${item}`).join('\n') + '\n';
+    }
+  }
+
   const quickStartTitle = L.home.quick_start || 'Quick Start';
   const featuresTitle = L.home.features || 'Features';
   
@@ -130,7 +203,7 @@ ${langLinks}
 </div>
 
 ${L.home.subtitle || '**Switch between multiple LLM providers** with a single command when using Claude Code or compatible CLI tools.'}
-
+${whySection}
 ## 🚀 ${quickStartTitle}
 
 \`\`\`bash
@@ -141,15 +214,38 @@ ${quickStartCommands}
 
 ${featuresList}
 
+${generateProvidersTable(locale)}
+
+## ${L.home.uninstallation_title || 'Uninstallation'}
+
+### ${L.home.uninstallation_basic_title || 'Basic Uninstall (keeps configuration)'}
+
+\`\`\`bash
+${L.home.uninstallation_commands?.basic || 'npm uninstall -g cli-llm-switcher'}
+\`\`\`
+
+### ${L.home.uninstallation_complete_title || 'Complete Uninstall (removes everything)'}
+
+${L.home.uninstallation_note || 'Note: Run `lms status` to see the configuration directory path before uninstalling.'}
+
+**macOS/Linux:**
+\`\`\`bash
+${L.home.uninstallation_commands?.macos_linux?.join('\n') || 'npm uninstall -g cli-llm-switcher\nrm -rf ~/.llm-switch'}
+\`\`\`
+
+**Windows (PowerShell):**
+\`\`\`powershell
+${L.home.uninstallation_commands?.windows_ps?.join('\n') || 'npm uninstall -g cli-llm-switcher\nRemove-Item -Recurse -Force "$env:USERPROFILE\\.llm-switch"'}
+\`\`\`
+
+**Windows (Command Prompt):**
+\`\`\`cmd
+${L.home.uninstallation_commands?.windows_cmd?.join('\n') || 'npm uninstall -g cli-llm-switcher\nrmdir /s /q "%USERPROFILE%\\.llm-switch"'}
+\`\`\`
+
 ## ${L.home.contributing || 'Contributing'}
 
 ${L.home.contributing_text || 'Contributions welcome! Please see our documentation for detailed guidelines.'}
-
-## ${L.home.acknowledgments || 'Acknowledgments'}
-
-${L.home.acknowledgments_text || 'Special thanks to **Haidong Ji** for the original inspiration and initial scripts that led to this project. Haidong is a co-author of three classic SQL Server textbooks and his insights were invaluable in shaping this tool.'}
-
-${L.home.acknowledgments_link || '🔗 **Learn more about Haidong Ji**: https://www.haidongji.com/about-me/'}
 
 ## ${L.home.license || 'License'}
 

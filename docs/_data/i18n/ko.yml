@@ -2,7 +2,7 @@
 home:
   title: "CLI LLM 스위처"
   description: "여러 LLM 제공업체 간의 원활한 전환을 위한 명령줄 도구"
-  subtitle: "**DeepSeek, Qwen, Zhipu GLM, Kimi, Claude, OpenAI, Groq을 한 번의 명령으로 전환**, Claude Code 및 호환 CLI 도구에 완벽 대응."
+  subtitle: "**DeepSeek, Qwen, Zhipu GLM, Kimi을 한 번의 명령으로 전환**, Claude Code 및 호환 CLI 도구에 완벽 대응."
   
   # Quick Start section
   quick_start: "빠른 시작"
@@ -11,21 +11,22 @@ home:
     - "git clone https://github.com/Scienith/Scienith-cli-llm-switcher"
     - "cd cli-llm-switcher"
     - "./install.sh"
+    - "source ~/.bashrc  # 또는 source ~/.zshrc (Zsh 사용자)"
     - ""
-    - "# 제공업체 구성 (대화형 설정)"
-    - "llm-switch config"
+    - "# 제공업체의 API 키 구성"
+    - "lms config"
     - "# 프롬프트에 따라 API 키 입력 및 기본 모델 선택"
     - ""
-    - "# DeepSeek으로 전환"
-    - "llm-switch deepseek"
+    - "# Zhipu GLM으로 전환"
+    - "lms switch zhipu"
     - ""
-    - "# 이제 Claude Code를 직접 사용할 수 있습니다!"
-    - "claude"
+    - "# 현재 제공업체로 Claude 실행"
+    - "lms run claude"
   
   # Features section
   features: "핵심 기능"
   features_list:
-    - "**🔄 멀티 제공업체 지원**: DeepSeek, Qwen, Zhipu GLM-4.5, Kimi, Claude, OpenAI, Groq"
+    - "**🔄 멀티 제공업체 지원**: DeepSeek, Qwen, Zhipu GLM-4.5, Kimi"
     - "**🌍 크로스 플랫폼 호환**: macOS, Linux, Windows (Git Bash/Cygwin)"
     - "**🔧 스마트 셸 통합**: bash, zsh, fish 자동 감지 및 통합"
     - "**⚙️ 대화형 구성 마법사**: 안전한 API 키 입력, 모델 선택"
@@ -36,14 +37,20 @@ home:
   contributing: "기여"
   contributing_text: "기여를 환영합니다! 언제든지 Pull Request를 제출해 주세요."
   
-  # Acknowledgments section
-  acknowledgments: "감사의 말"
-  acknowledgments_text: "이 프로젝트의 원래 영감과 초기 스크립트를 제공해 주신 **지하이동(季海东)**에게 특별한 감사를 드립니다. 지하이동은 세 권의 고전적인 SQL Server 교과서의 공동 저자이며, 이 도구를 만드는 데 그의 통찰력이 매우 소중했습니다."
-  acknowledgments_link: "🔗 **지하이동에 대해 더 알아보기**: https://www.haidongji.com/about-me/"
   
   # License section
   license: "라이선스"
   license_text: "이 프로젝트는 MIT 라이선스 하에 라이선스가 부여됩니다 - 자세한 내용은 [LICENSE](LICENSE) 파일을 참조하세요."
+  
+  # API Registration section
+  api_registration_title: "API 키 등록"
+  api_registration_desc: "다음 제공업체에서 API 키를 등록하세요:"
+  api_providers:
+    - "**Zhipu GLM**: [중국 본토](https://bigmodel.cn/) | [국제판](https://z.ai/model-api)"
+    - "**DeepSeek**: [공식 사이트](https://platform.deepseek.com/)"
+    - "**알리바바(국제)**: [Model Studio 콘솔](https://modelstudio.console.alibabacloud.com/)"
+    - "**알리바바(중국)**: [백련 콘솔](https://bailian.console.aliyun.com/)"
+    - "**Kimi (Moonshot)**: [공식 사이트](https://platform.moonshot.ai/)"
   
   # Help section
   need_help: "**도움이 필요하신가요?** 자세한 가이드와 문제 해결을 위해 전체 문서를 확인하세요."

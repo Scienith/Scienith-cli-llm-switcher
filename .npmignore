@@ -1,0 +1,55 @@
+# Source files (we'll include only dist)
+src/
+*.ts
+!*.d.ts
+
+# Development files
+.git/
+.github/
+.claude/
+.vscode/
+.idea/
+
+# Build files
+build.js
+build-simple.js
+tsconfig.json
+.eslintrc.json
+
+# Documentation source files
+docs/
+scripts/
+README_*.md
+
+# Test files
+test/
+*.test.ts
+*.spec.ts
+jest.config.js
+
+# Shell scripts
+install.sh
+uninstall.sh
+test_*.sh
+debug_*.sh
+
+# Backup files
+backup/
+*.backup
+*.bak
+
+# Local config
+providers.json
+.env
+.env.local
+
+# Logs and temp files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+Thumbs.db
+
+# Node modules (npm handles this automatically)
+node_modules/

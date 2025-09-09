@@ -2,7 +2,7 @@
 home:
   title: "CLI LLM Umschalter"
   description: "Ein Kommandozeilen-Tool zum nahtlosen Wechseln zwischen mehreren LLM-Anbietern"
-  subtitle: "**Wechseln Sie zwischen DeepSeek, Qwen, Zhipu GLM, Kimi, Claude, OpenAI und Groq** mit einem einzigen Befehl bei Verwendung von Claude Code oder kompatiblen CLI-Tools."
+  subtitle: "**Wechseln Sie zwischen DeepSeek, Qwen, Zhipu GLM, Kimi** mit einem einzigen Befehl bei Verwendung von Claude Code oder kompatiblen CLI-Tools."
   
   # Quick Start section
   quick_start: "Schnellstart"
@@ -11,21 +11,22 @@ home:
     - "git clone https://github.com/Scienith/Scienith-cli-llm-switcher"
     - "cd cli-llm-switcher"
     - "./install.sh"
+    - "source ~/.bashrc  # oder source ~/.zshrc (für Zsh)"
     - ""
-    - "# Anbieter konfigurieren (interaktive Einrichtung)"
-    - "llm-switch config"
+    - "# API-Schlüssel für Anbieter konfigurieren"
+    - "lms config"
     - "# Befolgen Sie die Eingabeaufforderungen zur Eingabe des API-Schlüssels und zur Auswahl des Standardmodells"
     - ""
-    - "# Zu DeepSeek wechseln"
-    - "llm-switch deepseek"
+    - "# Zu Zhipu GLM wechseln"
+    - "lms switch zhipu"
     - ""
-    - "# Jetzt können Sie Claude Code direkt verwenden!"
-    - "claude"
+    - "# Claude mit dem aktuellen Anbieter ausführen"
+    - "lms run claude"
   
   # Features section
   features: "Hauptmerkmale"
   features_list:
-    - "**🔄 Multi-Anbieter-Unterstützung**: DeepSeek, Qwen, Zhipu GLM-4.5, Kimi, Claude, OpenAI, Groq"
+    - "**🔄 Multi-Anbieter-Unterstützung**: DeepSeek, Qwen, Zhipu GLM-4.5, Kimi"
     - "**🌍 Plattformübergreifend kompatibel**: macOS, Linux, Windows (Git Bash/Cygwin)"
     - "**🔧 Intelligente Shell-Integration**: Automatische Erkennung und Integration von bash, zsh, fish"
     - "**⚙️ Interaktiver Konfigurationsassistent**: Sichere API-Schlüssel-Eingabe, Modellauswahl"
@@ -36,14 +37,20 @@ home:
   contributing: "Mitwirken"
   contributing_text: "Beiträge sind willkommen! Bitte zögern Sie nicht, einen Pull Request einzureichen."
   
-  # Acknowledgments section
-  acknowledgments: "Danksagungen"
-  acknowledgments_text: "Besonderen Dank an **Haidong Ji** für die ursprüngliche Inspiration und die ersten Skripte, die zu diesem Projekt führten. Haidong ist Mitautor von drei klassischen SQL Server-Lehrbüchern und seine Einsichten waren bei der Gestaltung dieses Tools von unschätzbarem Wert."
-  acknowledgments_link: "🔗 **Mehr über Haidong Ji erfahren**: https://www.haidongji.com/about-me/"
   
   # License section
   license: "Lizenz"
   license_text: "Dieses Projekt ist unter der MIT-Lizenz lizenziert - siehe die [LICENSE](LICENSE) Datei für Details."
+  
+  # API Registration section
+  api_registration_title: "API-Schlüssel-Registrierung"
+  api_registration_desc: "Registrieren Sie API-Schlüssel bei den folgenden Anbietern:"
+  api_providers:
+    - "**Zhipu GLM**: [China Festland](https://bigmodel.cn/) | [International](https://z.ai/model-api)"
+    - "**DeepSeek**: [Offizielle Website](https://platform.deepseek.com/)"
+    - "**Alibaba (International)**: [Model Studio Konsole](https://modelstudio.console.alibabacloud.com/)"
+    - "**Alibaba (China)**: [Bailian Konsole](https://bailian.console.aliyun.com/)"
+    - "**Kimi (Moonshot)**: [Offizielle Website](https://platform.moonshot.ai/)"
   
   # Help section
   need_help: "**Brauchen Sie Hilfe?** Schauen Sie sich die vollständige Dokumentation für detaillierte Anleitungen und Fehlerbehebung an."
