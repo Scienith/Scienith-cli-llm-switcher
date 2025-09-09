@@ -55,6 +55,53 @@ try {
   execSync('npm install js-yaml --no-save', { stdio: 'inherit', cwd: PROJECT_ROOT });
 }
 
+// Validate required i18n fields
+function validateI18nData(locale, data) {
+  const requiredFields = [
+    'home.description',
+    'home.subtitle',
+    'home.installation_commands',
+    'home.provider_integration_title',
+    'home.prerequisites_title',
+    'home.prerequisites_node_title',
+    'home.quick_start',
+    'home.uninstallation_title',
+    'home.uninstallation_basic_title',
+    'home.uninstallation_complete_title',
+    'home.uninstallation_commands.basic',
+    'home.uninstallation_commands.macos_linux',
+    'home.uninstallation_commands.windows_ps',
+    'home.uninstallation_commands.windows_cmd',
+    'home.contributing',
+    'home.contributing_text',
+    'home.license',
+    'home.license_text',
+    'home.need_help'
+  ];
+  
+  const missingFields = [];
+  
+  requiredFields.forEach(fieldPath => {
+    const parts = fieldPath.split('.');
+    let current = data;
+    
+    for (let i = 0; i < parts.length; i++) {
+      if (!current || !current[parts[i]]) {
+        missingFields.push(fieldPath);
+        break;
+      }
+      current = current[parts[i]];
+    }
+  });
+  
+  if (missingFields.length > 0) {
+    console.warn(`⚠️  Warning: ${locale}.yml is missing required fields:`);
+    missingFields.forEach(field => console.warn(`   - ${field}`));
+  }
+  
+  return missingFields.length === 0;
+}
+
 // Load i18n data
 function loadI18nData() {
   const localesFile = path.join(I18N_DIR, 'locales.yml');
@@ -71,57 +118,90 @@ function loadI18nData() {
     if (fs.existsSync(localeFile)) {
       i18nData[localeCode] = yaml.load(fs.readFileSync(localeFile, 'utf8'));
       i18nData[localeCode]._localeName = localeName;
+      
+      // Validate the loaded data
+      validateI18nData(localeCode, i18nData[localeCode]);
     }
   });
   
   return i18nData;
 }
 
-// Generate Zhipu GLM integration section
-function generateProvidersTable(locale) {
-  // Import PROVIDER_KEYS for use
+// Generate provider integration section
+function generateProvidersTable(locale, L) {
+  const title = L.home.provider_integration_title; // Required field
+  
+  // Logo base path
+  const logoBasePath = 'https://raw.githubusercontent.com/Scienith/Scienith-cli-llm-switcher/main/assets/images/logo/';
+  
+  // Get providers to display from CONFIGURABLE_PROVIDERS
   const PROVIDER_KEYS = typesModule.PROVIDER_KEYS;
+  const CONFIGURABLE_PROVIDERS = typesModule.CONFIGURABLE_PROVIDERS;
   
-  const zhipuConfig = PROVIDER_CONFIGS[PROVIDER_KEYS.ZHIPU];
-  if (!zhipuConfig) {
-    return '';
-  }
-
-  const title = locale === 'zh' ? '🤖 供应商集成' : '🤖 Provider Integration';
-  const logoPath = 'https://raw.githubusercontent.com/Scienith/Scienith-cli-llm-switcher/main/assets/images/logo/zhipu.jpg';
-  const description = locale === 'zh' 
-    ? '**智谱GLM** 是由智谱AI开发的强大中文大语言模型系列，为各种任务提供最先进的性能。'
-    : '**Zhipu GLM** is a powerful Chinese large language model series developed by Zhipu AI, offering state-of-the-art performance for various tasks.';
+  // Build provider list from PROVIDER_CONFIGS
+  const providers = CONFIGURABLE_PROVIDERS
+    .map(key => {
+      const config = PROVIDER_CONFIGS[key];
+      if (!config) return null;
+      
+      // Map provider key to i18n field prefix
+      const fieldPrefix = key === 'kimi' ? 'moonshot' : 
+                         key === 'alibabacloud-int' ? 'alibaba_int' :
+                         key === 'alibabacloud' ? 'alibaba' : 
+                         key;
+      
+      return {
+        key: key,
+        name: config.name,
+        logo: `${logoBasePath}${config.logo}`,
+        alt: config.name,
+        description: L.home[`${fieldPrefix}_description`],
+        defaultModel: config.defaultModel,
+        fastModel: config.fastModel,
+        apiTitle: L.home[`${fieldPrefix}_api_title`],
+        apiLinks: L.home[`${fieldPrefix}_api_links`]
+      };
+    })
+    .filter(p => p !== null);
   
-  const modelsTitle = locale === 'zh' ? '可用模型' : 'Available Models';
-  const mainModel = locale === 'zh' 
-    ? '**glm-4.5**: 用于复杂推理和生成任务的主要模型'
-    : '**glm-4.5**: Main model for complex reasoning and generation tasks';
-  const fastModel = locale === 'zh'
-    ? '**glm-4.5-air**: 优化快速响应的轻量模型'
-    : '**glm-4.5-air**: Fast model optimized for quick responses';
+  let content = `## ${title}\n\n`;
   
-  const apiTitle = locale === 'zh' ? '获取您的API密钥' : 'Get Your API Key';
-  const chinaLabel = locale === 'zh' ? '🇨🇳 中国' : '🇨🇳 China';
-  const intlLabel = locale === 'zh' ? '🌍 国际版' : '🌍 International';
-
-  return `## ${title}
-
-<div align="center">
-<img src="${logoPath}" alt="Zhipu GLM" width="200">
-</div>
-
-${description}
-
-### ${modelsTitle}
-- ${mainModel}
-- ${fastModel}
-
-### ${apiTitle}
-- **${chinaLabel}**: [https://bigmodel.cn/](https://bigmodel.cn/)
-- **${intlLabel}**: [https://z.ai/model-api](https://z.ai/model-api)
-
-`;
+  providers.forEach(provider => {
+    if (!provider.description) return; // Skip if no translation available
+    
+    // Show provider name first
+    content += `### ${provider.name}\n\n`;
+    
+    content += `<div align="center">\n`;
+    content += `<img src="${provider.logo}" alt="${provider.alt}" width="200">\n`;
+    content += `</div>\n\n`;
+    
+    // Show configured models
+    if (provider.defaultModel || provider.fastModel) {
+      content += `### ${L.home.model_config_title || 'Model Configuration'}\n`;
+      if (provider.defaultModel) {
+        const mainLabel = L.home.model_config_main?.replace(/\*\*/g, '') || 'Main Model';
+        content += `- **${mainLabel}**: \`${provider.defaultModel}\`\n`;
+      }
+      if (provider.fastModel) {
+        const fastLabel = L.home.model_config_fast?.replace(/\*\*/g, '') || 'Fast Model';
+        content += `- **${fastLabel}**: \`${provider.fastModel}\`\n`;
+      }
+      content += `\n`;
+    }
+    
+    if (provider.apiLinks && provider.apiLinks.length > 0) {
+      content += `### ${provider.apiTitle}\n`;
+      provider.apiLinks.forEach(link => {
+        content += `- ${link}\n`;
+      });
+      content += `\n`;
+    }
+    
+    content += `---\n\n`; // Separator between providers
+  });
+  
+  return content;
 }
 
 // Generate language switcher links
@@ -143,29 +223,15 @@ function generateReadmeContent(locale, L, langLinks) {
   // Generate all languages from template to ensure consistency
   
   // Generate Quick Start commands
-  const quickStartCommands = L.home.installation_commands 
-    ? L.home.installation_commands.join('\n')
-    : `# One-click installation
-curl -sSL https://raw.githubusercontent.com/Scienith/Scienith-cli-llm-switcher/main/install.sh | bash
+  if (!L.home.installation_commands) {
+    throw new Error(`Missing required field 'installation_commands' in ${locale}.yml`);
+  }
+  const quickStartCommands = L.home.installation_commands.join('\n');
 
-# Configure provider  
-llm-switch config deepseek
-
-# Switch to DeepSeek
-llm-switch deepseek
-
-# Now you can use Claude Code!
-claude "Help me write a Python function"`;
-
-  // Generate Features list
+  // Features list is optional - skip if not present
   const featuresList = L.home.features_list 
     ? L.home.features_list.map(f => `- ${f}`).join('\n')
-    : `- 🔄 **Multi-Provider Support**: DeepSeek, Qwen, Zhipu GLM-4.5, Kimi, Claude, OpenAI, Groq
-- 🌍 **Cross-Platform Compatible**: macOS, Linux, Windows (Git Bash/Cygwin)
-- 🔧 **Smart Shell Integration**: Auto-detects and integrates with bash, zsh, fish
-- ⚙️ **Interactive Configuration Wizard**: Secure API key input, model selection
-- 📦 **Complete Install/Uninstall**: One-click installation, clean removal
-- 🌐 **Multi-Language Documentation**: English and Chinese documentation support`;
+    : '';
 
   // Generate Why LLM Switcher section
   let whySection = '';
@@ -183,9 +249,9 @@ claude "Help me write a Python function"`;
     }
   }
 
-  const prerequisitesTitle = L.home.prerequisites_title || '📋 Prerequisites';
-  const quickStartTitle = L.home.quick_start || '🚀 Installation';
-  const featuresTitle = L.home.features || 'Features';
+  const prerequisitesTitle = L.home.prerequisites_title; // Required field
+  const quickStartTitle = L.home.quick_start; // Required field
+  const featuresTitle = L.home.features; // Optional field, not used currently
   
   // Generate prerequisites section
   let prerequisitesSection = '';
@@ -195,7 +261,7 @@ claude "Help me write a Python function"`;
 
 ${L.home.prerequisites_desc}
 
-### ${L.home.prerequisites_node_title || 'Install Node.js'}
+### ${L.home.prerequisites_node_title}
 
 ${L.home.prerequisites_node_options.map(item => item).join('\n')}
 `;
@@ -217,7 +283,7 @@ ${langLinks}
 
 </div>
 
-${L.home.subtitle || '**Switch between multiple LLM providers** with a single command when using Claude Code or compatible CLI tools.'}
+${L.home.subtitle || ''}
 ${whySection}
 ${prerequisitesSection}
 ## ${quickStartTitle}
@@ -226,46 +292,52 @@ ${prerequisitesSection}
 ${quickStartCommands}
 \`\`\`
 
-${generateProvidersTable(locale)}
+${generateProvidersTable(locale, L)}
 
-## ${L.home.uninstallation_title || 'Uninstallation'}
+## ${L.home.uninstallation_title}
 
-### ${L.home.uninstallation_basic_title || 'Basic Uninstall (keeps configuration)'}
+### ${L.home.uninstallation_basic_title}
 
 \`\`\`bash
-${L.home.uninstallation_commands?.basic || 'npm uninstall -g cli-llm-switcher'}
+${L.home.uninstallation_commands?.basic || ''}
 \`\`\`
 
-### ${L.home.uninstallation_complete_title || 'Complete Uninstall (removes everything)'}
+### ${L.home.uninstallation_complete_title}
 
-${L.home.uninstallation_note || 'Note: Run `lms status` to see the configuration directory path before uninstalling.'}
+${L.home.uninstallation_note || ''}
 
 **macOS/Linux:**
 \`\`\`bash
-${L.home.uninstallation_commands?.macos_linux?.join('\n') || 'npm uninstall -g cli-llm-switcher\nrm -rf ~/.llm-switch'}
+${L.home.uninstallation_commands?.macos_linux?.join('\n') || ''}
 \`\`\`
 
 **Windows (PowerShell):**
 \`\`\`powershell
-${L.home.uninstallation_commands?.windows_ps?.join('\n') || 'npm uninstall -g cli-llm-switcher\nRemove-Item -Recurse -Force "$env:USERPROFILE\\.llm-switch"'}
+${L.home.uninstallation_commands?.windows_ps?.join('\n') || ''}
 \`\`\`
 
 **Windows (Command Prompt):**
 \`\`\`cmd
-${L.home.uninstallation_commands?.windows_cmd?.join('\n') || 'npm uninstall -g cli-llm-switcher\nrmdir /s /q "%USERPROFILE%\\.llm-switch"'}
+${L.home.uninstallation_commands?.windows_cmd?.join('\n') || ''}
 \`\`\`
 
-## ${L.home.contributing || 'Contributing'}
+## ${L.home.contributing}
 
-${L.home.contributing_text || 'Contributions welcome! Please see our documentation for detailed guidelines.'}
+${L.home.contributing_text || ''}
 
-## ${L.home.license || 'License'}
+## ${L.home.license}
 
-${L.home.license_text || 'MIT License - see [LICENSE](LICENSE) file for details.'}
+${L.home.license_text || ''}
+
+## ${L.home.references_title || 'References'}
+
+${L.home.references_text || ''}
+
+${L.home.references_links ? L.home.references_links.map(link => `- ${link}`).join('\n') : ''}
 
 ---
 
-${L.home.need_help || '**Need help?** Check the complete documentation for detailed guides and troubleshooting.'}`;
+${L.home.need_help || ''}`;
 }
 
 function main() {

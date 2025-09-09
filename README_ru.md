@@ -23,7 +23,7 @@
 
 ### 🎯 Официальные лучшие практики
 - **Рекомендованные провайдерами конфигурации**: Следует официальным руководствам интеграции каждого провайдера
-- **Двойная модель конфигурации Claude Code**: Основная модель для сложных задач, быстрая модель для простых задач - интеллектуально оптимизирует производительность и затраты
+- **Двойная модель конфигурации Claude Code**: Основная модель для диалога/планирования/генерации кода/сложных рассуждений, быстрая модель (Claude использует Haiku, например 3.5 Haiku) для поиска файлов/проверки синтаксиса и вспомогательных задач - интеллектуально оптимизирует производительность и затраты
 
 
 ## 📋 Предварительные требования
@@ -65,21 +65,83 @@ lms config
 lms run claude
 ```
 
-## 🤖 Provider Integration
+## 🤖 Интеграция провайдеров
+
+### DeepSeek
+
+<div align="center">
+<img src="https://raw.githubusercontent.com/Scienith/Scienith-cli-llm-switcher/main/assets/images/logo/deepseek_logo.png" alt="DeepSeek" width="200">
+</div>
+
+### Конфигурация моделей
+- **[NEEDS TRANSLATION] Main Model**: `deepseek-chat`
+- **[NEEDS TRANSLATION] Fast Model**: `deepseek-chat`
+
+### [NEEDS TRANSLATION] Get Your API Key
+- [NEEDS TRANSLATION] **Platform**: [https://platform.deepseek.com/](https://platform.deepseek.com/)
+
+---
+
+### AlibabaCloud (International)
+
+<div align="center">
+<img src="https://raw.githubusercontent.com/Scienith/Scienith-cli-llm-switcher/main/assets/images/logo/alibaba_cloud.png" alt="AlibabaCloud (International)" width="200">
+</div>
+
+### Конфигурация моделей
+- **[NEEDS TRANSLATION] Main Model**: `qwen3-coder-plus`
+- **[NEEDS TRANSLATION] Fast Model**: `qwen3-coder-flash`
+
+### [NEEDS TRANSLATION] Get Your API Key
+- [NEEDS TRANSLATION] **🌍 International**: [https://modelstudio.console.alibabacloud.com/](https://modelstudio.console.alibabacloud.com/)
+
+---
+
+### AlibabaCloud (China)
+
+<div align="center">
+<img src="https://raw.githubusercontent.com/Scienith/Scienith-cli-llm-switcher/main/assets/images/logo/alibaba_cloud.png" alt="AlibabaCloud (China)" width="200">
+</div>
+
+### Конфигурация моделей
+- **[NEEDS TRANSLATION] Main Model**: `qwen3-coder-plus`
+- **[NEEDS TRANSLATION] Fast Model**: `qwen3-coder-flash`
+
+### [NEEDS TRANSLATION] Get Your API Key
+- [NEEDS TRANSLATION] **🇨🇳 China**: [https://bailian.console.aliyun.com/](https://bailian.console.aliyun.com/)
+
+---
+
+### Moonshot AI
+
+<div align="center">
+<img src="https://raw.githubusercontent.com/Scienith/Scienith-cli-llm-switcher/main/assets/images/logo/moonshot_logo.png" alt="Moonshot AI" width="200">
+</div>
+
+### Конфигурация моделей
+- **[NEEDS TRANSLATION] Main Model**: `K2-Instruct-0905`
+- **[NEEDS TRANSLATION] Fast Model**: `K2-Instruct-0905`
+
+### [NEEDS TRANSLATION] Get Your API Key
+- [NEEDS TRANSLATION] **Platform**: [https://platform.moonshot.ai/](https://platform.moonshot.ai/)
+
+---
+
+### Zhipu GLM
 
 <div align="center">
 <img src="https://raw.githubusercontent.com/Scienith/Scienith-cli-llm-switcher/main/assets/images/logo/zhipu.jpg" alt="Zhipu GLM" width="200">
 </div>
 
-**Zhipu GLM** is a powerful Chinese large language model series developed by Zhipu AI, offering state-of-the-art performance for various tasks.
+### Конфигурация моделей
+- **[NEEDS TRANSLATION] Main Model**: `glm-4.5`
+- **[NEEDS TRANSLATION] Fast Model**: `glm-4.5-air`
 
-### Available Models
-- **glm-4.5**: Main model for complex reasoning and generation tasks
-- **glm-4.5-air**: Fast model optimized for quick responses
+### Получить API ключ
+- **🇨🇳 Китай**: [https://bigmodel.cn/](https://bigmodel.cn/)
+- **🌍 Международный**: [https://z.ai/model-api](https://z.ai/model-api)
 
-### Get Your API Key
-- **🇨🇳 China**: [https://bigmodel.cn/](https://bigmodel.cn/)
-- **🌍 International**: [https://z.ai/model-api](https://z.ai/model-api)
+---
 
 
 
@@ -120,6 +182,14 @@ rmdir /s /q "%USERPROFILE%\.llm-switch"
 ## Лицензия
 
 Этот проект лицензирован под лицензией MIT - см. файл [LICENSE](LICENSE) для подробностей.
+
+## [NEEDS TRANSLATION] References
+
+[NEEDS TRANSLATION] Official provider configuration guides for Claude Code integration:
+
+- [DeepSeek Anthropic API Guide](https://api-docs.deepseek.com/guides/anthropic_api)
+- [Alibaba Cloud Model Studio - Claude Code Integration](https://help.aliyun.com/zh/model-studio/claude-code)
+- [Zhipu GLM - Claude Development Guide](https://docs.bigmodel.cn/cn/guide/develop/claude)
 
 ---
 

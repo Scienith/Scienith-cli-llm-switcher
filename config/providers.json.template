@@ -8,14 +8,14 @@
       "fastModel": "deepseek-chat"
     },
     "alibabacloud-int": {
-      "name": "AlibabaCloud-Int",
+      "name": "AlibabaCloud (International)",
       "baseUrl": "https://dashscope-intl.aliyuncs.com/compatible-mode/v1",
       "anthropicUrl": "https://dashscope-intl.aliyuncs.com/api/v2/apps/claude-code-proxy",
       "defaultModel": "qwen3-coder-plus",
       "fastModel": "qwen3-coder-flash"
     },
     "alibabacloud": {
-      "name": "AlibabaCloud",
+      "name": "AlibabaCloud (China)",
       "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
       "anthropicUrl": "https://dashscope.aliyuncs.com/api/v2/apps/claude-code-proxy",
       "defaultModel": "qwen3-coder-plus",
@@ -29,7 +29,7 @@
       "fastModel": "glm-4.5-air"
     },
     "kimi": {
-      "name": "Kimi (Moonshot AI)",
+      "name": "Moonshot AI",
       "baseUrl": "https://api.moonshot.cn/v1",
       "anthropicUrl": "https://api.moonshot.ai/anthropic",
       "defaultModel": "K2-Instruct-0905",
