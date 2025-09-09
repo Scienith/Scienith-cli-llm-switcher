@@ -1,130 +1,110 @@
-# README 内容结构
 home:
-  title: "CLI LLM 切换器"
-  description: "一个用于在多个LLM提供商之间无缝切换的命令行工具"
-  subtitle: "**在不影响原生 Claude Code 设置的情况下，无缝切换 LLM 提供商。** 采用模型提供商官方最佳实践的隔离配置。"
-  
-  # Why Choose section
-  why_title: "为什么选择 LLM 切换器？"
-  why_isolated_title: "🔒 隔离的配置环境"
-  why_isolated_items:
-    - "**对原生 Claude Code 零影响**: 您的原始 Claude 设置保持不变"
-    - "**按会话切换提供商**: 每个终端会话可以使用不同的提供商"
-    - "**安全的 API 密钥管理**: 配置隔离在 `~/.llm-switch/` 中"
-  why_practices_title: "🎯 官方最佳实践"
-  why_practices_items:
-    - "**提供商推荐配置**: 遵循智谱、阿里、DeepSeek 的官方集成指南"
-    - "**双 API 支持**: 同时支持 OpenAI 兼容和 Anthropic 兼容端点"
-    - "**优化的模型选择**: 为每个提供商预配置主模型和快速模型"
-  
-  # Quick Start section
-  quick_start: "快速开始"
+  description: 一个用于在多个LLM提供商之间无缝切换的命令行工具
+  subtitle: '**在不影响原生 Claude Code 设置的情况下，无缝切换 LLM 提供商。** 采用模型提供商官方最佳实践的隔离配置。'
+  prerequisites_title: 📋 前置要求
+  prerequisites_desc: 在安装之前，请确保已安装 Node.js（v16 或更高版本）：
+  prerequisites_node_title: 安装 Node.js
+  prerequisites_node_options:
+    - '**选项 1（推荐）**：使用 nvm 轻松管理 Node.js'
+    - '  ```bash'
+    - '  # 安装 nvm: https://github.com/nvm-sh/nvm#install--update-script'
+    - '  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash'
+    - '  # 重启终端，然后安装最新的 Node.js'
+    - '  nvm install node'
+    - '  nvm use node'
+    - '  ```'
+    - '**选项 2**：从 [nodejs.org](https://nodejs.org/) 下载（选择 LTS 版本）'
+    - ''
+    - 验证安装：
+    - '```bash'
+    - 'node --version  # 应显示 v16.0.0 或更高版本'
+    - 'npm --version   # 应显示 npm 版本'
+    - '```'
+  quick_start: 🚀 快速开始
   installation_commands:
-    - "# 克隆并设置"
-    - "git clone https://github.com/Scienith/Scienith-cli-llm-switcher"
-    - "cd cli-llm-switcher"
-    - "./install.sh"
-    - "source ~/.bashrc  # 或者 source ~/.zshrc (Zsh用户)"
-    - ""
-    - "# 配置提供商的 API 密钥"
-    - "lms config"
-    - "# 按提示输入 API 密钥并选择默认模型"
-    - ""
-    - "# 切换到智谱 GLM"
-    - "lms switch zhipu"
-    - ""
-    - "# 使用当前提供商运行 Claude"
-    - "lms run claude"
-  
-  # Features section
-  features: "核心功能"
-  features_list:
-    - "**🔄 多提供商支持**: DeepSeek、通义千问、智谱GLM-4.5、Kimi"
-    - "**🌍 跨平台兼容**: macOS、Linux、Windows (Git Bash/Cygwin)"
-    - "**🔧 智能Shell集成**: 自动检测并集成 bash、zsh、fish"
-    - "**⚙️ 交互式配置向导**: 安全的API密钥输入、模型选择"
-    - "**📦 完整的安装/卸载**: 一键安装，干净移除"
-    - "**🌐 多语言文档**: 支持英文和中文文档"
-  
-  # Installation section
-  installation_title: "安装"
-  installation_methods:
-    - "**自动安装**（推荐）"
-    - "**手动安装**"
-    - "**从源码安装**"
-  installation_auto_desc: "安装 CLI LLM 切换器最简单的方式："
-  installation_manual_desc: "手动安装："
-  installation_source_desc: "从源码安装："
-  
-  # Supported Providers section
-  supported_providers_title: "支持的提供商"
-  providers_table:
-    provider: "提供商"
-    shortcut: "快捷键"
-    default_model: "默认模型"
-    fast_model: "快速模型"
-    api_key_application: "API 密钥申请"
-  
-  # API Registration section
-  api_registration_title: "API 密钥注册"
-  api_registration_desc: "从以下提供商注册 API 密钥："
-  api_providers:
-    - "**智谱 GLM：** [中国大陆](https://bigmodel.cn/) | [国际版](https://z.ai/model-api)"
-    - "**DeepSeek：** [官方网站](https://platform.deepseek.com/)"
-    - "**阿里巴巴（国际）：** [Model Studio控制台](https://modelstudio.console.alibabacloud.com/)"
-    - "**阿里巴巴（中国）：** [百炼控制台](https://bailian.console.aliyun.com/)"
-    - "**Kimi（Moonshot）：** [官方网站](https://platform.moonshot.ai/)"
-  
-  # Model Configuration section
-  model_config_title: "模型配置"
-  model_config_desc: "工具会自动为不同用途配置最佳模型："
-  model_config_main: "––主模型： 用于复杂任务、代码生成和推理"
-  model_config_fast: "––快速模型： 用于快速操作，如文件搜索和语法检查"
-  model_config_example: "例如，智谱 GLM 使用："
-  model_config_example_main: "- 主模型：`glm-4.5` - 更强大，适合复杂任务"
-  model_config_example_fast: "- 快速模型：`glm-4.5-air` - 更轻量，速度优先"
-  
-  # Configuration section
-  configuration_title: "配置"
-  configuration_desc: "安装后，你需要为要使用的提供商配置 API 密钥。"
+    - '# 通过 npm 全局安装'
+    - npm install -g cli-llm-switcher
+    - ''
+    - '# 验证安装'
+    - lms --version
+    - ''
+    - '# 配置 API 密钥'
+    - lms config
+    - '# 按提示输入您的 API 密钥'
+    - ''
+    - '# 开始使用 Claude Code 或其他工具'
+    - lms run claude
+  why_title: 💡 为什么选择 LLM 切换器？
+  why_isolated_title: 🔒 隔离的配置环境
+  why_isolated_items:
+    - '**对原生 Claude Code 零影响**: 您的原始 Claude 设置保持不变'
+    - '**按会话切换提供商**: 每个终端会话可以使用不同的提供商'
+  why_practices_title: 🎯 官方最佳实践
+  why_practices_items:
+    - '**提供商推荐配置**: 遵循各供应商的官方集成指南'
+    - '**Claude Code 双模型配置**: 主模型处理复杂任务，快速模型处理简单任务，智能优化性能与成本'
+  provider_integration_title: 🤖 供应商集成
+  zhipu_logo_path: assets/images/logo/zhipu_logo_cn.png
+  zhipu_description: '**智谱GLM** 是由智谱AI开发的强大中文大语言模型系列，为各种任务提供最先进的性能。'
+  zhipu_models_title: 可用模型
+  zhipu_models:
+    - '**glm-4.5**: 用于复杂推理和生成任务的主模型'
+    - '**glm-4.5-air**: 优化快速响应的轻量模型'
+  zhipu_api_title: 获取您的API密钥
+  zhipu_api_links:
+    - '**🇨🇳 中国**: [https://bigmodel.cn/](https://bigmodel.cn/)'
+    - '**🌍 国际版**: [https://z.ai/model-api](https://z.ai/model-api)'
+  model_config_title: 模型配置
+  model_config_desc: 工具会自动为不同用途配置最佳模型：
+  model_config_main: '**主模型**: 用于复杂任务、代码生成和推理'
+  model_config_fast: '**快速模型**: 用于快速操作，如文件搜索和语法检查'
+  model_config_example: 例如，智谱 GLM 使用：
+  model_config_example_main: '- 主模型：`glm-4.5` - 更强大，适合复杂任务'
+  model_config_example_fast: '- 快速模型：`glm-4.5-air` - 更轻量，速度优先'
+  configuration_title: 配置
+  configuration_desc: 安装后，你需要为要使用的提供商配置 API 密钥。
   configuration_steps:
-    - "复制配置模板"
-    - "编辑配置文件"
-    - "为每个提供商添加 API 密钥"
-    - "测试配置"
-  
-  # Usage section
-  usage_title: "使用方法"
-  usage_desc: "配置完成后，你可以轻松在提供商之间切换："
+    - 复制配置模板
+    - 编辑配置文件
+    - 为每个提供商添加 API 密钥
+    - 测试配置
+  usage_title: 使用方法
+  usage_desc: 配置完成后，你可以轻松在提供商之间切换：
   usage_examples:
-    - "切换到提供商"
-    - "使用快捷键"
-    - "显示当前提供商"
-    - "列出所有提供商"
-    - "显示可用模型"
-    - "显示所有模型"
-    - "显示特定提供商的模型"
-    - "配置 API 密钥"
-    - "配置全部"
-    - "配置特定提供商"
-  
-  # Troubleshooting section
-  troubleshooting_title: "故障排除"
-  troubleshooting_common: "常见问题"
+    - 切换到提供商
+    - 使用快捷键
+    - 显示当前提供商
+    - 列出所有提供商
+    - 显示可用模型
+    - 显示所有模型
+    - 显示特定提供商的模型
+    - 配置 API 密钥
+    - 配置全部
+    - 配置特定提供商
+  troubleshooting_title: 故障排除
+  troubleshooting_common: 常见问题
   troubleshooting_tips:
-    - "**权限被拒绝**: 确保脚本可执行 `chmod +x bin/llm-switch`"
-    - "**找不到配置**: 确保你已经复制并编辑了 `config/providers.ini`"
-    - "**API 密钥错误**: 验证你的 API 密钥是否正确且具有适当权限"
-    - "**Shell 集成**: 确保执行输出或添加到你的 shell 配置文件中"
-  
-  # Contributing section
-  contributing: "贡献"
-  contributing_text: "欢迎贡献！请随时提交 Pull Request。"
-  
-  
-  # License section
-  license: "许可证"
-  license_text: "本项目基于 MIT 许可证 - 详情请参阅 [LICENSE](LICENSE) 文件。"
-  
-  # Help section
-  need_help: "**需要帮助？** 查看完整文档以获取详细指南和故障排除。"
+    - '**权限被拒绝**: 确保脚本可执行 `chmod +x bin/llm-switch`'
+    - '**找不到配置**: 确保你已经复制并编辑了 `config/providers.ini`'
+    - '**API 密钥错误**: 验证你的 API 密钥是否正确且具有适当权限'
+    - '**Shell 集成**: 确保执行输出或添加到你的 shell 配置文件中'
+  uninstallation_title: 卸载
+  uninstallation_basic_title: 基本卸载（保留配置）
+  uninstallation_complete_title: 完全卸载（删除所有内容）
+  uninstallation_note: 注意：卸载前运行 `lms status` 查看配置目录路径。
+  uninstallation_commands:
+    basic: npm uninstall -g cli-llm-switcher
+    macos_linux:
+      - npm uninstall -g cli-llm-switcher
+      - rm -rf ~/.llm-switch
+    windows_ps:
+      - npm uninstall -g cli-llm-switcher
+      - Remove-Item -Recurse -Force "$env:USERPROFILE\.llm-switch"
+    windows_cmd:
+      - npm uninstall -g cli-llm-switcher
+      - rmdir /s /q "%USERPROFILE%\.llm-switch"
+  contributing: 贡献
+  contributing_text: 欢迎贡献！请随时提交 Pull Request。
+  license: 许可证
+  license_text: 本项目基于 MIT 许可证 - 详情请参阅 [LICENSE](LICENSE) 文件。
+  need_help: '**需要帮助？** 查看完整文档以获取详细指南和故障排除。'

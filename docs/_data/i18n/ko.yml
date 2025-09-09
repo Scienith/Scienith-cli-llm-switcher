@@ -1,56 +1,110 @@
-# README content structure
 home:
-  title: "CLI LLM 스위처"
-  description: "여러 LLM 제공업체 간의 원활한 전환을 위한 명령줄 도구"
-  subtitle: "**DeepSeek, Qwen, Zhipu GLM, Kimi을 한 번의 명령으로 전환**, Claude Code 및 호환 CLI 도구에 완벽 대응."
-  
-  # Quick Start section
-  quick_start: "빠른 시작"
+  description: 여러 LLM 제공업체 간의 원활한 전환을 위한 명령줄 도구
+  subtitle: '**DeepSeek, Qwen, Zhipu GLM, Kimi을 한 번의 명령으로 전환**, Claude Code 및 호환 CLI 도구에 완벽 대응.'
+  prerequisites_title: 📋 사전 요구 사항
+  prerequisites_desc: '설치하기 전에 Node.js(v16 이상)가 설치되어 있는지 확인하세요:'
+  prerequisites_node_title: Node.js 설치
+  prerequisites_node_options:
+    - '**옵션 1(권장)**: nvm을 사용하여 Node.js를 쉽게 관리'
+    - '  ```bash'
+    - '  # nvm 설치: https://github.com/nvm-sh/nvm#install--update-script'
+    - '  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash'
+    - '  # 터미널을 재시작한 다음 최신 Node.js 설치'
+    - '  nvm install node'
+    - '  nvm use node'
+    - '  ```'
+    - '**옵션 2**: [nodejs.org](https://nodejs.org/)에서 다운로드(LTS 버전 선택)'
+    - ''
+    - '설치 확인:'
+    - '```bash'
+    - 'node --version  # v16.0.0 이상이 표시되어야 함'
+    - 'npm --version   # npm 버전이 표시되어야 함'
+    - '```'
+  quick_start: 빠른 시작
   installation_commands:
-    - "# 클론 및 설정"
-    - "git clone https://github.com/Scienith/Scienith-cli-llm-switcher"
-    - "cd cli-llm-switcher"
-    - "./install.sh"
-    - "source ~/.bashrc  # 또는 source ~/.zshrc (Zsh 사용자)"
-    - ""
-    - "# 제공업체의 API 키 구성"
-    - "lms config"
-    - "# 프롬프트에 따라 API 키 입력 및 기본 모델 선택"
-    - ""
-    - "# Zhipu GLM으로 전환"
-    - "lms switch zhipu"
-    - ""
-    - "# 현재 제공업체로 Claude 실행"
-    - "lms run claude"
-  
-  # Features section
-  features: "핵심 기능"
-  features_list:
-    - "**🔄 멀티 제공업체 지원**: DeepSeek, Qwen, Zhipu GLM-4.5, Kimi"
-    - "**🌍 크로스 플랫폼 호환**: macOS, Linux, Windows (Git Bash/Cygwin)"
-    - "**🔧 스마트 셸 통합**: bash, zsh, fish 자동 감지 및 통합"
-    - "**⚙️ 대화형 구성 마법사**: 안전한 API 키 입력, 모델 선택"
-    - "**📦 완전한 설치/제거**: 원클릭 설치, 깔끔한 제거"
-    - "**🌐 다국어 문서**: 영어 및 중국어 문서 지원"
-  
-  # Contributing section
-  contributing: "기여"
-  contributing_text: "기여를 환영합니다! 언제든지 Pull Request를 제출해 주세요."
-  
-  
-  # License section
-  license: "라이선스"
-  license_text: "이 프로젝트는 MIT 라이선스 하에 라이선스가 부여됩니다 - 자세한 내용은 [LICENSE](LICENSE) 파일을 참조하세요."
-  
-  # API Registration section
-  api_registration_title: "API 키 등록"
-  api_registration_desc: "다음 제공업체에서 API 키를 등록하세요:"
-  api_providers:
-    - "**Zhipu GLM**: [중국 본토](https://bigmodel.cn/) | [국제판](https://z.ai/model-api)"
-    - "**DeepSeek**: [공식 사이트](https://platform.deepseek.com/)"
-    - "**알리바바(국제)**: [Model Studio 콘솔](https://modelstudio.console.alibabacloud.com/)"
-    - "**알리바바(중국)**: [백련 콘솔](https://bailian.console.aliyun.com/)"
-    - "**Kimi (Moonshot)**: [공식 사이트](https://platform.moonshot.ai/)"
-  
-  # Help section
-  need_help: "**도움이 필요하신가요?** 자세한 가이드와 문제 해결을 위해 전체 문서를 확인하세요."
+    - '# npm으로 전역 설치'
+    - npm install -g cli-llm-switcher
+    - ''
+    - '# 설치 확인'
+    - lms --version
+    - ''
+    - '# API 키 구성'
+    - lms config
+    - '# 프롬프트에 따라 API 키 입력'
+    - ''
+    - '# Claude Code 또는 다른 도구로 시작'
+    - lms run claude
+  why_title: 💡 왜 LLM 스위처를 선택해야 하나요?
+  why_isolated_title: 🔒 격리된 구성 환경
+  why_isolated_items:
+    - '**네이티브 Claude Code에 영향 없음**: 원래 Claude 설정이 그대로 유지됨'
+    - '**세션별 공급자 전환**: 각 터미널 세션에서 다른 공급자 사용 가능'
+  why_practices_title: 🎯 공식 모범 사례
+  why_practices_items:
+    - '**공급자 권장 구성**: 각 공급자의 공식 통합 지침 준수'
+    - '**Claude Code 듀얼 모델 구성**: 복잡한 작업용 메인 모델, 간단한 작업용 빠른 모델 - 성능과 비용을 지능적으로 최적화'
+  provider_integration_title: 🤖 공급자 통합
+  zhipu_logo_path: assets/images/logo/zhipu_logo_cn.png
+  zhipu_description: '**Zhipu GLM**은 Zhipu AI가 개발한 강력한 중국어 대규모 언어 모델 시리즈로, 다양한 작업에 최첨단 성능을 제공합니다.'
+  zhipu_models_title: 사용 가능한 모델
+  zhipu_models:
+    - '**glm-4.5**: 복잡한 추론 및 생성 작업용 메인 모델'
+    - '**glm-4.5-air**: 빠른 응답에 최적화된 경량 모델'
+  zhipu_api_title: API 키 받기
+  zhipu_api_links:
+    - '**🇨🇳 중국**: [https://bigmodel.cn/](https://bigmodel.cn/)'
+    - '**🌍 국제**: [https://z.ai/model-api](https://z.ai/model-api)'
+  model_config_title: 모델 구성
+  model_config_desc: '도구는 다양한 용도에 최적의 모델을 자동으로 구성합니다:'
+  model_config_main: '**메인 모델**: 복잡한 작업, 코드 생성 및 추론에 사용'
+  model_config_fast: '**빠른 모델**: 파일 검색 및 구문 확인과 같은 간단한 작업에 사용'
+  model_config_example: '예를 들어 Zhipu GLM의 경우:'
+  model_config_example_main: '- 메인 모델: `glm-4.5` - 더 강력하고 복잡한 작업에 적합'
+  model_config_example_fast: '- 빠른 모델: `glm-4.5-air` - 더 가볍고 속도 우선'
+  configuration_title: 구성
+  configuration_desc: 설치 후 사용하려는 공급자의 API 키를 구성해야 합니다.
+  configuration_steps:
+    - 구성 템플릿 복사
+    - 구성 파일 편집
+    - 각 공급자의 API 키 추가
+    - 구성 테스트
+  usage_title: 사용법
+  usage_desc: '구성이 완료되면 공급자 간에 쉽게 전환할 수 있습니다:'
+  usage_examples:
+    - 공급자로 전환
+    - 바로가기 사용
+    - 현재 공급자 표시
+    - 모든 공급자 나열
+    - 사용 가능한 모델 표시
+    - 모든 모델 표시
+    - 특정 공급자의 모델 표시
+    - API 키 구성
+    - 모두 구성
+    - 특정 공급자 구성
+  troubleshooting_title: 문제 해결
+  troubleshooting_common: 일반적인 문제
+  troubleshooting_tips:
+    - '**권한 거부**: 스크립트가 실행 가능한지 확인 `chmod +x bin/llm-switch`'
+    - '**구성을 찾을 수 없음**: `config/providers.ini`를 복사하고 편집했는지 확인'
+    - '**API 키 오류**: API 키가 올바르고 적절한 권한이 있는지 확인'
+    - '**셸 통합**: 출력을 실행하거나 셸 프로필에 추가했는지 확인'
+  uninstallation_title: 제거
+  uninstallation_basic_title: 기본 제거(구성 유지)
+  uninstallation_complete_title: 완전 제거(모두 삭제)
+  uninstallation_note: '참고: 제거하기 전에 `lms status`를 실행하여 구성 디렉토리 경로를 확인하세요.'
+  uninstallation_commands:
+    basic: npm uninstall -g cli-llm-switcher
+    macos_linux:
+      - npm uninstall -g cli-llm-switcher
+      - rm -rf ~/.llm-switch
+    windows_ps:
+      - npm uninstall -g cli-llm-switcher
+      - Remove-Item -Recurse -Force "$env:USERPROFILE\.llm-switch"
+    windows_cmd:
+      - npm uninstall -g cli-llm-switcher
+      - rmdir /s /q "%USERPROFILE%\.llm-switch"
+  contributing: 기여
+  contributing_text: 기여를 환영합니다! 언제든지 Pull Request를 제출해 주세요.
+  license: 라이선스
+  license_text: 이 프로젝트는 MIT 라이선스 하에 라이선스가 부여됩니다 - 자세한 내용은 [LICENSE](LICENSE) 파일을 참조하세요.
+  need_help: '**도움이 필요하신가요?** 자세한 가이드와 문제 해결을 위해 전체 문서를 확인하세요.'

@@ -1,56 +1,110 @@
-# README content structure
 home:
-  title: "Conmutador CLI LLM"
-  description: "Una herramienta de línea de comandos para cambiar sin problemas entre múltiples proveedores LLM"
-  subtitle: "**Cambia entre DeepSeek, Qwen, Zhipu GLM, Kimi** con un solo comando al usar Claude Code o herramientas CLI compatibles."
-  
-  # Quick Start section
-  quick_start: "Inicio rápido"
+  description: Una herramienta de línea de comandos para cambiar sin problemas entre múltiples proveedores LLM
+  subtitle: '**Cambia entre DeepSeek, Qwen, Zhipu GLM, Kimi** con un solo comando al usar Claude Code o herramientas CLI compatibles.'
+  prerequisites_title: 📋 Requisitos previos
+  prerequisites_desc: 'Antes de instalar, asegúrese de tener Node.js (v16 o posterior) instalado:'
+  prerequisites_node_title: Instalar Node.js
+  prerequisites_node_options:
+    - '**Opción 1 (Recomendada)**: Use nvm para gestionar Node.js fácilmente'
+    - '  ```bash'
+    - '  # Instalar nvm: https://github.com/nvm-sh/nvm#install--update-script'
+    - '  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash'
+    - '  # Reiniciar terminal, luego instalar la última versión de Node.js'
+    - '  nvm install node'
+    - '  nvm use node'
+    - '  ```'
+    - '**Opción 2**: Descargar desde [nodejs.org](https://nodejs.org/) (elegir versión LTS)'
+    - ''
+    - 'Verificar instalación:'
+    - '```bash'
+    - 'node --version  # Debería mostrar v16.0.0 o superior'
+    - 'npm --version   # Debería mostrar la versión de npm'
+    - '```'
+  quick_start: Inicio rápido
   installation_commands:
-    - "# Clonar y configurar"
-    - "git clone https://github.com/Scienith/Scienith-cli-llm-switcher"
-    - "cd cli-llm-switcher"
-    - "./install.sh"
-    - "source ~/.bashrc  # o source ~/.zshrc (para Zsh)"
-    - ""
-    - "# Configurar claves API de proveedores"
-    - "lms config"
-    - "# Sigue las indicaciones para ingresar la clave API y seleccionar el modelo predeterminado"
-    - ""
-    - "# Cambiar a Zhipu GLM"
-    - "lms switch zhipu"
-    - ""
-    - "# Ejecutar Claude con el proveedor actual"
-    - "lms run claude"
-  
-  # Features section
-  features: "Características principales"
-  features_list:
-    - "**🔄 Soporte multi-proveedor**: DeepSeek, Qwen, Zhipu GLM-4.5, Kimi"
-    - "**🌍 Compatible multiplataforma**: macOS, Linux, Windows (Git Bash/Cygwin)"
-    - "**🔧 Integración inteligente de shell**: Detección e integración automática de bash, zsh, fish"
-    - "**⚙️ Asistente de configuración interactivo**: Entrada segura de claves API, selección de modelos"
-    - "**📦 Instalación/desinstalación completa**: Instalación con un clic, eliminación limpia"
-    - "**🌐 Documentación multiidioma**: Soporte de documentación en inglés y chino"
-  
-  # Contributing section
-  contributing: "Contribución"
-  contributing_text: "¡Las contribuciones son bienvenidas! No dudes en enviar un Pull Request."
-  
-  
-  # License section
-  license: "Licencia"
-  license_text: "Este proyecto está licenciado bajo la Licencia MIT - consulta el archivo [LICENSE](LICENSE) para más detalles."
-  
-  # API Registration section
-  api_registration_title: "Registro de clave API"
-  api_registration_desc: "Registra claves API de los siguientes proveedores:"
-  api_providers:
-    - "**Zhipu GLM**: [China continental](https://bigmodel.cn/) | [Internacional](https://z.ai/model-api)"
-    - "**DeepSeek**: [Sitio oficial](https://platform.deepseek.com/)"
-    - "**Alibaba (Internacional)**: [Consola Model Studio](https://modelstudio.console.alibabacloud.com/)"
-    - "**Alibaba (China)**: [Consola Bailian](https://bailian.console.aliyun.com/)"
-    - "**Kimi (Moonshot)**: [Sitio oficial](https://platform.moonshot.ai/)"
-  
-  # Help section
-  need_help: "**¿Necesitas ayuda?** Consulta la documentación completa para guías detalladas y solución de problemas."
+    - '# Instalar globalmente vía npm'
+    - npm install -g cli-llm-switcher
+    - ''
+    - '# Verificar instalación'
+    - lms --version
+    - ''
+    - '# Configurar claves API'
+    - lms config
+    - '# Siga las indicaciones para ingresar su clave API'
+    - ''
+    - '# Comenzar a usar con Claude Code u otras herramientas'
+    - lms run claude
+  why_title: 💡 ¿Por qué elegir LLM Switcher?
+  why_isolated_title: 🔒 Entorno de configuración aislado
+  why_isolated_items:
+    - '**Sin impacto en Claude Code nativo**: Tu configuración original de Claude permanece intacta'
+    - '**Cambio de proveedor por sesión**: Cada sesión de terminal puede usar diferentes proveedores'
+  why_practices_title: 🎯 Mejores prácticas oficiales
+  why_practices_items:
+    - '**Configuraciones recomendadas por proveedores**: Sigue las pautas de integración oficiales de cada proveedor'
+    - '**Configuración de doble modelo Claude Code**: Modelo principal para tareas complejas, modelo rápido para tareas simples - optimiza inteligentemente rendimiento y costo'
+  provider_integration_title: 🤖 Integración de proveedores
+  zhipu_logo_path: assets/images/logo/zhipu_logo_cn.png
+  zhipu_description: '**Zhipu GLM** es una poderosa serie de modelos de lenguaje chino desarrollada por Zhipu AI, que ofrece rendimiento de vanguardia para diversas tareas.'
+  zhipu_models_title: Modelos disponibles
+  zhipu_models:
+    - '**glm-4.5**: Modelo principal para tareas complejas de razonamiento y generación'
+    - '**glm-4.5-air**: Modelo ligero optimizado para respuestas rápidas'
+  zhipu_api_title: Obtener tu clave API
+  zhipu_api_links:
+    - '**🇨🇳 China**: [https://bigmodel.cn/](https://bigmodel.cn/)'
+    - '**🌍 Internacional**: [https://z.ai/model-api](https://z.ai/model-api)'
+  model_config_title: Configuración de modelos
+  model_config_desc: 'La herramienta configura automáticamente modelos óptimos para diferentes usos:'
+  model_config_main: '**Modelo principal**: Usado para tareas complejas, generación de código y razonamiento'
+  model_config_fast: '**Modelo rápido**: Usado para operaciones simples como búsqueda de archivos y verificación de sintaxis'
+  model_config_example: 'Por ejemplo, Zhipu GLM usa:'
+  model_config_example_main: '- Modelo principal: `glm-4.5` - Más potente, adecuado para tareas complejas'
+  model_config_example_fast: '- Modelo rápido: `glm-4.5-air` - Más ligero, optimizado para velocidad'
+  configuration_title: Configuración
+  configuration_desc: Después de la instalación, necesitas configurar las claves API para los proveedores que deseas usar.
+  configuration_steps:
+    - Copiar la plantilla de configuración
+    - Editar el archivo de configuración
+    - Agregar claves API para cada proveedor
+    - Probar la configuración
+  usage_title: Uso
+  usage_desc: 'Una vez configurado, puedes cambiar fácilmente entre proveedores:'
+  usage_examples:
+    - Cambiar a un proveedor
+    - Usar atajos
+    - Mostrar proveedor actual
+    - Listar todos los proveedores
+    - Mostrar modelos disponibles
+    - Mostrar todos los modelos
+    - Mostrar modelos de un proveedor específico
+    - Configurar claves API
+    - Configurar todo
+    - Configurar proveedor específico
+  troubleshooting_title: Solución de problemas
+  troubleshooting_common: Problemas comunes
+  troubleshooting_tips:
+    - '**Permiso denegado**: Asegúrate de que el script sea ejecutable con `chmod +x bin/llm-switch`'
+    - '**Configuración no encontrada**: Asegúrate de haber copiado y editado `config/providers.ini`'
+    - '**Errores de clave API**: Verifica que tus claves API sean correctas y tengan los permisos adecuados'
+    - '**Integración de shell**: Asegúrate de ejecutar la salida o agregarla a tu perfil de shell'
+  uninstallation_title: Desinstalación
+  uninstallation_basic_title: Desinstalación básica (mantiene configuración)
+  uninstallation_complete_title: Desinstalación completa (elimina todo)
+  uninstallation_note: 'Nota: Ejecuta `lms status` para ver la ruta del directorio de configuración antes de desinstalar.'
+  uninstallation_commands:
+    basic: npm uninstall -g cli-llm-switcher
+    macos_linux:
+      - npm uninstall -g cli-llm-switcher
+      - rm -rf ~/.llm-switch
+    windows_ps:
+      - npm uninstall -g cli-llm-switcher
+      - Remove-Item -Recurse -Force "$env:USERPROFILE\.llm-switch"
+    windows_cmd:
+      - npm uninstall -g cli-llm-switcher
+      - rmdir /s /q "%USERPROFILE%\.llm-switch"
+  contributing: Contribución
+  contributing_text: ¡Las contribuciones son bienvenidas! No dudes en enviar un Pull Request.
+  license: Licencia
+  license_text: Este proyecto está licenciado bajo la Licencia MIT - consulta el archivo [LICENSE](LICENSE) para más detalles.
+  need_help: '**¿Necesitas ayuda?** Consulta la documentación completa para guías detalladas y solución de problemas.'

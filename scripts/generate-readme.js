@@ -87,8 +87,8 @@ function generateProvidersTable(locale) {
     return '';
   }
 
-  const title = locale === 'zh' ? '🤖 智谱GLM集成' : '🤖 Zhipu GLM Integration';
-  const logoPath = 'https://raw.githubusercontent.com/Scienith/Scienith-cli-llm-switcher/main/assets/images/logo/zhipu.png';
+  const title = locale === 'zh' ? '🤖 供应商集成' : '🤖 Provider Integration';
+  const logoPath = 'https://raw.githubusercontent.com/Scienith/Scienith-cli-llm-switcher/main/assets/images/logo/zhipu.jpg';
   const description = locale === 'zh' 
     ? '**智谱GLM** 是由智谱AI开发的强大中文大语言模型系列，为各种任务提供最先进的性能。'
     : '**Zhipu GLM** is a powerful Chinese large language model series developed by Zhipu AI, offering state-of-the-art performance for various tasks.';
@@ -183,15 +183,30 @@ claude "Help me write a Python function"`;
     }
   }
 
-  const quickStartTitle = L.home.quick_start || 'Quick Start';
+  const prerequisitesTitle = L.home.prerequisites_title || '📋 Prerequisites';
+  const quickStartTitle = L.home.quick_start || '🚀 Installation';
   const featuresTitle = L.home.features || 'Features';
+  
+  // Generate prerequisites section
+  let prerequisitesSection = '';
+  if (L.home.prerequisites_desc && L.home.prerequisites_node_options) {
+    prerequisitesSection = `
+## ${prerequisitesTitle}
+
+${L.home.prerequisites_desc}
+
+### ${L.home.prerequisites_node_title || 'Install Node.js'}
+
+${L.home.prerequisites_node_options.map(item => item).join('\n')}
+`;
+  }
   
   // Generate from template for non-English or if English README doesn't exist
   return `<div align="center">
 
-<img src="assets/images/logo/logo.jpeg" alt="${L.home.title}" width="50%">
+<img src="assets/images/logo/logo.jpeg" alt="cli-llm-switcher" width="50%">
 
-# ${L.home.title}
+# cli-llm-switcher
 
 *${L.home.description}*
 
@@ -204,15 +219,12 @@ ${langLinks}
 
 ${L.home.subtitle || '**Switch between multiple LLM providers** with a single command when using Claude Code or compatible CLI tools.'}
 ${whySection}
-## 🚀 ${quickStartTitle}
+${prerequisitesSection}
+## ${quickStartTitle}
 
 \`\`\`bash
 ${quickStartCommands}
 \`\`\`
-
-## ${featuresTitle}
-
-${featuresList}
 
 ${generateProvidersTable(locale)}
 

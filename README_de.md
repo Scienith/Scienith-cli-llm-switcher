@@ -1,12 +1,12 @@
 <div align="center">
 
-<img src="assets/images/logo/logo.jpeg" alt="CLI LLM Umschalter" width="50%">
+<img src="assets/images/logo/logo.jpeg" alt="cli-llm-switcher" width="50%">
 
-# CLI LLM Umschalter
+# cli-llm-switcher
 
 *Ein Kommandozeilen-Tool zum nahtlosen Wechseln zwischen mehreren LLM-Anbietern*
 
-[![Version](https://img.shields.io/badge/version-v0.2.0-alpha.14-blue.svg)](https://github.com/Scienith/Scienith-cli-llm-switcher/releases)
+[![Version](https://img.shields.io/badge/version-v0.2.0-blue.svg)](https://github.com/Scienith/Scienith-cli-llm-switcher/releases)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 **🌍 Languages**: [English](README.md) | [中文](README_zh.md) | [日本語](README_ja.md) | [한국어](README_ko.md) | [Français](README_fr.md) | Deutsch | [Español](README_es.md) | [Русский](README_ru.md) | [العربية](README_ar.md)
@@ -15,39 +15,60 @@
 
 **Wechseln Sie zwischen DeepSeek, Qwen, Zhipu GLM, Kimi** mit einem einzigen Befehl bei Verwendung von Claude Code oder kompatiblen CLI-Tools.
 
-## 🚀 Schnellstart
+## 💡 💡 Warum LLM Switcher wählen?
+
+### 🔒 Isolierte Konfigurationsumgebung
+- **Keine Auswirkung auf natives Claude Code**: Ihre ursprüngliche Claude-Einrichtung bleibt unverändert
+- **Anbieterwechsel pro Sitzung**: Jede Terminal-Sitzung kann verschiedene Anbieter verwenden
+
+### 🎯 Offizielle Best Practices
+- **Anbieter-empfohlene Konfigurationen**: Folgt den offiziellen Integrationsrichtlinien jedes Anbieters
+- **Claude Code Dual-Modell-Konfiguration**: Hauptmodell für komplexe Aufgaben, schnelles Modell für einfache Aufgaben - optimiert intelligent Leistung und Kosten
+
+
+## 📋 Voraussetzungen
+
+Stellen Sie vor der Installation sicher, dass Node.js (v16 oder höher) installiert ist:
+
+### Node.js installieren
+
+**Option 1 (Empfohlen)**: Verwenden Sie nvm für einfaches Node.js-Management
+  ```bash
+  # nvm installieren: https://github.com/nvm-sh/nvm#install--update-script
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+  # Terminal neu starten, dann neueste Node.js installieren
+  nvm install node
+  nvm use node
+  ```
+**Option 2**: Von [nodejs.org](https://nodejs.org/) herunterladen (LTS-Version wählen)
+
+Installation überprüfen:
+```bash
+node --version  # Sollte v16.0.0 oder höher anzeigen
+npm --version   # Sollte npm-Version anzeigen
+```
+
+## Schnellstart
 
 ```bash
-# Klonen und einrichten
-git clone https://github.com/Scienith/Scienith-cli-llm-switcher
-cd cli-llm-switcher
-./install.sh
-source ~/.bashrc  # oder source ~/.zshrc (für Zsh)
+# Global über npm installieren
+npm install -g cli-llm-switcher
 
-# API-Schlüssel für Anbieter konfigurieren
+# Installation überprüfen
+lms --version
+
+# API-Schlüssel konfigurieren
 lms config
-# Befolgen Sie die Eingabeaufforderungen zur Eingabe des API-Schlüssels und zur Auswahl des Standardmodells
+# Folgen Sie den Anweisungen zur Eingabe Ihres API-Schlüssels
 
-# Zu Zhipu GLM wechseln
-lms switch zhipu
-
-# Claude mit dem aktuellen Anbieter ausführen
+# Mit Claude Code oder anderen Tools beginnen
 lms run claude
 ```
 
-## Hauptmerkmale
-
-- **🔄 Multi-Anbieter-Unterstützung**: DeepSeek, Qwen, Zhipu GLM-4.5, Kimi
-- **🌍 Plattformübergreifend kompatibel**: macOS, Linux, Windows (Git Bash/Cygwin)
-- **🔧 Intelligente Shell-Integration**: Automatische Erkennung und Integration von bash, zsh, fish
-- **⚙️ Interaktiver Konfigurationsassistent**: Sichere API-Schlüssel-Eingabe, Modellauswahl
-- **📦 Vollständige Installation/Deinstallation**: Ein-Klick-Installation, saubere Entfernung
-- **🌐 Mehrsprachige Dokumentation**: Unterstützung für englische und chinesische Dokumentation
-
-## 🤖 Zhipu GLM Integration
+## 🤖 Provider Integration
 
 <div align="center">
-<img src="https://raw.githubusercontent.com/Scienith/Scienith-cli-llm-switcher/main/assets/images/logo/zhipu.png" alt="Zhipu GLM" width="200">
+<img src="https://raw.githubusercontent.com/Scienith/Scienith-cli-llm-switcher/main/assets/images/logo/zhipu.jpg" alt="Zhipu GLM" width="200">
 </div>
 
 **Zhipu GLM** is a powerful Chinese large language model series developed by Zhipu AI, offering state-of-the-art performance for various tasks.
@@ -62,17 +83,17 @@ lms run claude
 
 
 
-## Uninstallation
+## Deinstallation
 
-### Basic Uninstall (keeps configuration)
+### Basis-Deinstallation (behält Konfiguration)
 
 ```bash
 npm uninstall -g cli-llm-switcher
 ```
 
-### Complete Uninstall (removes everything)
+### Vollständige Deinstallation (entfernt alles)
 
-Note: Run `lms status` to see the configuration directory path before uninstalling.
+Hinweis: Führen Sie `lms status` aus, um den Konfigurationsverzeichnispfad vor der Deinstallation zu sehen.
 
 **macOS/Linux:**
 ```bash

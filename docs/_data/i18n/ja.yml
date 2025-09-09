@@ -1,56 +1,110 @@
-# README content structure
 home:
-  title: "CLI LLM スイッチャー"
-  description: "複数のLLMプロバイダー間をシームレスに切り替えるためのコマンドラインツール"
-  subtitle: "**DeepSeek、Qwen、Zhipu GLM、Kimi、Claude、OpenAI、Groq を1つのコマンドで切り替え**、Claude Code や互換CLIツールに完璧対応。"
-  
-  # Quick Start section
-  quick_start: "クイックスタート"
+  description: 複数のLLMプロバイダー間をシームレスに切り替えるためのコマンドラインツール
+  subtitle: '**DeepSeek、Qwen、Zhipu GLM、Kimi、Claude、OpenAI、Groq を1つのコマンドで切り替え**、Claude Code や互換CLIツールに完璧対応。'
+  prerequisites_title: 📋 前提条件
+  prerequisites_desc: インストールする前に、Node.js（v16以降）がインストールされていることを確認してください：
+  prerequisites_node_title: Node.js のインストール
+  prerequisites_node_options:
+    - '**オプション1（推奨）**：nvmを使用してNode.jsを簡単に管理'
+    - '  ```bash'
+    - '  # nvmをインストール: https://github.com/nvm-sh/nvm#install--update-script'
+    - '  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash'
+    - '  # ターミナルを再起動し、最新のNode.jsをインストール'
+    - '  nvm install node'
+    - '  nvm use node'
+    - '  ```'
+    - '**オプション2**：[nodejs.org](https://nodejs.org/)からダウンロード（LTSバージョンを選択）'
+    - ''
+    - インストールの確認：
+    - '```bash'
+    - 'node --version  # v16.0.0以降が表示されるはずです'
+    - 'npm --version   # npmのバージョンが表示されるはずです'
+    - '```'
+  quick_start: クイックスタート
   installation_commands:
-    - "# クローンとセットアップ"
-    - "git clone https://github.com/Scienith/Scienith-cli-llm-switcher"
-    - "cd cli-llm-switcher"
-    - "./install.sh"
-    - "source ~/.bashrc  # または source ~/.zshrc (Zshユーザー)"
-    - ""
-    - "# プロバイダーのAPIキーを設定"
-    - "lms config"
-    - "# プロンプトに従ってAPIキーを入力しデフォルトモデルを選択"
-    - ""
-    - "# Zhipu GLMに切り替え"
-    - "lms switch zhipu"
-    - ""
-    - "# 現在のプロバイダーでClaudeを実行"
-    - "lms run claude"
-  
-  # Features section
-  features: "主要機能"
-  features_list:
-    - "**🔄 マルチプロバイダーサポート**: DeepSeek、Qwen、Zhipu GLM-4.5、Kimi、Claude、OpenAI、Groq"
-    - "**🌍 クロスプラットフォーム対応**: macOS、Linux、Windows (Git Bash/Cygwin)"
-    - "**🔧 スマートシェル統合**: bash、zsh、fishを自動検出・統合"
-    - "**⚙️ インタラクティブ設定ウィザード**: 安全なAPIキー入力、モデル選択"
-    - "**📦 完全インストール/アンインストール**: ワンクリックインストール、クリーン削除"
-    - "**🌐 多言語ドキュメント**: 英語と中国語ドキュメントサポート"
-  
-  # Contributing section
-  contributing: "貢献"
-  contributing_text: "貢献を歓迎します！プルリクエストをお気軽にお送りください。"
-  
-  
-  # License section
-  license: "ライセンス"
-  license_text: "本プロジェクトはMITライセンスの下でライセンスされています - 詳細については[LICENSE](LICENSE)ファイルをご覧ください。"
-  
-  # API Registration section
-  api_registration_title: "APIキー登録"
-  api_registration_desc: "以下のプロバイダーからAPIキーを登録："
-  api_providers:
-    - "**Zhipu GLM**: [中国本土](https://bigmodel.cn/) | [国際版](https://z.ai/model-api)"
-    - "**DeepSeek**: [公式サイト](https://platform.deepseek.com/)"
-    - "**アリババ（国際版）**: [Model Studioコンソール](https://modelstudio.console.alibabacloud.com/)"
-    - "**アリババ（中国版）**: [百煉コンソール](https://bailian.console.aliyun.com/)"
-    - "**Kimi (Moonshot)**: [公式サイト](https://platform.moonshot.ai/)"
-  
-  # Help section
-  need_help: "**ヘルプが必要ですか？** 詳細なガイドとトラブルシューティングについては、完全なドキュメントをご確認ください。"
+    - '# npm でグローバルインストール'
+    - npm install -g cli-llm-switcher
+    - ''
+    - '# インストールの確認'
+    - lms --version
+    - ''
+    - '# API キーの設定'
+    - lms config
+    - '# プロンプトに従って API キーを入力'
+    - ''
+    - '# Claude Code または他のツールで使用開始'
+    - lms run claude
+  why_title: 💡 なぜLLMスイッチャーを選ぶのか？
+  why_isolated_title: 🔒 分離された設定環境
+  why_isolated_items:
+    - '**ネイティブClaude Codeへの影響ゼロ**: 元のClaude設定は変更されません'
+    - '**セッションごとのプロバイダー切り替え**: 各ターミナルセッションで異なるプロバイダーを使用可能'
+  why_practices_title: 🎯 公式ベストプラクティス
+  why_practices_items:
+    - '**プロバイダー推奨設定**: 各プロバイダーの公式統合ガイドラインに従う'
+    - '**Claude Code デュアルモデル設定**: 複雑なタスク用のメインモデル、簡単なタスク用の高速モデル - パフォーマンスとコストを賢く最適化'
+  provider_integration_title: 🤖 プロバイダー統合
+  zhipu_logo_path: assets/images/logo/zhipu_logo_cn.png
+  zhipu_description: '**Zhipu GLM** は、Zhipu AIが開発した強力な中国語大規模言語モデルシリーズで、様々なタスクに最先端のパフォーマンスを提供します。'
+  zhipu_models_title: 利用可能なモデル
+  zhipu_models:
+    - '**glm-4.5**: 複雑な推論と生成タスク用のメインモデル'
+    - '**glm-4.5-air**: 高速応答に最適化された軽量モデル'
+  zhipu_api_title: APIキーを取得
+  zhipu_api_links:
+    - '**🇨🇳 中国**: [https://bigmodel.cn/](https://bigmodel.cn/)'
+    - '**🌍 国際版**: [https://z.ai/model-api](https://z.ai/model-api)'
+  model_config_title: モデル設定
+  model_config_desc: ツールは異なる用途に最適なモデルを自動的に設定します：
+  model_config_main: '**メインモデル**: 複雑なタスク、コード生成、推論に使用'
+  model_config_fast: '**高速モデル**: ファイル検索や構文チェックなどの簡単な操作に使用'
+  model_config_example: 例えば、Zhipu GLMの場合：
+  model_config_example_main: '- メインモデル：`glm-4.5` - より強力で、複雑なタスクに適している'
+  model_config_example_fast: '- 高速モデル：`glm-4.5-air` - より軽量で、速度を優先'
+  configuration_title: 設定
+  configuration_desc: インストール後、使用するプロバイダーのAPIキーを設定する必要があります。
+  configuration_steps:
+    - 設定テンプレートをコピー
+    - 設定ファイルを編集
+    - 各プロバイダーのAPIキーを追加
+    - 設定をテスト
+  usage_title: 使用方法
+  usage_desc: 設定が完了したら、プロバイダー間を簡単に切り替えることができます：
+  usage_examples:
+    - プロバイダーに切り替え
+    - ショートカットを使用
+    - 現在のプロバイダーを表示
+    - すべてのプロバイダーをリスト
+    - 利用可能なモデルを表示
+    - すべてのモデルを表示
+    - 特定のプロバイダーのモデルを表示
+    - APIキーを設定
+    - すべて設定
+    - 特定のプロバイダーを設定
+  troubleshooting_title: トラブルシューティング
+  troubleshooting_common: よくある問題
+  troubleshooting_tips:
+    - '**権限拒否**: スクリプトが実行可能であることを確認 `chmod +x bin/llm-switch`'
+    - '**設定が見つからない**: `config/providers.ini`をコピーして編集したことを確認'
+    - '**APIキーエラー**: APIキーが正しく、適切な権限を持っていることを確認'
+    - '**シェル統合**: 出力を実行するか、シェルプロファイルに追加したことを確認'
+  uninstallation_title: アンインストール
+  uninstallation_basic_title: 基本的なアンインストール（設定を保持）
+  uninstallation_complete_title: 完全なアンインストール（すべて削除）
+  uninstallation_note: 注意：アンインストール前に `lms status` を実行して設定ディレクトリのパスを確認してください。
+  uninstallation_commands:
+    basic: npm uninstall -g cli-llm-switcher
+    macos_linux:
+      - npm uninstall -g cli-llm-switcher
+      - rm -rf ~/.llm-switch
+    windows_ps:
+      - npm uninstall -g cli-llm-switcher
+      - Remove-Item -Recurse -Force "$env:USERPROFILE\.llm-switch"
+    windows_cmd:
+      - npm uninstall -g cli-llm-switcher
+      - rmdir /s /q "%USERPROFILE%\.llm-switch"
+  contributing: 貢献
+  contributing_text: 貢献を歓迎します！プルリクエストをお気軽にお送りください。
+  license: ライセンス
+  license_text: 本プロジェクトはMITライセンスの下でライセンスされています - 詳細については[LICENSE](LICENSE)ファイルをご覧ください。
+  need_help: '**ヘルプが必要ですか？** 詳細なガイドとトラブルシューティングについては、完全なドキュメントをご確認ください。'

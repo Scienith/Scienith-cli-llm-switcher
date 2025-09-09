@@ -18,9 +18,14 @@ async function interactiveConfig(configManager: ConfigManager): Promise<void> {
     .filter(([key]) => CONFIGURABLE_PROVIDERS.includes(key as any));
   
   while (true) {
-    console.log(chalk.bold('Available LLM Providers:'));
-    console.log('------------------------');
+    console.log(chalk.bold('Select LLM Provider to Configure:'));
+    console.log('----------------------------------');
     
+    // Show quit option first
+    console.log(`   ${chalk.gray('Q.')} Quit`);
+    console.log('   ' + chalk.gray('─'.repeat(30)));
+    
+    // Show provider list
     providerList.forEach(([key, provider], index) => {
       const status = provider.apiKey 
         ? chalk.green('✓ Configured') 
@@ -28,23 +33,24 @@ async function interactiveConfig(configManager: ConfigManager): Promise<void> {
       console.log(`   ${index + 1}. ${provider.name.padEnd(30)} [${status}]`);
     });
     
-    console.log(`   ${providerList.length + 1}. Exit (退出配置)\n`);
+    console.log('');
     
-    const choice = await prompt(`Select a provider to configure (1-${providerList.length + 1}): `);
-    const choiceNum = parseInt(choice);
+    const choice = await prompt(`Select provider (1-${providerList.length}) or Q to quit: `);
     
-    if (choiceNum === providerList.length + 1 || !choice.trim()) {
-      console.log('\nConfiguration complete!');
+    if (choice.toLowerCase() === 'q' || !choice.trim()) {
+      console.log('\nExiting configuration.');
       break;
     }
     
-    if (choiceNum < 1 || choiceNum > providerList.length) {
+    const choiceNum = parseInt(choice);
+    
+    if (isNaN(choiceNum) || choiceNum < 1 || choiceNum > providerList.length) {
       console.log(chalk.red('Invalid selection. Please try again.\n'));
       continue;
     }
     
     const [providerKey, provider] = providerList[choiceNum - 1];
-    console.log(`\n${chalk.bold(`Configuring ${provider.name}`)}\n`);
+    console.log(`\n${chalk.bold(`Provide API Key`)}\n`);
     
     // Configure the selected provider
     await configureProviderInteractive(configManager, providerKey, provider);
@@ -53,38 +59,17 @@ async function interactiveConfig(configManager: ConfigManager): Promise<void> {
 }
 
 async function configureProviderInteractive(configManager: ConfigManager, providerKey: string, provider: any): Promise<void> {
-  // Prompt for API key
-  const currentKey = provider.apiKey ? chalk.gray('(configured)') : chalk.yellow('(not set)');
-  console.log(`Current API Key: ${currentKey}`);
-  const apiKey = await prompt('Enter API Key (or press Enter to keep current): ');
+  // Prompt for API key with asterisk masking
+  const apiKey = await prompt('Enter API Key: ', 'asterisk');
 
   if (apiKey.trim()) {
     provider.apiKey = apiKey.trim();
+    // Save configuration
+    await configManager.saveProvider(providerKey, provider);
+    Logger.success(`Configuration saved for ${provider.name}`);
+  } else {
+    console.log(chalk.yellow('No API Key provided, configuration not saved.'));
   }
-
-  // Show base URL but don't allow modification
-  if (provider.baseUrl) {
-    console.log(`\nBase URL: ${chalk.gray(provider.baseUrl)}`);
-  }
-
-  // Prompt for default model
-  if (provider.models && provider.models.length > 0) {
-    console.log(`\nAvailable models: ${chalk.cyan(provider.models.join(', '))}`);
-    console.log(`Current default: ${chalk.gray(provider.defaultModel || '(not set)')}`);
-    const defaultModel = await prompt('Enter default model (or press Enter to keep current): ');
-    if (defaultModel.trim()) {
-      if (provider.models.includes(defaultModel.trim())) {
-        provider.defaultModel = defaultModel.trim();
-      } else {
-        Logger.warn(`Model '${defaultModel}' not in available models list`);
-      }
-    }
-  }
-
-  // Save configuration
-  await configManager.saveProvider(providerKey, provider);
-  
-  Logger.success(`Configuration saved for ${provider.name}`);
 }
 
 
@@ -117,40 +102,19 @@ export async function configureProvider(providerName?: string): Promise<void> {
       process.exit(1);
     }
 
-    console.log(chalk.bold(`\nConfiguring ${provider.name}\n`));
+    console.log(chalk.bold(`\nProvide API Key\n`));
 
-    // Prompt for API key
-    const currentKey = provider.apiKey ? chalk.gray('(configured)') : chalk.yellow('(not set)');
-    console.log(`Current API Key: ${currentKey}`);
-    const apiKey = await prompt('Enter API Key (or press Enter to keep current): ');
+    // Prompt for API key with masked input
+    const apiKey = await prompt('Enter API Key: ', true);
 
     if (apiKey.trim()) {
       provider.apiKey = apiKey.trim();
+      // Save configuration
+      await configManager.saveProvider(providerName, provider);
+      Logger.success(`Configuration saved for ${provider.name}`);
+    } else {
+      console.log(chalk.yellow('No API Key provided, configuration not saved.'));
     }
-
-    // Show base URL but don't allow modification
-    if (provider.baseUrl) {
-      console.log(`\nBase URL: ${chalk.gray(provider.baseUrl)}`);
-    }
-
-    // Prompt for default model
-    if (provider.models && provider.models.length > 0) {
-      console.log(`\nAvailable models: ${chalk.cyan(provider.models.join(', '))}`);
-      console.log(`Current default: ${chalk.gray(provider.defaultModel || '(not set)')}`);
-      const defaultModel = await prompt('Enter default model (or press Enter to keep current): ');
-      if (defaultModel.trim()) {
-        if (provider.models.includes(defaultModel.trim())) {
-          provider.defaultModel = defaultModel.trim();
-        } else {
-          Logger.warn(`Model '${defaultModel}' not in available models list`);
-        }
-      }
-    }
-
-    // Save configuration
-    await configManager.saveProvider(providerName, provider);
-    
-    Logger.success(`Configuration saved for ${provider.name}`);
 
   } catch (error) {
     Logger.error(error instanceof Error ? error.message : String(error));

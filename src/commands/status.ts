@@ -66,8 +66,8 @@ export async function showStatus(): Promise<void> {
       if (provider.anthropicUrl) {
         console.log(`  ${labelColor('Claude URL:')}  ${urlColor(provider.anthropicUrl)}`);
       }
-      console.log(`  ${labelColor('Main Model:')}  ${provider.defaultModel}`);
-      console.log(`  ${labelColor('Fast Model:')}  ${provider.fastModel}`);
+      console.log(`  ${labelColor('主模型:')}      ${provider.defaultModel}`);
+      console.log(`  ${labelColor('快速模型:')}    ${provider.fastModel}`);
       
       // API registration URLs from PROVIDER_CONFIGS
       if (config && config.apiUrls && config.apiUrls.length > 0) {

@@ -1,12 +1,12 @@
 <div align="center">
 
-<img src="assets/images/logo/logo.jpeg" alt="CLI LLM 스위처" width="50%">
+<img src="assets/images/logo/logo.jpeg" alt="cli-llm-switcher" width="50%">
 
-# CLI LLM 스위처
+# cli-llm-switcher
 
 *여러 LLM 제공업체 간의 원활한 전환을 위한 명령줄 도구*
 
-[![Version](https://img.shields.io/badge/version-v0.2.0-alpha.14-blue.svg)](https://github.com/Scienith/Scienith-cli-llm-switcher/releases)
+[![Version](https://img.shields.io/badge/version-v0.2.0-blue.svg)](https://github.com/Scienith/Scienith-cli-llm-switcher/releases)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 **🌍 Languages**: [English](README.md) | [中文](README_zh.md) | [日本語](README_ja.md) | 한국어 | [Français](README_fr.md) | [Deutsch](README_de.md) | [Español](README_es.md) | [Русский](README_ru.md) | [العربية](README_ar.md)
@@ -15,39 +15,60 @@
 
 **DeepSeek, Qwen, Zhipu GLM, Kimi을 한 번의 명령으로 전환**, Claude Code 및 호환 CLI 도구에 완벽 대응.
 
-## 🚀 빠른 시작
+## 💡 💡 왜 LLM 스위처를 선택해야 하나요?
+
+### 🔒 격리된 구성 환경
+- **네이티브 Claude Code에 영향 없음**: 원래 Claude 설정이 그대로 유지됨
+- **세션별 공급자 전환**: 각 터미널 세션에서 다른 공급자 사용 가능
+
+### 🎯 공식 모범 사례
+- **공급자 권장 구성**: 각 공급자의 공식 통합 지침 준수
+- **Claude Code 듀얼 모델 구성**: 복잡한 작업용 메인 모델, 간단한 작업용 빠른 모델 - 성능과 비용을 지능적으로 최적화
+
+
+## 📋 사전 요구 사항
+
+설치하기 전에 Node.js(v16 이상)가 설치되어 있는지 확인하세요:
+
+### Node.js 설치
+
+**옵션 1(권장)**: nvm을 사용하여 Node.js를 쉽게 관리
+  ```bash
+  # nvm 설치: https://github.com/nvm-sh/nvm#install--update-script
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+  # 터미널을 재시작한 다음 최신 Node.js 설치
+  nvm install node
+  nvm use node
+  ```
+**옵션 2**: [nodejs.org](https://nodejs.org/)에서 다운로드(LTS 버전 선택)
+
+설치 확인:
+```bash
+node --version  # v16.0.0 이상이 표시되어야 함
+npm --version   # npm 버전이 표시되어야 함
+```
+
+## 빠른 시작
 
 ```bash
-# 클론 및 설정
-git clone https://github.com/Scienith/Scienith-cli-llm-switcher
-cd cli-llm-switcher
-./install.sh
-source ~/.bashrc  # 또는 source ~/.zshrc (Zsh 사용자)
+# npm으로 전역 설치
+npm install -g cli-llm-switcher
 
-# 제공업체의 API 키 구성
+# 설치 확인
+lms --version
+
+# API 키 구성
 lms config
-# 프롬프트에 따라 API 키 입력 및 기본 모델 선택
+# 프롬프트에 따라 API 키 입력
 
-# Zhipu GLM으로 전환
-lms switch zhipu
-
-# 현재 제공업체로 Claude 실행
+# Claude Code 또는 다른 도구로 시작
 lms run claude
 ```
 
-## 핵심 기능
-
-- **🔄 멀티 제공업체 지원**: DeepSeek, Qwen, Zhipu GLM-4.5, Kimi
-- **🌍 크로스 플랫폼 호환**: macOS, Linux, Windows (Git Bash/Cygwin)
-- **🔧 스마트 셸 통합**: bash, zsh, fish 자동 감지 및 통합
-- **⚙️ 대화형 구성 마법사**: 안전한 API 키 입력, 모델 선택
-- **📦 완전한 설치/제거**: 원클릭 설치, 깔끔한 제거
-- **🌐 다국어 문서**: 영어 및 중국어 문서 지원
-
-## 🤖 Zhipu GLM Integration
+## 🤖 Provider Integration
 
 <div align="center">
-<img src="https://raw.githubusercontent.com/Scienith/Scienith-cli-llm-switcher/main/assets/images/logo/zhipu.png" alt="Zhipu GLM" width="200">
+<img src="https://raw.githubusercontent.com/Scienith/Scienith-cli-llm-switcher/main/assets/images/logo/zhipu.jpg" alt="Zhipu GLM" width="200">
 </div>
 
 **Zhipu GLM** is a powerful Chinese large language model series developed by Zhipu AI, offering state-of-the-art performance for various tasks.
@@ -62,17 +83,17 @@ lms run claude
 
 
 
-## Uninstallation
+## 제거
 
-### Basic Uninstall (keeps configuration)
+### 기본 제거(구성 유지)
 
 ```bash
 npm uninstall -g cli-llm-switcher
 ```
 
-### Complete Uninstall (removes everything)
+### 완전 제거(모두 삭제)
 
-Note: Run `lms status` to see the configuration directory path before uninstalling.
+참고: 제거하기 전에 `lms status`를 실행하여 구성 디렉토리 경로를 확인하세요.
 
 **macOS/Linux:**
 ```bash

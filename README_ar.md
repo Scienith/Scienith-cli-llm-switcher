@@ -1,12 +1,12 @@
 <div align="center">
 
-<img src="assets/images/logo/logo.jpeg" alt="مبدل LLM لسطر الأوامر" width="50%">
+<img src="assets/images/logo/logo.jpeg" alt="cli-llm-switcher" width="50%">
 
-# مبدل LLM لسطر الأوامر
+# cli-llm-switcher
 
 *أداة سطر أوامر للتبديل بسلاسة بين عدة مقدمي خدمة LLM*
 
-[![Version](https://img.shields.io/badge/version-v0.2.0-alpha.14-blue.svg)](https://github.com/Scienith/Scienith-cli-llm-switcher/releases)
+[![Version](https://img.shields.io/badge/version-v0.2.0-blue.svg)](https://github.com/Scienith/Scienith-cli-llm-switcher/releases)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 **🌍 Languages**: [English](README.md) | [中文](README_zh.md) | [日本語](README_ja.md) | [한국어](README_ko.md) | [Français](README_fr.md) | [Deutsch](README_de.md) | [Español](README_es.md) | [Русский](README_ru.md) | العربية
@@ -15,39 +15,60 @@
 
 **التبديل بين DeepSeek و Qwen و Zhipu GLM و Kimi و Claude و OpenAI و Groq** بأمر واحد عند استخدام Claude Code أو أدوات CLI المتوافقة.
 
-## 🚀 البداية السريعة
+## 💡 💡 لماذا تختار LLM Switcher؟
+
+### 🔒 بيئة تكوين معزولة
+- **بدون تأثير على Claude Code الأصلي**: يبقى إعداد Claude الأصلي الخاص بك كما هو
+- **تبديل المزود حسب الجلسة**: يمكن لكل جلسة طرفية استخدام مزودين مختلفين
+
+### 🎯 أفضل الممارسات الرسمية
+- **التكوينات الموصى بها من المزودين**: يتبع إرشادات التكامل الرسمية لكل مزود
+- **تكوين النموذج المزدوج لـ Claude Code**: النموذج الرئيسي للمهام المعقدة، النموذج السريع للمهام البسيطة - يحسن الأداء والتكلفة بذكاء
+
+
+## 📋 المتطلبات الأساسية
+
+قبل التثبيت، تأكد من تثبيت Node.js (الإصدار 16 أو أحدث):
+
+### تثبيت Node.js
+
+**الخيار 1 (موصى به)**: استخدم nvm لإدارة Node.js بسهولة
+  ```bash
+  # تثبيت nvm: https://github.com/nvm-sh/nvm#install--update-script
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+  # أعد تشغيل الطرفية، ثم قم بتثبيت أحدث إصدار من Node.js
+  nvm install node
+  nvm use node
+  ```
+**الخيار 2**: التنزيل من [nodejs.org](https://nodejs.org/) (اختر إصدار LTS)
+
+التحقق من التثبيت:
+```bash
+node --version  # يجب أن يعرض v16.0.0 أو أعلى
+npm --version   # يجب أن يعرض إصدار npm
+```
+
+## البداية السريعة
 
 ```bash
-# استنساخ وإعداد
-git clone https://github.com/Scienith/Scienith-cli-llm-switcher
-cd cli-llm-switcher
-./install.sh
-source ~/.bashrc  # أو source ~/.zshrc (لمستخدمي Zsh)
+# التثبيت عالمياً عبر npm
+npm install -g cli-llm-switcher
 
-# تكوين مفاتيح API لمقدمي الخدمة
+# التحقق من التثبيت
+lms --version
+
+# تكوين مفاتيح API
 lms config
-# اتبع المطالبات لإدخال مفتاح API واختيار النموذج الافتراضي
+# اتبع المطالبات لإدخال مفتاح API الخاص بك
 
-# التبديل إلى Zhipu GLM
-lms switch zhipu
-
-# تشغيل Claude بالمزود الحالي
+# ابدأ الاستخدام مع Claude Code أو أدوات أخرى
 lms run claude
 ```
 
-## الميزات الأساسية
-
-- **🔄 دعم متعدد المقدمين**: DeepSeek, Qwen, Zhipu GLM-4.5, Kimi
-- **🌍 التوافق عبر المنصات**: macOS, Linux, Windows (Git Bash/Cygwin)
-- **🔧 تكامل ذكي مع Shell**: الكشف والتكامل التلقائي لـ bash, zsh, fish
-- **⚙️ معالج التكوين التفاعلي**: إدخال آمن لمفاتيح API، اختيار النماذج
-- **📦 التثبيت/إلغاء التثبيت الكامل**: تثبيت بنقرة واحدة، إزالة نظيفة
-- **🌐 الوثائق متعددة اللغات**: دعم الوثائق باللغتين الإنجليزية والصينية
-
-## 🤖 Zhipu GLM Integration
+## 🤖 Provider Integration
 
 <div align="center">
-<img src="https://raw.githubusercontent.com/Scienith/Scienith-cli-llm-switcher/main/assets/images/logo/zhipu.png" alt="Zhipu GLM" width="200">
+<img src="https://raw.githubusercontent.com/Scienith/Scienith-cli-llm-switcher/main/assets/images/logo/zhipu.jpg" alt="Zhipu GLM" width="200">
 </div>
 
 **Zhipu GLM** is a powerful Chinese large language model series developed by Zhipu AI, offering state-of-the-art performance for various tasks.
@@ -62,17 +83,17 @@ lms run claude
 
 
 
-## Uninstallation
+## إلغاء التثبيت
 
-### Basic Uninstall (keeps configuration)
+### إلغاء التثبيت الأساسي (يحتفظ بالتكوين)
 
 ```bash
 npm uninstall -g cli-llm-switcher
 ```
 
-### Complete Uninstall (removes everything)
+### إلغاء التثبيت الكامل (يزيل كل شيء)
 
-Note: Run `lms status` to see the configuration directory path before uninstalling.
+ملاحظة: قم بتشغيل `lms status` لرؤية مسار دليل التكوين قبل إلغاء التثبيت.
 
 **macOS/Linux:**
 ```bash
