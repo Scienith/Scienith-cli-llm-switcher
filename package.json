@@ -1,6 +1,6 @@
 {
   "name": "cli-llm-switcher",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "A command-line tool for seamlessly switching between multiple LLM providers",
   "bin": {
     "llm-switch": "./bin/llm-switch",
@@ -31,7 +31,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Scienith/Scienith-cli-llm-switcher.git"
+    "url": "https://github.com/Scienith/cli-llm-switcher.git"
   },
   "keywords": [
     "llm",

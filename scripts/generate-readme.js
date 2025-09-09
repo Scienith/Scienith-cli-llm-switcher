@@ -132,7 +132,7 @@ function generateProvidersTable(locale, L) {
   const title = L.home.provider_integration_title; // Required field
   
   // Logo base path
-  const logoBasePath = 'https://raw.githubusercontent.com/Scienith/Scienith-cli-llm-switcher/main/assets/images/logo/';
+  const logoBasePath = 'https://raw.githubusercontent.com/Scienith/cli-llm-switcher/main/assets/images/logo/';
   
   // Get providers to display from CONFIGURABLE_PROVIDERS
   const PROVIDER_KEYS = typesModule.PROVIDER_KEYS;
@@ -276,7 +276,7 @@ ${L.home.prerequisites_node_options.map(item => item).join('\n')}
 
 *${L.home.description}*
 
-[![Version](https://img.shields.io/badge/version-${getVersion()}-blue.svg)](https://github.com/Scienith/Scienith-cli-llm-switcher/releases)
+[![Version](https://img.shields.io/badge/version-${getVersion()}-blue.svg)](https://github.com/Scienith/cli-llm-switcher/releases)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 ${langLinks}
