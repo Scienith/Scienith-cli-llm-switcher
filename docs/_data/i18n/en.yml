@@ -1,0 +1,141 @@
+home:
+  description: A command-line tool for seamlessly switching between multiple LLM providers
+  subtitle: '**Seamlessly switch between LLM providers without affecting your native Claude Code setup.** Isolated configuration with official best practices from model providers.'
+  prerequisites_title: 📋 Prerequisites
+  prerequisites_desc: 'Before installing, ensure you have Node.js (v16 or later) installed:'
+  prerequisites_node_title: Install Node.js
+  prerequisites_node_options:
+    - '**Option 1 (Recommended)**: Use nvm for easy Node.js management'
+    - '  ```bash'
+    - '  # Install nvm: https://github.com/nvm-sh/nvm#install--update-script'
+    - '  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash'
+    - '  # Restart terminal, then install latest Node.js'
+    - '  nvm install node'
+    - '  nvm use node'
+    - '  ```'
+    - '**Option 2**: Download from [nodejs.org](https://nodejs.org/) (choose LTS version)'
+    - ''
+    - 'Verify installation:'
+    - '```bash'
+    - 'node --version  # Should show v16.0.0 or higher'
+    - 'npm --version   # Should show npm version'
+    - '```'
+  quick_start: 🚀 Installation
+  installation_commands:
+    - '# Install globally via npm'
+    - npm install -g cli-llm-switcher
+    - ''
+    - '# Verify installation'
+    - lms --version
+    - ''
+    - '# Configure API keys'
+    - lms config
+    - '# Follow prompts to enter your API key'
+    - ''
+    - '# Start using with Claude Code or other tools'
+    - lms run claude
+  why_title: Why LLM Switcher?
+  why_isolated_title: 🔒 Isolated Configuration Environment
+  why_isolated_items:
+    - '**Zero impact on native Claude Code**: Your original Claude setup remains untouched'
+    - '**Per-session provider switching**: Each terminal session can use different providers'
+  why_practices_title: 🎯 Official Best Practices
+  why_practices_items:
+    - '**Provider-recommended configurations**: Following official integration guidelines from each provider'
+    - '**Claude Code dual-model configuration**: Main model for conversation/planning/code generation/complex reasoning, fast model (Claude uses Haiku e.g. 3.5 Haiku) for file search/syntax checking and auxiliary tasks - intelligently optimizing performance and cost'
+  provider_integration_title: 🤖 Provider Integration
+  zhipu_description: '**Zhipu GLM** is a powerful Chinese large language model series developed by Zhipu AI, offering state-of-the-art performance for various tasks.'
+  zhipu_models_title: Available Models
+  zhipu_models:
+    - '**glm-4.5**: Main model for complex reasoning and generation tasks'
+    - '**glm-4.5-air**: Fast model optimized for quick responses'
+  zhipu_api_title: Get Your API Key
+  zhipu_api_links:
+    - '**🇨🇳 China**: [https://bigmodel.cn/](https://bigmodel.cn/)'
+    - '**🌍 International**: [https://z.ai/model-api](https://z.ai/model-api)'
+  deepseek_description: '**DeepSeek** is an advanced AI model series focused on deep reasoning and code understanding, providing exceptional performance for programming tasks.'
+  deepseek_models_title: Available Models
+  deepseek_models:
+    - '**deepseek-chat**: Versatile model for both complex reasoning and quick responses'
+  deepseek_api_title: Get Your API Key
+  deepseek_api_links:
+    - '**Platform**: [https://platform.deepseek.com/](https://platform.deepseek.com/)'
+  alibaba_int_description: '**Alibaba Cloud Qwen (International)** offers powerful large language models with excellent multilingual capabilities and code generation features.'
+  alibaba_int_api_title: Get Your API Key
+  alibaba_int_api_links:
+    - '**🌍 International**: [https://modelstudio.console.alibabacloud.com/](https://modelstudio.console.alibabacloud.com/)'
+  alibaba_description: '**Alibaba Cloud Qwen (China)** offers powerful large language models with excellent multilingual capabilities and code generation features.'
+  alibaba_models_title: Available Models
+  alibaba_models:
+    - '**qwen3-coder-plus**: Main model for advanced code generation and analysis'
+    - '**qwen3-coder-flash**: Fast model for quick code completions and syntax checking'
+  alibaba_api_title: Get Your API Key
+  alibaba_api_links:
+    - '**🇨🇳 China**: [https://bailian.console.aliyun.com/](https://bailian.console.aliyun.com/)'
+  moonshot_description: '**Moonshot AI** provides intelligent language models with strong context understanding and conversational abilities.'
+  moonshot_models_title: Available Models
+  moonshot_models:
+    - '**K2-Instruct-0905**: Advanced model with excellent instruction-following capabilities'
+  moonshot_api_title: Get Your API Key
+  moonshot_api_links:
+    - '**Platform**: [https://platform.moonshot.ai/](https://platform.moonshot.ai/)'
+  model_config_title: Model Configuration
+  model_config_desc: 'The tool automatically configures optimal models for different purposes:'
+  model_config_main: '**Main Model**'
+  model_config_fast: '**Fast Model**'
+  model_config_example: 'For example, Zhipu GLM uses:'
+  model_config_example_main: '- Main Model: `glm-4.5` - More powerful, suitable for complex tasks'
+  model_config_example_fast: '- Fast Model: `glm-4.5-air` - Lighter weight, optimized for speed'
+  configuration_title: Configuration
+  configuration_desc: After installation, you need to configure your API keys for the providers you want to use.
+  configuration_steps:
+    - Copy the configuration template
+    - Edit the configuration file
+    - Add your API keys for each provider
+    - Test the configuration
+  usage_title: Usage
+  usage_desc: 'Once configured, you can easily switch between providers:'
+  usage_examples:
+    - Switch to a provider
+    - Use shortcuts
+    - Show current provider
+    - List all providers
+    - Show available models
+    - Show all models
+    - Show models for specific provider
+    - Configure API keys
+    - Configure all
+    - Configure specific provider
+  troubleshooting_title: Troubleshooting
+  troubleshooting_common: Common Issues
+  troubleshooting_tips:
+    - '**Permission denied**: Make sure the script is executable with `chmod +x bin/llm-switch`'
+    - '**Config not found**: Ensure you''ve copied and edited `config/providers.ini`'
+    - '**API key errors**: Verify your API keys are correct and have proper permissions'
+    - '**Shell integration**: Make sure to source the output or add to your shell profile'
+  uninstallation_title: Uninstallation
+  uninstallation_basic_title: Basic Uninstall (keeps configuration)
+  uninstallation_complete_title: Complete Uninstall (removes everything)
+  uninstallation_note: 'Note: Run `lms status` to see the configuration directory path before uninstalling.'
+  uninstallation_commands:
+    basic: npm uninstall -g cli-llm-switcher
+    macos_linux:
+      - npm uninstall -g cli-llm-switcher
+      - rm -rf ~/.llm-switch
+    windows_ps:
+      - npm uninstall -g cli-llm-switcher
+      - Remove-Item -Recurse -Force "$env:USERPROFILE\.llm-switch"
+    windows_cmd:
+      - npm uninstall -g cli-llm-switcher
+      - rmdir /s /q "%USERPROFILE%\.llm-switch"
+  contributing: Contributing
+  contributing_text: Contributions are welcome! Please feel free to submit a Pull Request.
+  license: License
+  license_text: This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+  need_help: '**Need help?** Check the complete documentation for detailed guides and troubleshooting.'
+  references_title: References
+  references_text: 'Official provider configuration guides for Claude Code integration:'
+  references_links:
+    - '[DeepSeek Anthropic API Guide](https://api-docs.deepseek.com/guides/anthropic_api)'
+    - '[Alibaba Cloud Model Studio - Claude Code Integration](https://help.aliyun.com/zh/model-studio/claude-code)'
+    - '[Zhipu GLM - Claude Development Guide](https://docs.bigmodel.cn/cn/guide/develop/claude)'

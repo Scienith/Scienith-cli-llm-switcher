@@ -1,0 +1,21 @@
+#!/usr/bin/env node
+
+/**
+ * Launcher for llm-switch CLI
+ * This ensures we always load from the installed package location
+ */
+
+// Get the real path of this script
+const fs = require('fs');
+const path = require('path');
+
+// Resolve the actual package location
+const scriptPath = fs.realpathSync(__filename);
+const packageDir = path.resolve(path.dirname(scriptPath), '..');
+const cliPath = path.join(packageDir, 'dist', 'cli.js');
+
+// Clear module cache to avoid conflicts
+delete require.cache[cliPath];
+
+// Load the CLI from the correct location
+require(cliPath);

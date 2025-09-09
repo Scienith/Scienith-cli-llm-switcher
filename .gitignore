@@ -1,0 +1,55 @@
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor directories and files
+.idea
+.vscode
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+
+# Configuration files with sensitive data
+config.local
+*.env
+.env.*
+
+# INI configuration with API keys (users should copy from template)
+config/providers.ini
+config/current_provider
+
+# Test coverage
+coverage/
+*.lcov
+
+# Dependency directories
+node_modules/
+
+# Build outputs
+dist/
+build/
+out/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Backup files
+*.bak
+*.backup
+
+# Local configuration overrides
+local-config/
+
+# Include important assets
+!assets/images/
+!docs/assets/images/

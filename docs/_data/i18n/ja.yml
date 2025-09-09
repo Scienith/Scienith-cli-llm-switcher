@@ -1,0 +1,141 @@
+home:
+  description: 複数のLLMプロバイダー間をシームレスに切り替えるためのコマンドラインツール
+  subtitle: '**DeepSeek、Qwen、Zhipu GLM、Kimi、Claude、OpenAI、Groq を1つのコマンドで切り替え**、Claude Code や互換CLIツールに完璧対応。'
+  prerequisites_title: 📋 前提条件
+  prerequisites_desc: インストールする前に、Node.js（v16以降）がインストールされていることを確認してください：
+  prerequisites_node_title: Node.js のインストール
+  prerequisites_node_options:
+    - '**オプション1（推奨）**：nvmを使用してNode.jsを簡単に管理'
+    - '  ```bash'
+    - '  # nvmをインストール: https://github.com/nvm-sh/nvm#install--update-script'
+    - '  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash'
+    - '  # ターミナルを再起動し、最新のNode.jsをインストール'
+    - '  nvm install node'
+    - '  nvm use node'
+    - '  ```'
+    - '**オプション2**：[nodejs.org](https://nodejs.org/)からダウンロード（LTSバージョンを選択）'
+    - ''
+    - インストールの確認：
+    - '```bash'
+    - 'node --version  # v16.0.0以降が表示されるはずです'
+    - 'npm --version   # npmのバージョンが表示されるはずです'
+    - '```'
+  quick_start: クイックスタート
+  installation_commands:
+    - '# npm でグローバルインストール'
+    - npm install -g cli-llm-switcher
+    - ''
+    - '# インストールの確認'
+    - lms --version
+    - ''
+    - '# API キーの設定'
+    - lms config
+    - '# プロンプトに従って API キーを入力'
+    - ''
+    - '# Claude Code または他のツールで使用開始'
+    - lms run claude
+  why_title: 💡 なぜLLMスイッチャーを選ぶのか？
+  why_isolated_title: 🔒 分離された設定環境
+  why_isolated_items:
+    - '**ネイティブClaude Codeへの影響ゼロ**: 元のClaude設定は変更されません'
+    - '**セッションごとのプロバイダー切り替え**: 各ターミナルセッションで異なるプロバイダーを使用可能'
+  why_practices_title: 🎯 公式ベストプラクティス
+  why_practices_items:
+    - '**プロバイダー推奨設定**: 各プロバイダーの公式統合ガイドラインに従う'
+    - '**Claude Code デュアルモデル構成**: メインモデルは会話/計画立案/コード生成/複雑な推論に使用、高速モデル（Claudeは3.5 Haikuなどを使用）はファイル検索/構文チェックなどの補助タスクに使用 - パフォーマンスとコストを賢く最適化'
+  provider_integration_title: 🤖 プロバイダー統合
+  zhipu_description: '**Zhipu GLM** は、Zhipu AIが開発した強力な中国語大規模言語モデルシリーズで、様々なタスクに最先端のパフォーマンスを提供します。'
+  zhipu_models_title: 利用可能なモデル
+  zhipu_models:
+    - '**glm-4.5**: 複雑な推論と生成タスク用のメインモデル'
+    - '**glm-4.5-air**: 高速応答に最適化された軽量モデル'
+  zhipu_api_title: APIキーを取得
+  zhipu_api_links:
+    - '**🇨🇳 中国**: [https://bigmodel.cn/](https://bigmodel.cn/)'
+    - '**🌍 国際版**: [https://z.ai/model-api](https://z.ai/model-api)'
+  deepseek_description: '[NEEDS TRANSLATION] **DeepSeek** is an advanced AI model series focused on deep reasoning and code understanding, providing exceptional performance for programming tasks.'
+  deepseek_models_title: '[NEEDS TRANSLATION] Available Models'
+  deepseek_models:
+    - '[NEEDS TRANSLATION] **deepseek-chat**: Versatile model for both complex reasoning and quick responses'
+  deepseek_api_title: '[NEEDS TRANSLATION] Get Your API Key'
+  deepseek_api_links:
+    - '[NEEDS TRANSLATION] **Platform**: [https://platform.deepseek.com/](https://platform.deepseek.com/)'
+  alibaba_int_description: '[NEEDS TRANSLATION] **Alibaba Cloud Qwen (International)** offers powerful large language models with excellent multilingual capabilities and code generation features.'
+  alibaba_int_api_title: '[NEEDS TRANSLATION] Get Your API Key'
+  alibaba_int_api_links:
+    - '[NEEDS TRANSLATION] **🌍 International**: [https://modelstudio.console.alibabacloud.com/](https://modelstudio.console.alibabacloud.com/)'
+  alibaba_description: '[NEEDS TRANSLATION] **Alibaba Cloud Qwen (China)** offers powerful large language models with excellent multilingual capabilities and code generation features.'
+  alibaba_models_title: '[NEEDS TRANSLATION] Available Models'
+  alibaba_models:
+    - '[NEEDS TRANSLATION] **qwen3-coder-plus**: Main model for advanced code generation and analysis'
+    - '[NEEDS TRANSLATION] **qwen3-coder-flash**: Fast model for quick code completions and syntax checking'
+  alibaba_api_title: '[NEEDS TRANSLATION] Get Your API Key'
+  alibaba_api_links:
+    - '[NEEDS TRANSLATION] **🇨🇳 China**: [https://bailian.console.aliyun.com/](https://bailian.console.aliyun.com/)'
+  moonshot_description: '[NEEDS TRANSLATION] **Moonshot AI (Kimi)** provides intelligent language models with strong context understanding and conversational abilities.'
+  moonshot_models_title: '[NEEDS TRANSLATION] Available Models'
+  moonshot_models:
+    - '[NEEDS TRANSLATION] **K2-Instruct-0905**: Advanced model with excellent instruction-following capabilities'
+  moonshot_api_title: '[NEEDS TRANSLATION] Get Your API Key'
+  moonshot_api_links:
+    - '[NEEDS TRANSLATION] **Platform**: [https://platform.moonshot.ai/](https://platform.moonshot.ai/)'
+  model_config_title: モデル設定
+  model_config_desc: ツールは異なる用途に最適なモデルを自動的に設定します：
+  model_config_main: '**[NEEDS TRANSLATION] Main Model**'
+  model_config_fast: '**[NEEDS TRANSLATION] Fast Model**'
+  model_config_example: 例えば、Zhipu GLMの場合：
+  model_config_example_main: '- メインモデル：`glm-4.5` - より強力で、複雑なタスクに適している'
+  model_config_example_fast: '- 高速モデル：`glm-4.5-air` - より軽量で、速度を優先'
+  configuration_title: 設定
+  configuration_desc: インストール後、使用するプロバイダーのAPIキーを設定する必要があります。
+  configuration_steps:
+    - 設定テンプレートをコピー
+    - 設定ファイルを編集
+    - 各プロバイダーのAPIキーを追加
+    - 設定をテスト
+  usage_title: 使用方法
+  usage_desc: 設定が完了したら、プロバイダー間を簡単に切り替えることができます：
+  usage_examples:
+    - プロバイダーに切り替え
+    - ショートカットを使用
+    - 現在のプロバイダーを表示
+    - すべてのプロバイダーをリスト
+    - 利用可能なモデルを表示
+    - すべてのモデルを表示
+    - 特定のプロバイダーのモデルを表示
+    - APIキーを設定
+    - すべて設定
+    - 特定のプロバイダーを設定
+  troubleshooting_title: トラブルシューティング
+  troubleshooting_common: よくある問題
+  troubleshooting_tips:
+    - '**権限拒否**: スクリプトが実行可能であることを確認 `chmod +x bin/llm-switch`'
+    - '**設定が見つからない**: `config/providers.ini`をコピーして編集したことを確認'
+    - '**APIキーエラー**: APIキーが正しく、適切な権限を持っていることを確認'
+    - '**シェル統合**: 出力を実行するか、シェルプロファイルに追加したことを確認'
+  uninstallation_title: アンインストール
+  uninstallation_basic_title: 基本的なアンインストール（設定を保持）
+  uninstallation_complete_title: 完全なアンインストール（すべて削除）
+  uninstallation_note: 注意：アンインストール前に `lms status` を実行して設定ディレクトリのパスを確認してください。
+  uninstallation_commands:
+    basic: npm uninstall -g cli-llm-switcher
+    macos_linux:
+      - npm uninstall -g cli-llm-switcher
+      - rm -rf ~/.llm-switch
+    windows_ps:
+      - npm uninstall -g cli-llm-switcher
+      - Remove-Item -Recurse -Force "$env:USERPROFILE\.llm-switch"
+    windows_cmd:
+      - npm uninstall -g cli-llm-switcher
+      - rmdir /s /q "%USERPROFILE%\.llm-switch"
+  contributing: 貢献
+  contributing_text: 貢献を歓迎します！プルリクエストをお気軽にお送りください。
+  license: ライセンス
+  license_text: 本プロジェクトはMITライセンスの下でライセンスされています - 詳細については[LICENSE](LICENSE)ファイルをご覧ください。
+  need_help: '**ヘルプが必要ですか？** 詳細なガイドとトラブルシューティングについては、完全なドキュメントをご確認ください。'
+  references_title: '[NEEDS TRANSLATION] References'
+  references_text: '[NEEDS TRANSLATION] Official provider configuration guides for Claude Code integration:'
+  references_links:
+    - '[DeepSeek Anthropic API Guide](https://api-docs.deepseek.com/guides/anthropic_api)'
+    - '[Alibaba Cloud Model Studio - Claude Code Integration](https://help.aliyun.com/zh/model-studio/claude-code)'
+    - '[Zhipu GLM - Claude Development Guide](https://docs.bigmodel.cn/cn/guide/develop/claude)'

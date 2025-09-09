@@ -1,0 +1,141 @@
+home:
+  description: Un outil en ligne de commande pour basculer facilement entre plusieurs fournisseurs LLM
+  subtitle: '**Basculez entre DeepSeek, Qwen, Zhipu GLM, Kimi** d''une seule commande avec Claude Code ou des outils CLI compatibles.'
+  prerequisites_title: 📋 Prérequis
+  prerequisites_desc: 'Avant l''installation, assurez-vous que Node.js (v16 ou version ultérieure) est installé :'
+  prerequisites_node_title: Installer Node.js
+  prerequisites_node_options:
+    - '**Option 1 (Recommandée)** : Utiliser nvm pour gérer facilement Node.js'
+    - '  ```bash'
+    - '  # Installer nvm : https://github.com/nvm-sh/nvm#install--update-script'
+    - '  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash'
+    - '  # Redémarrer le terminal, puis installer la dernière version de Node.js'
+    - '  nvm install node'
+    - '  nvm use node'
+    - '  ```'
+    - '**Option 2** : Télécharger depuis [nodejs.org](https://nodejs.org/) (choisir la version LTS)'
+    - ''
+    - 'Vérifier l''installation :'
+    - '```bash'
+    - 'node --version  # Devrait afficher v16.0.0 ou plus'
+    - 'npm --version   # Devrait afficher la version npm'
+    - '```'
+  quick_start: Démarrage rapide
+  installation_commands:
+    - '# Installation globale via npm'
+    - npm install -g cli-llm-switcher
+    - ''
+    - '# Vérifier l''installation'
+    - lms --version
+    - ''
+    - '# Configurer les clés API'
+    - lms config
+    - '# Suivez les invites pour entrer votre clé API'
+    - ''
+    - '# Commencer à utiliser avec Claude Code ou d''autres outils'
+    - lms run claude
+  why_title: 💡 Pourquoi choisir LLM Switcher ?
+  why_isolated_title: 🔒 Environnement de configuration isolé
+  why_isolated_items:
+    - '**Aucun impact sur Claude Code natif** : Votre configuration Claude d''origine reste intacte'
+    - '**Changement de fournisseur par session** : Chaque session de terminal peut utiliser différents fournisseurs'
+  why_practices_title: 🎯 Meilleures pratiques officielles
+  why_practices_items:
+    - '**Configurations recommandées par les fournisseurs** : Suit les directives d''intégration officielles de chaque fournisseur'
+    - '**Configuration double modèle Claude Code** : Modèle principal pour conversation/planification/génération de code/raisonnement complexe, modèle rapide (Claude utilise Haiku ex. 3.5 Haiku) pour recherche de fichiers/vérification syntaxique et tâches auxiliaires - optimise intelligemment les performances et les coûts'
+  provider_integration_title: 🤖 Intégration des fournisseurs
+  zhipu_description: '**Zhipu GLM** est une puissante série de modèles de langage chinois développée par Zhipu AI, offrant des performances de pointe pour diverses tâches.'
+  zhipu_models_title: Modèles disponibles
+  zhipu_models:
+    - '**glm-4.5** : Modèle principal pour les tâches de raisonnement et de génération complexes'
+    - '**glm-4.5-air** : Modèle léger optimisé pour des réponses rapides'
+  zhipu_api_title: Obtenir votre clé API
+  zhipu_api_links:
+    - '**🇨🇳 Chine** : [https://bigmodel.cn/](https://bigmodel.cn/)'
+    - '**🌍 International** : [https://z.ai/model-api](https://z.ai/model-api)'
+  deepseek_description: '[NEEDS TRANSLATION] **DeepSeek** is an advanced AI model series focused on deep reasoning and code understanding, providing exceptional performance for programming tasks.'
+  deepseek_models_title: '[NEEDS TRANSLATION] Available Models'
+  deepseek_models:
+    - '[NEEDS TRANSLATION] **deepseek-chat**: Versatile model for both complex reasoning and quick responses'
+  deepseek_api_title: '[NEEDS TRANSLATION] Get Your API Key'
+  deepseek_api_links:
+    - '[NEEDS TRANSLATION] **Platform**: [https://platform.deepseek.com/](https://platform.deepseek.com/)'
+  alibaba_int_description: '[NEEDS TRANSLATION] **Alibaba Cloud Qwen (International)** offers powerful large language models with excellent multilingual capabilities and code generation features.'
+  alibaba_int_api_title: '[NEEDS TRANSLATION] Get Your API Key'
+  alibaba_int_api_links:
+    - '[NEEDS TRANSLATION] **🌍 International**: [https://modelstudio.console.alibabacloud.com/](https://modelstudio.console.alibabacloud.com/)'
+  alibaba_description: '[NEEDS TRANSLATION] **Alibaba Cloud Qwen (China)** offers powerful large language models with excellent multilingual capabilities and code generation features.'
+  alibaba_models_title: '[NEEDS TRANSLATION] Available Models'
+  alibaba_models:
+    - '[NEEDS TRANSLATION] **qwen3-coder-plus**: Main model for advanced code generation and analysis'
+    - '[NEEDS TRANSLATION] **qwen3-coder-flash**: Fast model for quick code completions and syntax checking'
+  alibaba_api_title: '[NEEDS TRANSLATION] Get Your API Key'
+  alibaba_api_links:
+    - '[NEEDS TRANSLATION] **🇨🇳 China**: [https://bailian.console.aliyun.com/](https://bailian.console.aliyun.com/)'
+  moonshot_description: '[NEEDS TRANSLATION] **Moonshot AI (Kimi)** provides intelligent language models with strong context understanding and conversational abilities.'
+  moonshot_models_title: '[NEEDS TRANSLATION] Available Models'
+  moonshot_models:
+    - '[NEEDS TRANSLATION] **K2-Instruct-0905**: Advanced model with excellent instruction-following capabilities'
+  moonshot_api_title: '[NEEDS TRANSLATION] Get Your API Key'
+  moonshot_api_links:
+    - '[NEEDS TRANSLATION] **Platform**: [https://platform.moonshot.ai/](https://platform.moonshot.ai/)'
+  model_config_title: Configuration des modèles
+  model_config_desc: 'L''outil configure automatiquement les modèles optimaux pour différentes utilisations :'
+  model_config_main: '**[NEEDS TRANSLATION] Main Model**'
+  model_config_fast: '**[NEEDS TRANSLATION] Fast Model**'
+  model_config_example: 'Par exemple, Zhipu GLM utilise :'
+  model_config_example_main: '- Modèle principal : `glm-4.5` - Plus puissant, adapté aux tâches complexes'
+  model_config_example_fast: '- Modèle rapide : `glm-4.5-air` - Plus léger, optimisé pour la vitesse'
+  configuration_title: Configuration
+  configuration_desc: Après l'installation, vous devez configurer les clés API pour les fournisseurs que vous souhaitez utiliser.
+  configuration_steps:
+    - Copier le modèle de configuration
+    - Modifier le fichier de configuration
+    - Ajouter les clés API pour chaque fournisseur
+    - Tester la configuration
+  usage_title: Utilisation
+  usage_desc: 'Une fois configuré, vous pouvez facilement basculer entre les fournisseurs :'
+  usage_examples:
+    - Basculer vers un fournisseur
+    - Utiliser les raccourcis
+    - Afficher le fournisseur actuel
+    - Lister tous les fournisseurs
+    - Afficher les modèles disponibles
+    - Afficher tous les modèles
+    - Afficher les modèles d'un fournisseur spécifique
+    - Configurer les clés API
+    - Tout configurer
+    - Configurer un fournisseur spécifique
+  troubleshooting_title: Dépannage
+  troubleshooting_common: Problèmes courants
+  troubleshooting_tips:
+    - '**Permission refusée** : Assurez-vous que le script est exécutable avec `chmod +x bin/llm-switch`'
+    - '**Configuration non trouvée** : Assurez-vous d''avoir copié et édité `config/providers.ini`'
+    - '**Erreurs de clé API** : Vérifiez que vos clés API sont correctes et ont les permissions appropriées'
+    - '**Intégration shell** : Assurez-vous d''exécuter la sortie ou de l''ajouter à votre profil shell'
+  uninstallation_title: Désinstallation
+  uninstallation_basic_title: Désinstallation de base (conserve la configuration)
+  uninstallation_complete_title: Désinstallation complète (supprime tout)
+  uninstallation_note: 'Note : Exécutez `lms status` pour voir le chemin du répertoire de configuration avant la désinstallation.'
+  uninstallation_commands:
+    basic: npm uninstall -g cli-llm-switcher
+    macos_linux:
+      - npm uninstall -g cli-llm-switcher
+      - rm -rf ~/.llm-switch
+    windows_ps:
+      - npm uninstall -g cli-llm-switcher
+      - Remove-Item -Recurse -Force "$env:USERPROFILE\.llm-switch"
+    windows_cmd:
+      - npm uninstall -g cli-llm-switcher
+      - rmdir /s /q "%USERPROFILE%\.llm-switch"
+  contributing: Contribution
+  contributing_text: Les contributions sont les bienvenues ! N'hésitez pas à soumettre une Pull Request.
+  license: Licence
+  license_text: Ce projet est sous licence MIT - voir le fichier [LICENSE](LICENSE) pour plus de détails.
+  need_help: '**Besoin d''aide ?** Consultez la documentation complète pour des guides détaillés et le dépannage.'
+  references_title: '[NEEDS TRANSLATION] References'
+  references_text: '[NEEDS TRANSLATION] Official provider configuration guides for Claude Code integration:'
+  references_links:
+    - '[DeepSeek Anthropic API Guide](https://api-docs.deepseek.com/guides/anthropic_api)'
+    - '[Alibaba Cloud Model Studio - Claude Code Integration](https://help.aliyun.com/zh/model-studio/claude-code)'
+    - '[Zhipu GLM - Claude Development Guide](https://docs.bigmodel.cn/cn/guide/develop/claude)'

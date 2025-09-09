@@ -1,0 +1,59 @@
+#!/usr/bin/env node
+
+/**
+ * Launcher for llm-switch CLI
+ * This ensures we always load from the installed package location
+ */
+
+// Force working directory to not interfere with module resolution
+process.chdir('/');
+
+// Get the real path of this script without being affected by PWD
+const fs = require('fs');
+const path = require('path');
+
+try {
+  // Use multiple strategies to find the correct path
+  let scriptPath;
+  let packageDir;
+  let cliPath;
+
+  // Strategy 1: Use realpath of this script
+  try {
+    scriptPath = fs.realpathSync(__filename);
+    packageDir = path.resolve(path.dirname(scriptPath), '..');
+    cliPath = path.join(packageDir, 'dist', 'cli.js');
+    
+    if (fs.existsSync(cliPath)) {
+      // Success with strategy 1
+    } else {
+      throw new Error('CLI file not found with strategy 1');
+    }
+  } catch (e) {
+    // Strategy 2: Use require.resolve to find the package
+    try {
+      const packageJsonPath = require.resolve('cli-llm-switcher/package.json');
+      packageDir = path.dirname(packageJsonPath);
+      cliPath = path.join(packageDir, 'dist', 'cli.js');
+      
+      if (!fs.existsSync(cliPath)) {
+        throw new Error('CLI file not found with strategy 2');
+      }
+    } catch (e2) {
+      console.error('Failed to locate cli-llm-switcher installation');
+      console.error('Strategy 1 error:', e.message);
+      console.error('Strategy 2 error:', e2.message);
+      console.error('Script path:', __filename);
+      process.exit(1);
+    }
+  }
+
+  // Clear module cache to avoid conflicts
+  delete require.cache[cliPath];
+
+  // Load the CLI from the correct location
+  require(cliPath);
+} catch (error) {
+  console.error('Fatal error in cli-llm-switcher launcher:', error.message);
+  process.exit(1);
+}
