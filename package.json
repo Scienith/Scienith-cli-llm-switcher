@@ -1,6 +1,6 @@
 {
   "name": "cli-llm-switcher",
-  "version": "0.2.0-alpha.3",
+  "version": "0.2.0-alpha.4",
   "description": "A command-line tool for seamlessly switching between multiple LLM providers",
   "bin": {
     "llm-switch": "./bin/llm-switch",

@@ -4,5 +4,4 @@
  * TypeScript version of llm-switch CLI
  */
 
-const path = require('path');
-require(path.join(__dirname, '..', 'dist', 'cli.js'));
+require('../dist/cli.js');
