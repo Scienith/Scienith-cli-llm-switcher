@@ -21,6 +21,7 @@ export interface ProviderConfig {
   fastModel: string;
   apiUrls: string[];
   apiUrlLabels?: string[];  // Labels for multiple URLs, e.g., ['China', 'International']
+  logo: string;  // Logo filename for README generation
 }
 
 export interface Config {
@@ -68,6 +69,10 @@ export const DEFAULT_PROVIDERS = [
 
 // Providers available for configuration (only these will show in config command)
 export const CONFIGURABLE_PROVIDERS = [
+  PROVIDER_KEYS.DEEPSEEK,
+  PROVIDER_KEYS.ALIBABACLOUD_INT,
+  PROVIDER_KEYS.ALIBABACLOUD,
+  PROVIDER_KEYS.KIMI,
   PROVIDER_KEYS.ZHIPU
 ];
 
@@ -82,25 +87,28 @@ export const PROVIDER_CONFIGS: Record<string, ProviderConfig> = {
     anthropicUrl: 'https://api.deepseek.com/anthropic',
     defaultModel: 'deepseek-chat',
     fastModel: 'deepseek-chat',
-    apiUrls: ['https://platform.deepseek.com/']
+    apiUrls: ['https://platform.deepseek.com/'],
+    logo: 'deepseek_logo.png'
   },
   [PROVIDER_KEYS.ALIBABACLOUD_INT]: {
     key: PROVIDER_KEYS.ALIBABACLOUD_INT,
-    name: 'AlibabaCloud-Int',
+    name: 'AlibabaCloud (International)',
     baseUrl: 'https://dashscope-intl.aliyuncs.com/compatible-mode/v1',
     anthropicUrl: 'https://dashscope-intl.aliyuncs.com/api/v2/apps/claude-code-proxy',
     defaultModel: 'qwen3-coder-plus',
     fastModel: 'qwen3-coder-flash',
-    apiUrls: ['https://modelstudio.console.alibabacloud.com/']
+    apiUrls: ['https://modelstudio.console.alibabacloud.com/'],
+    logo: 'alibaba_cloud.png'
   },
   [PROVIDER_KEYS.ALIBABACLOUD]: {
     key: PROVIDER_KEYS.ALIBABACLOUD,
-    name: 'AlibabaCloud',
+    name: 'AlibabaCloud (China)',
     baseUrl: 'https://dashscope.aliyuncs.com/compatible-mode/v1',
     anthropicUrl: 'https://dashscope.aliyuncs.com/api/v2/apps/claude-code-proxy',
     defaultModel: 'qwen3-coder-plus',
     fastModel: 'qwen3-coder-flash',
-    apiUrls: ['https://bailian.console.aliyun.com/']
+    apiUrls: ['https://bailian.console.aliyun.com/'],
+    logo: 'alibaba_cloud.png'
   },
   [PROVIDER_KEYS.ZHIPU]: {
     key: PROVIDER_KEYS.ZHIPU,
@@ -110,16 +118,18 @@ export const PROVIDER_CONFIGS: Record<string, ProviderConfig> = {
     defaultModel: 'glm-4.5',
     fastModel: 'glm-4.5-air',
     apiUrls: ['https://bigmodel.cn/', 'https://z.ai/model-api'],
-    apiUrlLabels: ['China', 'International']
+    apiUrlLabels: ['China', 'International'],
+    logo: 'zhipu.jpg'
   },
   [PROVIDER_KEYS.KIMI]: {
     key: PROVIDER_KEYS.KIMI,
-    name: 'Kimi (Moonshot AI)',
+    name: 'Moonshot AI',
     baseUrl: 'https://api.moonshot.cn/v1',
     anthropicUrl: 'https://api.moonshot.ai/anthropic',
     defaultModel: 'K2-Instruct-0905',
     fastModel: 'K2-Instruct-0905',
-    apiUrls: ['https://platform.moonshot.ai/']
+    apiUrls: ['https://platform.moonshot.ai/'],
+    logo: 'moonshot_logo.png'
   }
 };
 

@@ -42,9 +42,8 @@ home:
   why_practices_title: 🎯 Meilleures pratiques officielles
   why_practices_items:
     - '**Configurations recommandées par les fournisseurs** : Suit les directives d''intégration officielles de chaque fournisseur'
-    - '**Configuration double modèle Claude Code** : Modèle principal pour les tâches complexes, modèle rapide pour les tâches simples - optimise intelligemment les performances et les coûts'
+    - '**Configuration double modèle Claude Code** : Modèle principal pour conversation/planification/génération de code/raisonnement complexe, modèle rapide (Claude utilise Haiku ex. 3.5 Haiku) pour recherche de fichiers/vérification syntaxique et tâches auxiliaires - optimise intelligemment les performances et les coûts'
   provider_integration_title: 🤖 Intégration des fournisseurs
-  zhipu_logo_path: assets/images/logo/zhipu_logo_cn.png
   zhipu_description: '**Zhipu GLM** est une puissante série de modèles de langage chinois développée par Zhipu AI, offrant des performances de pointe pour diverses tâches.'
   zhipu_models_title: Modèles disponibles
   zhipu_models:
@@ -54,10 +53,36 @@ home:
   zhipu_api_links:
     - '**🇨🇳 Chine** : [https://bigmodel.cn/](https://bigmodel.cn/)'
     - '**🌍 International** : [https://z.ai/model-api](https://z.ai/model-api)'
+  deepseek_description: '[NEEDS TRANSLATION] **DeepSeek** is an advanced AI model series focused on deep reasoning and code understanding, providing exceptional performance for programming tasks.'
+  deepseek_models_title: '[NEEDS TRANSLATION] Available Models'
+  deepseek_models:
+    - '[NEEDS TRANSLATION] **deepseek-chat**: Versatile model for both complex reasoning and quick responses'
+  deepseek_api_title: '[NEEDS TRANSLATION] Get Your API Key'
+  deepseek_api_links:
+    - '[NEEDS TRANSLATION] **Platform**: [https://platform.deepseek.com/](https://platform.deepseek.com/)'
+  alibaba_int_description: '[NEEDS TRANSLATION] **Alibaba Cloud Qwen (International)** offers powerful large language models with excellent multilingual capabilities and code generation features.'
+  alibaba_int_api_title: '[NEEDS TRANSLATION] Get Your API Key'
+  alibaba_int_api_links:
+    - '[NEEDS TRANSLATION] **🌍 International**: [https://modelstudio.console.alibabacloud.com/](https://modelstudio.console.alibabacloud.com/)'
+  alibaba_description: '[NEEDS TRANSLATION] **Alibaba Cloud Qwen (China)** offers powerful large language models with excellent multilingual capabilities and code generation features.'
+  alibaba_models_title: '[NEEDS TRANSLATION] Available Models'
+  alibaba_models:
+    - '[NEEDS TRANSLATION] **qwen3-coder-plus**: Main model for advanced code generation and analysis'
+    - '[NEEDS TRANSLATION] **qwen3-coder-flash**: Fast model for quick code completions and syntax checking'
+  alibaba_api_title: '[NEEDS TRANSLATION] Get Your API Key'
+  alibaba_api_links:
+    - '[NEEDS TRANSLATION] **🇨🇳 China**: [https://bailian.console.aliyun.com/](https://bailian.console.aliyun.com/)'
+  moonshot_description: '[NEEDS TRANSLATION] **Moonshot AI (Kimi)** provides intelligent language models with strong context understanding and conversational abilities.'
+  moonshot_models_title: '[NEEDS TRANSLATION] Available Models'
+  moonshot_models:
+    - '[NEEDS TRANSLATION] **K2-Instruct-0905**: Advanced model with excellent instruction-following capabilities'
+  moonshot_api_title: '[NEEDS TRANSLATION] Get Your API Key'
+  moonshot_api_links:
+    - '[NEEDS TRANSLATION] **Platform**: [https://platform.moonshot.ai/](https://platform.moonshot.ai/)'
   model_config_title: Configuration des modèles
   model_config_desc: 'L''outil configure automatiquement les modèles optimaux pour différentes utilisations :'
-  model_config_main: '**Modèle principal** : Utilisé pour les tâches complexes, la génération de code et le raisonnement'
-  model_config_fast: '**Modèle rapide** : Utilisé pour les opérations simples comme la recherche de fichiers et la vérification de syntaxe'
+  model_config_main: '**[NEEDS TRANSLATION] Main Model**'
+  model_config_fast: '**[NEEDS TRANSLATION] Fast Model**'
   model_config_example: 'Par exemple, Zhipu GLM utilise :'
   model_config_example_main: '- Modèle principal : `glm-4.5` - Plus puissant, adapté aux tâches complexes'
   model_config_example_fast: '- Modèle rapide : `glm-4.5-air` - Plus léger, optimisé pour la vitesse'

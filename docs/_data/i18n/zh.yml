@@ -42,9 +42,8 @@ home:
   why_practices_title: 🎯 官方最佳实践
   why_practices_items:
     - '**提供商推荐配置**: 遵循各供应商的官方集成指南'
-    - '**Claude Code 双模型配置**: 主模型处理复杂任务，快速模型处理简单任务，智能优化性能与成本'
+    - '**Claude Code 双模型配置**: 主模型用于对话/规划/代码编写/复杂推理等场景，快速模型（Claude使用Haiku如3.5 Haiku）用于文件搜索/语法检查等辅助场景，智能优化性能与成本'
   provider_integration_title: 🤖 供应商集成
-  zhipu_logo_path: assets/images/logo/zhipu_logo_cn.png
   zhipu_description: '**智谱GLM** 是由智谱AI开发的强大中文大语言模型系列，为各种任务提供最先进的性能。'
   zhipu_models_title: 可用模型
   zhipu_models:
@@ -54,10 +53,36 @@ home:
   zhipu_api_links:
     - '**🇨🇳 中国**: [https://bigmodel.cn/](https://bigmodel.cn/)'
     - '**🌍 国际版**: [https://z.ai/model-api](https://z.ai/model-api)'
+  deepseek_description: '**DeepSeek** 是专注于深度推理和代码理解的先进AI模型系列，为编程任务提供卓越性能。'
+  deepseek_models_title: 可用模型
+  deepseek_models:
+    - '**deepseek-chat**: 兼具复杂推理和快速响应的多功能模型'
+  deepseek_api_title: 获取您的API密钥
+  deepseek_api_links:
+    - '**平台**: [https://platform.deepseek.com/](https://platform.deepseek.com/)'
+  alibaba_int_description: '**阿里云（国际版）** 提供强大的大语言模型，具有出色的多语言能力和代码生成功能。'
+  alibaba_int_api_title: 获取您的API密钥
+  alibaba_int_api_links:
+    - '**🌍 国际版**: [https://modelstudio.console.alibabacloud.com/](https://modelstudio.console.alibabacloud.com/)'
+  alibaba_description: '**阿里云（中国版）** 提供强大的大语言模型，具有出色的多语言能力和代码生成功能。'
+  alibaba_models_title: 可用模型
+  alibaba_models:
+    - '**qwen3-coder-plus**: 用于高级代码生成和分析的主模型'
+    - '**qwen3-coder-flash**: 用于快速代码补全和语法检查的快速模型'
+  alibaba_api_title: 获取您的API密钥
+  alibaba_api_links:
+    - '**🇨🇳 中国**: [https://bailian.console.aliyun.com/](https://bailian.console.aliyun.com/)'
+  moonshot_description: '**月之暗面** 提供智能语言模型，具有强大的上下文理解和对话能力。'
+  moonshot_models_title: 可用模型
+  moonshot_models:
+    - '**K2-Instruct-0905**: 具有出色指令遵循能力的先进模型'
+  moonshot_api_title: 获取您的API密钥
+  moonshot_api_links:
+    - '**平台**: [https://platform.moonshot.ai/](https://platform.moonshot.ai/)'
   model_config_title: 模型配置
   model_config_desc: 工具会自动为不同用途配置最佳模型：
-  model_config_main: '**主模型**: 用于复杂任务、代码生成和推理'
-  model_config_fast: '**快速模型**: 用于快速操作，如文件搜索和语法检查'
+  model_config_main: '**主模型**'
+  model_config_fast: '**快速模型**'
   model_config_example: 例如，智谱 GLM 使用：
   model_config_example_main: '- 主模型：`glm-4.5` - 更强大，适合复杂任务'
   model_config_example_fast: '- 快速模型：`glm-4.5-air` - 更轻量，速度优先'

@@ -6,7 +6,7 @@
 
 *Una herramienta de línea de comandos para cambiar sin problemas entre múltiples proveedores LLM*
 
-[![Version](https://img.shields.io/badge/version-v0.2.0-blue.svg)](https://github.com/Scienith/Scienith-cli-llm-switcher/releases)
+[![Version](https://img.shields.io/badge/version-v0.3.0-blue.svg)](https://github.com/Scienith/Scienith-cli-llm-switcher/releases)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 **🌍 Languages**: [English](README.md) | [中文](README_zh.md) | [日本語](README_ja.md) | [한국어](README_ko.md) | [Français](README_fr.md) | [Deutsch](README_de.md) | Español | [Русский](README_ru.md) | [العربية](README_ar.md)
@@ -23,7 +23,7 @@
 
 ### 🎯 Mejores prácticas oficiales
 - **Configuraciones recomendadas por proveedores**: Sigue las pautas de integración oficiales de cada proveedor
-- **Configuración de doble modelo Claude Code**: Modelo principal para tareas complejas, modelo rápido para tareas simples - optimiza inteligentemente rendimiento y costo
+- **Configuración de doble modelo Claude Code**: Modelo principal para conversación/planificación/generación de código/razonamiento complejo, modelo rápido (Claude usa Haiku ej. 3.5 Haiku) para búsqueda de archivos/verificación de sintaxis y tareas auxiliares - optimiza inteligentemente rendimiento y costo
 
 
 ## 📋 Requisitos previos
@@ -65,21 +65,83 @@ lms config
 lms run claude
 ```
 
-## 🤖 Provider Integration
+## 🤖 Integración de proveedores
+
+### DeepSeek
+
+<div align="center">
+<img src="https://raw.githubusercontent.com/Scienith/Scienith-cli-llm-switcher/main/assets/images/logo/deepseek_logo.png" alt="DeepSeek" width="200">
+</div>
+
+### Configuración de modelos
+- **[NEEDS TRANSLATION] Main Model**: `deepseek-chat`
+- **[NEEDS TRANSLATION] Fast Model**: `deepseek-chat`
+
+### [NEEDS TRANSLATION] Get Your API Key
+- [NEEDS TRANSLATION] **Platform**: [https://platform.deepseek.com/](https://platform.deepseek.com/)
+
+---
+
+### AlibabaCloud (International)
+
+<div align="center">
+<img src="https://raw.githubusercontent.com/Scienith/Scienith-cli-llm-switcher/main/assets/images/logo/alibaba_cloud.png" alt="AlibabaCloud (International)" width="200">
+</div>
+
+### Configuración de modelos
+- **[NEEDS TRANSLATION] Main Model**: `qwen3-coder-plus`
+- **[NEEDS TRANSLATION] Fast Model**: `qwen3-coder-flash`
+
+### [NEEDS TRANSLATION] Get Your API Key
+- [NEEDS TRANSLATION] **🌍 International**: [https://modelstudio.console.alibabacloud.com/](https://modelstudio.console.alibabacloud.com/)
+
+---
+
+### AlibabaCloud (China)
+
+<div align="center">
+<img src="https://raw.githubusercontent.com/Scienith/Scienith-cli-llm-switcher/main/assets/images/logo/alibaba_cloud.png" alt="AlibabaCloud (China)" width="200">
+</div>
+
+### Configuración de modelos
+- **[NEEDS TRANSLATION] Main Model**: `qwen3-coder-plus`
+- **[NEEDS TRANSLATION] Fast Model**: `qwen3-coder-flash`
+
+### [NEEDS TRANSLATION] Get Your API Key
+- [NEEDS TRANSLATION] **🇨🇳 China**: [https://bailian.console.aliyun.com/](https://bailian.console.aliyun.com/)
+
+---
+
+### Moonshot AI
+
+<div align="center">
+<img src="https://raw.githubusercontent.com/Scienith/Scienith-cli-llm-switcher/main/assets/images/logo/moonshot_logo.png" alt="Moonshot AI" width="200">
+</div>
+
+### Configuración de modelos
+- **[NEEDS TRANSLATION] Main Model**: `K2-Instruct-0905`
+- **[NEEDS TRANSLATION] Fast Model**: `K2-Instruct-0905`
+
+### [NEEDS TRANSLATION] Get Your API Key
+- [NEEDS TRANSLATION] **Platform**: [https://platform.moonshot.ai/](https://platform.moonshot.ai/)
+
+---
+
+### Zhipu GLM
 
 <div align="center">
 <img src="https://raw.githubusercontent.com/Scienith/Scienith-cli-llm-switcher/main/assets/images/logo/zhipu.jpg" alt="Zhipu GLM" width="200">
 </div>
 
-**Zhipu GLM** is a powerful Chinese large language model series developed by Zhipu AI, offering state-of-the-art performance for various tasks.
+### Configuración de modelos
+- **[NEEDS TRANSLATION] Main Model**: `glm-4.5`
+- **[NEEDS TRANSLATION] Fast Model**: `glm-4.5-air`
 
-### Available Models
-- **glm-4.5**: Main model for complex reasoning and generation tasks
-- **glm-4.5-air**: Fast model optimized for quick responses
-
-### Get Your API Key
+### Obtener tu clave API
 - **🇨🇳 China**: [https://bigmodel.cn/](https://bigmodel.cn/)
-- **🌍 International**: [https://z.ai/model-api](https://z.ai/model-api)
+- **🌍 Internacional**: [https://z.ai/model-api](https://z.ai/model-api)
+
+---
 
 
 
