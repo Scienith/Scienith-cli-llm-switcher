@@ -6,7 +6,7 @@
 
 *Инструмент командной строки для беспрепятственного переключения между несколькими провайдерами LLM*
 
-[![Version](https://img.shields.io/badge/version-v0.2.0-blue.svg)](https://github.com/Scienith/Scienith-cli-llm-switcher/releases)
+[![Version](https://img.shields.io/badge/version-v0.3.1-blue.svg)](https://github.com/Scienith/Scienith-cli-llm-switcher/releases)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 **🌍 Languages**: [English](README.md) | [中文](README_zh.md) | [日本語](README_ja.md) | [한국어](README_ko.md) | [Français](README_fr.md) | [Deutsch](README_de.md) | [Español](README_es.md) | Русский | [العربية](README_ar.md)
