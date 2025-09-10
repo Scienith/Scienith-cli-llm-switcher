@@ -75,7 +75,7 @@ home:
   moonshot_description: '**月之暗面** 提供智能语言模型，具有强大的上下文理解和对话能力。'
   moonshot_models_title: 可用模型
   moonshot_models:
-    - '**K2-Instruct-0905**: 具有出色指令遵循能力的先进模型'
+    - '**kimi-k2-0905-preview**: 具有出色指令遵循能力的先进模型'
   moonshot_api_title: 获取您的API密钥
   moonshot_api_links:
     - '**平台**: [https://platform.moonshot.ai/](https://platform.moonshot.ai/)'

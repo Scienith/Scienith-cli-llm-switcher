@@ -126,8 +126,8 @@ export const PROVIDER_CONFIGS: Record<string, ProviderConfig> = {
     name: 'Moonshot AI',
     baseUrl: 'https://api.moonshot.cn/v1',
     anthropicUrl: 'https://api.moonshot.ai/anthropic',
-    defaultModel: 'K2-Instruct-0905',
-    fastModel: 'K2-Instruct-0905',
+    defaultModel: 'kimi-k2-0905-preview',
+    fastModel: 'kimi-k2-0905-preview',
     apiUrls: ['https://platform.moonshot.ai/'],
     logo: 'moonshot_logo.png'
   }
