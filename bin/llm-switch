@@ -5,10 +5,7 @@
  * This ensures we always load from the installed package location
  */
 
-// Force working directory to not interfere with module resolution
-process.chdir('/');
-
-// Get the real path of this script without being affected by PWD
+// Get the real path of this script
 const fs = require('fs');
 const path = require('path');
 

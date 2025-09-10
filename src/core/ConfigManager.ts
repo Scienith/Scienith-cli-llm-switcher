@@ -69,7 +69,7 @@ export class ConfigManager {
         } else if (key === PROVIDER_KEYS.ALIBABACLOUD_INT || key === PROVIDER_KEYS.ALIBABACLOUD) {
           defaultFastModel = 'qwen3-coder-flash';
         } else if (key === PROVIDER_KEYS.KIMI) {
-          defaultFastModel = 'K2-Instruct-0905';
+          defaultFastModel = 'kimi-k2-0905-preview';
         }
         
         const provider: Provider = {

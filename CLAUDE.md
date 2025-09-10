@@ -4,121 +4,145 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-CLI LLM Switcher is a shell-based tool that manages environment variables to switch between different LLM providers (DeepSeek, Qwen, Zhipu GLM, Kimi, Claude, OpenAI, Groq) for use with Claude Code and compatible CLI tools. Provider switching is temporary and only affects the current shell session.
+CLI LLM Switcher is a TypeScript-based tool that manages environment variables to switch between different LLM providers for use with Claude Code. The tool provides isolated configuration that doesn't affect the native Claude Code setup and supports per-session provider switching.
 
 ## Key Commands
 
-### Development & Testing
+### Development & Build
 ```bash
+# Build TypeScript to JavaScript
+npm run build
+
+# Build without bundling (used by install.sh)
+node build-simple.js
+
 # Generate multi-language README files from i18n data
 npm run generate-readme
 
-# Install the tool (creates shell function wrapper)
+# Validate i18n translations
+npm run validate-i18n
+```
+
+### Installation & Testing
+```bash
+# Install locally (creates shell function wrapper)
 ./install.sh
 
 # Uninstall completely
 ./uninstall.sh
 
-# Test provider switching directly (bypasses shell function)
-./bin/llm-switch deepseek
+# Test commands directly (bypasses shell function)
+./bin/llm-switch status
+./bin/llm-switch list
+./bin/llm-switch config deepseek
 
-# Test with debug output
-bash -x ./bin/llm-switch claude
+# Debug environment variable switching
+bash -x ./bin/llm-switch switch deepseek
 ```
 
-### Usage Commands
+### Publishing
 ```bash
-# Configure a provider interactively
-llm-switch config <provider>
+# Build and publish to npm
+npm run build
+npm publish
 
-# Switch provider (requires eval in shell)
-llm-switch <provider>
-
-# Launch CLI with remembered provider
-llm-switch claude  # Switches to last used provider and launches claude
-llm-switch qwen    # Switches to last used provider and launches qwen
-
-# Show available models for a provider
-llm-switch models <provider>
+# Create GitHub release with tag
+git tag v0.x.x
+git push origin main --tags
 ```
 
 ## Architecture Overview
 
-### Two-Layer Execution Model
+### TypeScript/Node.js Architecture
 
-The tool operates in two layers:
+The project is built with TypeScript and compiled to CommonJS for Node.js compatibility:
 
-1. **Shell Function Layer** (`~/.bashrc` or `~/.zshrc`)
-   - Intercepts `llm-switch` commands
-   - Uses `eval` to execute environment variable exports for provider switching
-   - Special handling for `claude` and `qwen` commands (direct execution, no eval)
+1. **Entry Points**
+   - `bin/llm-switch`: Node.js launcher that finds and loads the installed package
+   - `dist/cli.js`: Main CLI entry compiled from `src/cli.ts`
 
-2. **Core Script Layer** (`bin/llm-switch`)
-   - Outputs `export` and `unset` commands for shell evaluation
-   - Manages provider configurations via INI files
-   - Tracks last used provider for CLI tools
+2. **Core Modules**
+   - `src/core/types.ts`: Single source of truth for provider configurations via `PROVIDER_CONFIGS`
+   - `src/core/ConfigManager.ts`: Manages user configuration in `~/.llm-switch/providers.json`
+   - `src/core/ProviderManager.ts`: Handles provider switching and environment variable generation
+   - `src/commands/*.ts`: Command implementations (config, status, run)
 
-### Key Components
+3. **Configuration Storage**
+   - User configs: `~/.llm-switch/providers.json`
+   - Last provider state: `~/.llm-switch/.last_provider`
 
-- **bin/llm-switch**: Main entry point script
-- **src/providers.sh**: Provider switching logic, environment variable management
-- **src/config.sh**: Configuration management, INI file operations
-- **src/ini_parser.sh**: INI file parsing utilities
-- **config/providers.ini**: User's API keys and provider settings
-- **config/.last_*_provider**: Tracks last used provider for each CLI tool
+### Shell Integration Strategy
 
-### Environment Variable Strategy
+The tool uses a shell function wrapper installed in `~/.bashrc`/`~/.zshrc` that:
+- Intercepts `llm-switch` and `lms` commands
+- Evaluates environment export commands for provider switching
+- Passes through info commands (status, list, help) directly
+- Launches CLI tools (claude, qwen) with the configured provider
 
-For Claude Code compatibility, the tool sets different environment variables based on provider type:
+### Provider Configuration System
 
-- **Claude native**: Sets `ANTHROPIC_API_KEY`
-- **OpenAI-compatible**: Sets `OPENAI_API_KEY`, `OPENAI_BASE_URL`, `OPENAI_MODEL`
-- **Anthropic-compatible**: Additionally sets `ANTHROPIC_BASE_URL`, `ANTHROPIC_AUTH_TOKEN`, `ANTHROPIC_MODEL`, `ANTHROPIC_SMALL_FAST_MODEL`
+All providers are defined in `src/core/types.ts`:
+```typescript
+export const PROVIDER_CONFIGS: Record<string, ProviderConfig> = {
+  [PROVIDER_KEYS.DEEPSEEK]: { ... },
+  [PROVIDER_KEYS.ALIBABACLOUD_INT]: { ... },
+  // etc.
+}
 
-Reference: https://docs.bigmodel.cn/cn/guide/develop/claude
+export const CONFIGURABLE_PROVIDERS = [
+  PROVIDER_KEYS.DEEPSEEK,
+  PROVIDER_KEYS.ALIBABACLOUD_INT,
+  PROVIDER_KEYS.ALIBABACLOUD,
+  PROVIDER_KEYS.KIMI,
+  PROVIDER_KEYS.ZHIPU
+];
+```
+
+### Environment Variable Mapping
+
+Provider types determine which environment variables are set:
+- **Anthropic-compatible**: Sets `ANTHROPIC_BASE_URL`, `ANTHROPIC_AUTH_TOKEN`, `ANTHROPIC_MODEL`, `ANTHROPIC_SMALL_FAST_MODEL`
+- **OpenAI-compatible**: Additionally sets `OPENAI_API_KEY`, `OPENAI_BASE_URL`, `OPENAI_MODEL`
+- **Native Claude**: Only sets `ANTHROPIC_API_KEY`
 
 ## Critical Implementation Details
 
-### Shell Function Wrapper Issue
-The shell function in `~/.bashrc`/`~/.zshrc` must handle three cases differently:
-1. **Info commands** (status, list, help): Direct execution
-2. **CLI launch** (claude, qwen): Direct execution (no eval)
-3. **Provider switch**: Eval the output to set environment variables
+### Build Process
+The build uses esbuild for fast TypeScript transpilation without bundling:
+- Maintains original file structure in `dist/`
+- Preserves CommonJS format for Node.js compatibility
+- No bundling to keep debugging simple
 
-### INI Variable Format
-INI parser converts keys to variables with format: `INI_${section}_${key}`
-- Dots and dashes in names are replaced with underscores
-- Example: `[zhipu]` section with `api_key` becomes `INI_zhipu_api_key`
+### Version Detection
+Version is read from `package.json` at runtime, not from git tags. The `src/utils/version.ts` module handles version display.
 
-### Error Output Handling
-All error messages must redirect to stderr (`>&2`) to prevent eval from executing them as commands.
+### Provider Switching Flow
+1. User runs `lms switch deepseek`
+2. Shell function captures the command
+3. CLI outputs environment export commands to stdout
+4. Shell function evaluates these commands via `eval`
+5. Environment variables are set for the current session
 
-### Provider Last State
-- Stored in `config/.last_claude_provider` and `config/.last_qwen_provider`
-- Updated whenever a provider switch succeeds
-- Read when launching CLI tools to restore last used provider
+### API Key Configuration
+- Interactive prompt using `readline-sync` with password masking
+- Stored in plaintext in `~/.llm-switch/providers.json` (user's home directory)
+- Validated before switching providers
 
 ## Common Issues & Solutions
 
-1. **"command not found: Error:"** - Error messages being eval'd as commands. Ensure all errors redirect to stderr.
+1. **Wrong version displayed**: Usually caused by npm link conflicts. Uninstall globally and reinstall.
 
-2. **Provider name empty in error** - INI variables not loading correctly or `$resolved_provider` is empty.
+2. **Only one provider shows in config**: Build issue where `CONFIGURABLE_PROVIDERS` wasn't updated. Rebuild and republish.
 
-3. **"Successfully switched" but no launch** - Shell function using old version. User needs to `source ~/.zshrc` or restart shell.
+3. **"Command not found" after install**: Shell configuration not reloaded. Run `source ~/.bashrc` or `source ~/.zshrc`.
 
-4. **API key not configured** - Provider exists but API key is empty in `providers.ini`.
+4. **Provider switch doesn't persist**: Environment variables are session-specific by design. Each new terminal needs to switch again.
 
-## Testing Changes
+## i18n System
 
-When modifying provider switching logic:
-1. Test direct script execution: `./bin/llm-switch <provider>`
-2. Test through shell function: `llm-switch <provider>`
-3. Test CLI launch: `llm-switch claude`
-4. Verify environment variables: `llm-switch deepseek && env | grep OPENAI`
+Multi-language documentation is generated from YAML templates:
+- Source files: `docs/_data/i18n/*.yml`
+- Generator: `scripts/generate-readme.js`
+- Output: `README_*.md` files in project root
 
-## i18n Documentation
-
-Documentation is generated from YAML files in `docs/_data/i18n/`:
-- Modify language files (en.yml, zh.yml, etc.) for content changes
-- Run `npm run generate-readme` to regenerate all README files
-- Template logic is in `scripts/generate-readme.js`
+Provider information is pulled from `PROVIDER_CONFIGS` to maintain single source of truth.

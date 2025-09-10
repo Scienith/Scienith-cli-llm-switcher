@@ -6,7 +6,7 @@
 
 *Un outil en ligne de commande pour basculer facilement entre plusieurs fournisseurs LLM*
 
-[![Version](https://img.shields.io/badge/version-v0.3.1-blue.svg)](https://github.com/Scienith/cli-llm-switcher/releases)
+[![Version](https://img.shields.io/badge/version-v0.3.4-blue.svg)](https://github.com/Scienith/cli-llm-switcher/releases)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 **🌍 Languages**: [English](README.md) | [中文](README_zh.md) | [日本語](README_ja.md) | [한국어](README_ko.md) | Français | [Deutsch](README_de.md) | [Español](README_es.md) | [Русский](README_ru.md) | [العربية](README_ar.md)
@@ -119,8 +119,8 @@ lms run claude
 </div>
 
 ### Configuration des modèles
-- **[NEEDS TRANSLATION] Main Model**: `K2-Instruct-0905`
-- **[NEEDS TRANSLATION] Fast Model**: `K2-Instruct-0905`
+- **[NEEDS TRANSLATION] Main Model**: `kimi-k2-0905-preview`
+- **[NEEDS TRANSLATION] Fast Model**: `kimi-k2-0905-preview`
 
 ### [NEEDS TRANSLATION] Get Your API Key
 - [NEEDS TRANSLATION] **Platform**: [https://platform.moonshot.ai/](https://platform.moonshot.ai/)

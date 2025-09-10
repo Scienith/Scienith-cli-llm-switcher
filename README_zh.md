@@ -6,7 +6,7 @@
 
 *一个用于在多个LLM提供商之间无缝切换的命令行工具*
 
-[![Version](https://img.shields.io/badge/version-v0.3.1-blue.svg)](https://github.com/Scienith/cli-llm-switcher/releases)
+[![Version](https://img.shields.io/badge/version-v0.3.4-blue.svg)](https://github.com/Scienith/cli-llm-switcher/releases)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 **🌍 Languages**: [English](README.md) | 中文 | [日本語](README_ja.md) | [한국어](README_ko.md) | [Français](README_fr.md) | [Deutsch](README_de.md) | [Español](README_es.md) | [Русский](README_ru.md) | [العربية](README_ar.md)
@@ -119,8 +119,8 @@ lms run claude
 </div>
 
 ### 模型配置
-- **主模型**: `K2-Instruct-0905`
-- **快速模型**: `K2-Instruct-0905`
+- **主模型**: `kimi-k2-0905-preview`
+- **快速模型**: `kimi-k2-0905-preview`
 
 ### 获取您的API密钥
 - **平台**: [https://platform.moonshot.ai/](https://platform.moonshot.ai/)

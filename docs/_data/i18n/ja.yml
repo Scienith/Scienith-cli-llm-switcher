@@ -75,7 +75,7 @@ home:
   moonshot_description: '[NEEDS TRANSLATION] **Moonshot AI (Kimi)** provides intelligent language models with strong context understanding and conversational abilities.'
   moonshot_models_title: '[NEEDS TRANSLATION] Available Models'
   moonshot_models:
-    - '[NEEDS TRANSLATION] **K2-Instruct-0905**: Advanced model with excellent instruction-following capabilities'
+    - '[NEEDS TRANSLATION] **kimi-k2-0905-preview**: Advanced model with excellent instruction-following capabilities'
   moonshot_api_title: '[NEEDS TRANSLATION] Get Your API Key'
   moonshot_api_links:
     - '[NEEDS TRANSLATION] **Platform**: [https://platform.moonshot.ai/](https://platform.moonshot.ai/)'
