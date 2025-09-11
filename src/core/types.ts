@@ -142,7 +142,7 @@ export const PROVIDER_CONFIGS: Record<string, ProviderConfig> = {
     defaultModel: 'grok-code-fast-1',
     fastModel: 'grok-code-fast-1',
     apiUrls: ['https://x.ai/'],
-    logo: 'grok_logo.png'
+    logo: 'xAI.png'
   }
 };
 
