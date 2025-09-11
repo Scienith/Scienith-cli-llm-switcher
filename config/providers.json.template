@@ -34,6 +34,13 @@
       "anthropicUrl": "https://api.moonshot.ai/anthropic",
       "defaultModel": "kimi-k2-0905-preview",
       "fastModel": "kimi-k2-0905-preview"
+    },
+    "grok-code-fast-1": {
+      "name": "Grok Code Fast 1",
+      "baseUrl": "https://api.x.ai",
+      "anthropicUrl": "https://api.x.ai",
+      "defaultModel": "grok-code-fast-1",
+      "fastModel": "grok-code-fast-1"
     }
   },
   "currentProvider": null,

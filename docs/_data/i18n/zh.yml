@@ -79,6 +79,13 @@ home:
   moonshot_api_title: 获取您的API密钥
   moonshot_api_links:
     - '**平台**: [https://platform.moonshot.ai/](https://platform.moonshot.ai/)'
+  grok-code-fast-1_description: '**xAI Grok Code Fast 1** 是 xAI 快速高效的语言模型，为编程任务和快速开发工作流优化。'
+  grok-code-fast-1_models_title: 可用模型
+  grok-code-fast-1_models:
+    - '**grok-code-fast-1**: 为编码和开发任务优化的快速高效模型'
+  grok-code-fast-1_api_title: 获取您的API密钥
+  grok-code-fast-1_api_links:
+    - '**平台**: [https://console.x.ai](https://console.x.ai)'
   model_config_title: 模型配置
   model_config_desc: 工具会自动为不同用途配置最佳模型：
   model_config_main: '**主模型**'

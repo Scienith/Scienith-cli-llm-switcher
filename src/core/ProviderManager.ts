@@ -60,15 +60,20 @@ export class ProviderManager {
         if (provider.anthropicUrl) {
           envVars.set['ANTHROPIC_BASE_URL'] = provider.anthropicUrl;
           envVars.set['ANTHROPIC_AUTH_TOKEN'] = provider.apiKey!;
-          
+
           if (provider.defaultModel) {
             envVars.set['ANTHROPIC_MODEL'] = provider.defaultModel;
             // Always use fastModel for ANTHROPIC_SMALL_FAST_MODEL
             envVars.set['ANTHROPIC_SMALL_FAST_MODEL'] = provider.fastModel;
+
+            // Set additional default model variables for Claude Code
+            envVars.set['ANTHROPIC_DEFAULT_SONNET_MODEL'] = provider.defaultModel;
+            envVars.set['ANTHROPIC_DEFAULT_HAIKU_MODEL'] = provider.defaultModel;
           }
         } else {
-          envVars.unset = ['ANTHROPIC_MODEL', 'ANTHROPIC_SMALL_FAST_MODEL', 
-                          'ANTHROPIC_BASE_URL', 'ANTHROPIC_AUTH_TOKEN'];
+          envVars.unset = ['ANTHROPIC_MODEL', 'ANTHROPIC_SMALL_FAST_MODEL',
+                          'ANTHROPIC_BASE_URL', 'ANTHROPIC_AUTH_TOKEN',
+                          'ANTHROPIC_DEFAULT_SONNET_MODEL', 'ANTHROPIC_DEFAULT_HAIKU_MODEL'];
         }
         break;
     }

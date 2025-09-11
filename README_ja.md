@@ -6,7 +6,7 @@
 
 *複数のLLMプロバイダー間をシームレスに切り替えるためのコマンドラインツール*
 
-[![Version](https://img.shields.io/badge/version-v0.4.0-blue.svg)](https://github.com/Scienith/cli-llm-switcher/releases)
+[![Version](https://img.shields.io/badge/version-v0.3.4-blue.svg)](https://github.com/Scienith/cli-llm-switcher/releases)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 **🌍 Languages**: [English](README.md) | [中文](README_zh.md) | 日本語 | [한국어](README_ko.md) | [Français](README_fr.md) | [Deutsch](README_de.md) | [Español](README_es.md) | [Русский](README_ru.md) | [العربية](README_ar.md)
@@ -74,11 +74,11 @@ lms run claude
 </div>
 
 ### モデル設定
-- **[NEEDS TRANSLATION] Main Model**: `deepseek-chat`
-- **[NEEDS TRANSLATION] Fast Model**: `deepseek-chat`
+- **メインモデル**: `deepseek-chat`
+- **高速モデル**: `deepseek-chat`
 
-### [NEEDS TRANSLATION] Get Your API Key
-- [NEEDS TRANSLATION] **Platform**: [https://platform.deepseek.com/](https://platform.deepseek.com/)
+### APIキーを取得
+- **プラットフォーム**: [https://platform.deepseek.com/](https://platform.deepseek.com/)
 
 ---
 
@@ -89,11 +89,11 @@ lms run claude
 </div>
 
 ### モデル設定
-- **[NEEDS TRANSLATION] Main Model**: `qwen3-coder-plus`
-- **[NEEDS TRANSLATION] Fast Model**: `qwen3-coder-flash`
+- **メインモデル**: `qwen3-coder-plus`
+- **高速モデル**: `qwen3-coder-flash`
 
-### [NEEDS TRANSLATION] Get Your API Key
-- [NEEDS TRANSLATION] **🌍 International**: [https://modelstudio.console.alibabacloud.com/](https://modelstudio.console.alibabacloud.com/)
+### APIキーを取得
+- **🌍 国際**: [https://modelstudio.console.alibabacloud.com/](https://modelstudio.console.alibabacloud.com/)
 
 ---
 
@@ -104,11 +104,11 @@ lms run claude
 </div>
 
 ### モデル設定
-- **[NEEDS TRANSLATION] Main Model**: `qwen3-coder-plus`
-- **[NEEDS TRANSLATION] Fast Model**: `qwen3-coder-flash`
+- **メインモデル**: `qwen3-coder-plus`
+- **高速モデル**: `qwen3-coder-flash`
 
-### [NEEDS TRANSLATION] Get Your API Key
-- [NEEDS TRANSLATION] **🇨🇳 China**: [https://bailian.console.aliyun.com/](https://bailian.console.aliyun.com/)
+### APIキーを取得
+- **🇨🇳 中国**: [https://bailian.console.aliyun.com/](https://bailian.console.aliyun.com/)
 
 ---
 
@@ -119,11 +119,11 @@ lms run claude
 </div>
 
 ### モデル設定
-- **[NEEDS TRANSLATION] Main Model**: `kimi-k2-0905-preview`
-- **[NEEDS TRANSLATION] Fast Model**: `kimi-k2-0905-preview`
+- **メインモデル**: `kimi-k2-0905-preview`
+- **高速モデル**: `kimi-k2-0905-preview`
 
-### [NEEDS TRANSLATION] Get Your API Key
-- [NEEDS TRANSLATION] **Platform**: [https://platform.moonshot.ai/](https://platform.moonshot.ai/)
+### APIキーを取得
+- **プラットフォーム**: [https://platform.moonshot.ai/](https://platform.moonshot.ai/)
 
 ---
 
@@ -134,12 +134,27 @@ lms run claude
 </div>
 
 ### モデル設定
-- **[NEEDS TRANSLATION] Main Model**: `glm-4.5`
-- **[NEEDS TRANSLATION] Fast Model**: `glm-4.5-air`
+- **メインモデル**: `glm-4.5`
+- **高速モデル**: `glm-4.5-air`
 
 ### APIキーを取得
 - **🇨🇳 中国**: [https://bigmodel.cn/](https://bigmodel.cn/)
 - **🌍 国際版**: [https://z.ai/model-api](https://z.ai/model-api)
+
+---
+
+### Grok Code Fast 1
+
+<div align="center">
+<img src="https://raw.githubusercontent.com/Scienith/cli-llm-switcher/main/assets/images/logo/grok_logo.png" alt="Grok Code Fast 1" width="200">
+</div>
+
+### モデル設定
+- **メインモデル**: `grok-code-fast-1`
+- **高速モデル**: `grok-code-fast-1`
+
+###  Get Your API Key
+-  **Platform**: [https://console.x.ai](https://console.x.ai)
 
 ---
 
@@ -183,9 +198,9 @@ rmdir /s /q "%USERPROFILE%\.llm-switch"
 
 本プロジェクトはMITライセンスの下でライセンスされています - 詳細については[LICENSE](LICENSE)ファイルをご覧ください。
 
-## [NEEDS TRANSLATION] References
+## 参考文献
 
-[NEEDS TRANSLATION] Official provider configuration guides for Claude Code integration:
+Claude Code統合のための公式プロバイダー設定ガイド:
 
 - [DeepSeek Anthropic API Guide](https://api-docs.deepseek.com/guides/anthropic_api)
 - [Alibaba Cloud Model Studio - Claude Code Integration](https://help.aliyun.com/zh/model-studio/claude-code)

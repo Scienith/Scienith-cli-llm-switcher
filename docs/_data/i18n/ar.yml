@@ -1,6 +1,8 @@
 home:
   description: أداة سطر أوامر للتبديل بسلاسة بين عدة مقدمي خدمة LLM
-  subtitle: '**التبديل بين DeepSeek و Qwen و Zhipu GLM و Kimi و Claude و OpenAI و Groq** بأمر واحد عند استخدام Claude Code أو أدوات CLI المتوافقة.'
+  subtitle: >-
+    **التبديل بين DeepSeek و Qwen و Zhipu GLM و Kimi و Claude و OpenAI و Groq**
+    بأمر واحد عند استخدام Claude Code أو أدوات CLI المتوافقة.
   prerequisites_title: 📋 المتطلبات الأساسية
   prerequisites_desc: 'قبل التثبيت، تأكد من تثبيت Node.js (الإصدار 16 أو أحدث):'
   prerequisites_node_title: تثبيت Node.js
@@ -13,7 +15,9 @@ home:
     - '  nvm install node'
     - '  nvm use node'
     - '  ```'
-    - '**الخيار 2**: التنزيل من [nodejs.org](https://nodejs.org/) (اختر إصدار LTS)'
+    - >-
+      **الخيار 2**: التنزيل من [nodejs.org](https://nodejs.org/) (اختر إصدار
+      LTS)
     - ''
     - 'التحقق من التثبيت:'
     - '```bash'
@@ -37,14 +41,24 @@ home:
   why_title: 💡 لماذا تختار LLM Switcher؟
   why_isolated_title: 🔒 بيئة تكوين معزولة
   why_isolated_items:
-    - '**بدون تأثير على Claude Code الأصلي**: يبقى إعداد Claude الأصلي الخاص بك كما هو'
+    - >-
+      **بدون تأثير على Claude Code الأصلي**: يبقى إعداد Claude الأصلي الخاص بك
+      كما هو
     - '**تبديل المزود حسب الجلسة**: يمكن لكل جلسة طرفية استخدام مزودين مختلفين'
   why_practices_title: 🎯 أفضل الممارسات الرسمية
   why_practices_items:
-    - '**التكوينات الموصى بها من المزودين**: يتبع إرشادات التكامل الرسمية لكل مزود'
-    - '**تكوين النموذج المزدوج لـ Claude Code**: النموذج الرئيسي للمحادثة/التخطيط/توليد الكود/التفكير المعقد، النموذج السريع (يستخدم Claude نموذج Haiku مثل 3.5 Haiku) للبحث في الملفات/فحص بناء الجملة والمهام المساعدة - يحسن الأداء والتكلفة بذكاء'
+    - >-
+      **التكوينات الموصى بها من المزودين**: يتبع إرشادات التكامل الرسمية لكل
+      مزود
+    - >-
+      **تكوين النموذج المزدوج لـ Claude Code**: النموذج الرئيسي
+      للمحادثة/التخطيط/توليد الكود/التفكير المعقد، النموذج السريع (يستخدم Claude
+      نموذج Haiku مثل 3.5 Haiku) للبحث في الملفات/فحص بناء الجملة والمهام
+      المساعدة - يحسن الأداء والتكلفة بذكاء
   provider_integration_title: 🤖 تكامل المزودين
-  zhipu_description: '**Zhipu GLM** هي سلسلة نماذج لغة صينية قوية طورتها Zhipu AI، تقدم أداءً متطورًا لمختلف المهام.'
+  zhipu_description: >-
+    **Zhipu GLM** هي سلسلة نماذج لغة صينية قوية طورتها Zhipu AI، تقدم أداءً
+    متطورًا لمختلف المهام.
   zhipu_models_title: النماذج المتاحة
   zhipu_models:
     - '**glm-4.5**: النموذج الرئيسي لمهام التفكير والتوليد المعقدة'
@@ -53,36 +67,59 @@ home:
   zhipu_api_links:
     - '**🇨🇳 الصين**: [https://bigmodel.cn/](https://bigmodel.cn/)'
     - '**🌍 دولي**: [https://z.ai/model-api](https://z.ai/model-api)'
-  deepseek_description: '[NEEDS TRANSLATION] **DeepSeek** is an advanced AI model series focused on deep reasoning and code understanding, providing exceptional performance for programming tasks.'
-  deepseek_models_title: '[NEEDS TRANSLATION] Available Models'
+  deepseek_description: >-
+    **DeepSeek** هي سلسلة متقدمة من نماذج الذكاء الاصطناعي تركز على التفكير
+    العميق والفهم البرمجي، توفر أداءً استثنائياً لمهام البرمجة.
+  deepseek_models_title: النماذج المتاحة
   deepseek_models:
-    - '[NEEDS TRANSLATION] **deepseek-chat**: Versatile model for both complex reasoning and quick responses'
-  deepseek_api_title: '[NEEDS TRANSLATION] Get Your API Key'
+    - >-
+      **deepseek-chat**: نموذج متعدد الاستخدامات للتفكير المعقد والاستجابات
+      السريعة
+  deepseek_api_title: احصل على مفتاح API الخاص بك
   deepseek_api_links:
-    - '[NEEDS TRANSLATION] **Platform**: [https://platform.deepseek.com/](https://platform.deepseek.com/)'
-  alibaba_int_description: '[NEEDS TRANSLATION] **Alibaba Cloud Qwen (International)** offers powerful large language models with excellent multilingual capabilities and code generation features.'
-  alibaba_int_api_title: '[NEEDS TRANSLATION] Get Your API Key'
+    - >-
+      **المنصة**:
+      [https://platform.deepseek.com/](https://platform.deepseek.com/)
+  alibaba_int_description: >-
+    **Alibaba Cloud Qwen (International)** يقدم نماذج لغوية كبيرة قوية مع
+    إمكانيات متعددة اللغات ممتازة وميزات إنشاء الكود.
+  alibaba_int_api_title: احصل على مفتاح API الخاص بك
   alibaba_int_api_links:
-    - '[NEEDS TRANSLATION] **🌍 International**: [https://modelstudio.console.alibabacloud.com/](https://modelstudio.console.alibabacloud.com/)'
-  alibaba_description: '[NEEDS TRANSLATION] **Alibaba Cloud Qwen (China)** offers powerful large language models with excellent multilingual capabilities and code generation features.'
-  alibaba_models_title: '[NEEDS TRANSLATION] Available Models'
+    - >-
+      **🌍 دولي**:
+      [https://modelstudio.console.alibabacloud.com/](https://modelstudio.console.alibabacloud.com/)
+  alibaba_description: >-
+    **Alibaba Cloud Qwen (China)** يقدم نماذج لغوية كبيرة قوية مع إمكانيات
+    متعددة اللغات ممتازة وميزات إنشاء الكود.
+  alibaba_models_title: النماذج المتاحة
   alibaba_models:
-    - '[NEEDS TRANSLATION] **qwen3-coder-plus**: Main model for advanced code generation and analysis'
-    - '[NEEDS TRANSLATION] **qwen3-coder-flash**: Fast model for quick code completions and syntax checking'
-  alibaba_api_title: '[NEEDS TRANSLATION] Get Your API Key'
+    - '**qwen3-coder-plus**: النموذج الرئيسي لإنشاء وتحليل الكود المتقدم'
+    - '**qwen3-coder-flash**: نموذج سريع لإكمال الكود السريع وفحص البناء اللغوي'
+  alibaba_api_title: احصل على مفتاح API الخاص بك
   alibaba_api_links:
-    - '[NEEDS TRANSLATION] **🇨🇳 China**: [https://bailian.console.aliyun.com/](https://bailian.console.aliyun.com/)'
-  moonshot_description: '[NEEDS TRANSLATION] **Moonshot AI (Kimi)** provides intelligent language models with strong context understanding and conversational abilities.'
-  moonshot_models_title: '[NEEDS TRANSLATION] Available Models'
+    - >-
+      **🇨🇳 الصين**:
+      [https://bailian.console.aliyun.com/](https://bailian.console.aliyun.com/)
+  moonshot_description: >-
+    **Moonshot AI (Kimi)** يوفر نماذج لغوية ذكية مع فهم قوي للسياق ومهارات
+    محادثة.
+  moonshot_models_title: النماذج المتاحة
   moonshot_models:
-    - '[NEEDS TRANSLATION] **kimi-k2-0905-preview**: Advanced model with excellent instruction-following capabilities'
-  moonshot_api_title: '[NEEDS TRANSLATION] Get Your API Key'
+    - '**kimi-k2-0905-preview**: نموذج متقدم مع مهارات ممتازة لمتابعة التعليمات'
+  moonshot_api_title: احصل على مفتاح API الخاص بك
   moonshot_api_links:
-    - '[NEEDS TRANSLATION] **Platform**: [https://platform.moonshot.ai/](https://platform.moonshot.ai/)'
+    - '**المنصة**: [https://platform.moonshot.ai/](https://platform.moonshot.ai/)'
+  grok-code-fast-1_description: ' **xAI Grok Code Fast 1** is xAI''s fast and efficient language model, optimized for coding tasks and rapid development workflows.'
+  grok-code-fast-1_models_title: ' Available Models'
+  grok-code-fast-1_models:
+    - ' **grok-code-fast-1**: Fast and efficient model optimized for coding and development tasks'
+  grok-code-fast-1_api_title: ' Get Your API Key'
+  grok-code-fast-1_api_links:
+    - ' **Platform**: [https://console.x.ai](https://console.x.ai)'
   model_config_title: تكوين النموذج
   model_config_desc: 'تقوم الأداة تلقائيًا بتكوين النماذج المثلى لأغراض مختلفة:'
-  model_config_main: '**[NEEDS TRANSLATION] Main Model**'
-  model_config_fast: '**[NEEDS TRANSLATION] Fast Model**'
+  model_config_main: '**النموذج الرئيسي**'
+  model_config_fast: '**النموذج السريع**'
   model_config_example: 'على سبيل المثال، يستخدم Zhipu GLM:'
   model_config_example_main: '- النموذج الرئيسي: `glm-4.5` - أكثر قوة، مناسب للمهام المعقدة'
   model_config_example_fast: '- النموذج السريع: `glm-4.5-air` - أخف وزنًا، محسّن للسرعة'
@@ -109,10 +146,16 @@ home:
   troubleshooting_title: استكشاف الأخطاء وإصلاحها
   troubleshooting_common: المشاكل الشائعة
   troubleshooting_tips:
-    - '**تم رفض الإذن**: تأكد من أن البرنامج النصي قابل للتنفيذ باستخدام `chmod +x bin/llm-switch`'
+    - >-
+      **تم رفض الإذن**: تأكد من أن البرنامج النصي قابل للتنفيذ باستخدام `chmod
+      +x bin/llm-switch`
     - '**لم يتم العثور على التكوين**: تأكد من نسخ وتحرير `config/providers.ini`'
-    - '**أخطاء مفتاح API**: تحقق من أن مفاتيح API الخاصة بك صحيحة ولديها الأذونات المناسبة'
-    - '**تكامل Shell**: تأكد من تنفيذ المخرجات أو إضافتها إلى ملف تعريف shell الخاص بك'
+    - >-
+      **أخطاء مفتاح API**: تحقق من أن مفاتيح API الخاصة بك صحيحة ولديها الأذونات
+      المناسبة
+    - >-
+      **تكامل Shell**: تأكد من تنفيذ المخرجات أو إضافتها إلى ملف تعريف shell
+      الخاص بك
   uninstallation_title: إلغاء التثبيت
   uninstallation_basic_title: إلغاء التثبيت الأساسي (يحتفظ بالتكوين)
   uninstallation_complete_title: إلغاء التثبيت الكامل (يزيل كل شيء)
@@ -132,10 +175,27 @@ home:
   contributing_text: المساهمات مرحب بها! لا تتردد في إرسال Pull Request.
   license: الترخيص
   license_text: هذا المشروع مرخص تحت رخصة MIT - انظر ملف [LICENSE](LICENSE) للتفاصيل.
-  need_help: '**تحتاج مساعدة؟** تحقق من الوثائق الكاملة للحصول على أدلة مفصلة واستكشاف الأخطاء وإصلاحها.'
-  references_title: '[NEEDS TRANSLATION] References'
-  references_text: '[NEEDS TRANSLATION] Official provider configuration guides for Claude Code integration:'
+  need_help: >-
+    **تحتاج مساعدة؟** تحقق من الوثائق الكاملة للحصول على أدلة مفصلة واستكشاف
+    الأخطاء وإصلاحها.
+  references_title: المراجع
+  references_text: 'دليل تكوين مزود رسمي لدمج Claude Code:'
   references_links:
-    - '[DeepSeek Anthropic API Guide](https://api-docs.deepseek.com/guides/anthropic_api)'
-    - '[Alibaba Cloud Model Studio - Claude Code Integration](https://help.aliyun.com/zh/model-studio/claude-code)'
-    - '[Zhipu GLM - Claude Development Guide](https://docs.bigmodel.cn/cn/guide/develop/claude)'
+    - >-
+      [DeepSeek Anthropic API
+      Guide](https://api-docs.deepseek.com/guides/anthropic_api)
+    - >-
+      [Alibaba Cloud Model Studio - Claude Code
+      Integration](https://help.aliyun.com/zh/model-studio/claude-code)
+    - >-
+      [Zhipu GLM - Claude Development
+      Guide](https://docs.bigmodel.cn/cn/guide/develop/claude)
+  grok_code_fast_1_description: >-
+    **xAI Grok Code Fast 1** هو نموذج لغوي سريع وفعال من xAI، محسن لمهام البرمجة
+    وسير عمل التطوير السريع.
+  grok_code_fast_1_models_title: النماذج المتاحة
+  grok_code_fast_1_models:
+    - '**grok-code-fast-1**: نموذج سريع وفعال محسن لمهام البرمجة والتطوير'
+  grok_code_fast_1_api_title: احصل على مفتاح API الخاص بك
+  grok_code_fast_1_api_links:
+    - '**المنصة**: [https://console.x.ai](https://console.x.ai)'

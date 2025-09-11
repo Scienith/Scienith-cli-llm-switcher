@@ -6,7 +6,7 @@
 
 *A command-line tool for seamlessly switching between multiple LLM providers*
 
-[![Version](https://img.shields.io/badge/version-v0.4.0-blue.svg)](https://github.com/Scienith/cli-llm-switcher/releases)
+[![Version](https://img.shields.io/badge/version-v0.3.4-blue.svg)](https://github.com/Scienith/cli-llm-switcher/releases)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 **🌍 Languages**: English | [中文](README_zh.md) | [日本語](README_ja.md) | [한국어](README_ko.md) | [Français](README_fr.md) | [Deutsch](README_de.md) | [Español](README_es.md) | [Русский](README_ru.md) | [العربية](README_ar.md)
@@ -140,6 +140,21 @@ lms run claude
 ### Get Your API Key
 - **🇨🇳 China**: [https://bigmodel.cn/](https://bigmodel.cn/)
 - **🌍 International**: [https://z.ai/model-api](https://z.ai/model-api)
+
+---
+
+### Grok Code Fast 1
+
+<div align="center">
+<img src="https://raw.githubusercontent.com/Scienith/cli-llm-switcher/main/assets/images/logo/grok_logo.png" alt="Grok Code Fast 1" width="200">
+</div>
+
+### Model Configuration
+- **Main Model**: `grok-code-fast-1`
+- **Fast Model**: `grok-code-fast-1`
+
+### Get Your API Key
+- **Platform**: [https://console.x.ai](https://console.x.ai)
 
 ---
 

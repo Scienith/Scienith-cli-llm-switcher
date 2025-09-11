@@ -1,6 +1,8 @@
 home:
   description: 여러 LLM 제공업체 간의 원활한 전환을 위한 명령줄 도구
-  subtitle: '**DeepSeek, Qwen, Zhipu GLM, Kimi을 한 번의 명령으로 전환**, Claude Code 및 호환 CLI 도구에 완벽 대응.'
+  subtitle: >-
+    **DeepSeek, Qwen, Zhipu GLM, Kimi을 한 번의 명령으로 전환**, Claude Code 및 호환 CLI 도구에
+    완벽 대응.
   prerequisites_title: 📋 사전 요구 사항
   prerequisites_desc: '설치하기 전에 Node.js(v16 이상)가 설치되어 있는지 확인하세요:'
   prerequisites_node_title: Node.js 설치
@@ -42,7 +44,9 @@ home:
   why_practices_title: 🎯 공식 모범 사례
   why_practices_items:
     - '**공급자 권장 구성**: 각 공급자의 공식 통합 지침 준수'
-    - '**Claude Code 듀얼 모델 구성**: 메인 모델은 대화/계획/코드 생성/복잡한 추론에 사용, 빠른 모델(Claude는 3.5 Haiku 등 사용)은 파일 검색/구문 검사 등 보조 작업에 사용 - 성능과 비용을 지능적으로 최적화'
+    - >-
+      **Claude Code 듀얼 모델 구성**: 메인 모델은 대화/계획/코드 생성/복잡한 추론에 사용, 빠른 모델(Claude는 3.5
+      Haiku 등 사용)은 파일 검색/구문 검사 등 보조 작업에 사용 - 성능과 비용을 지능적으로 최적화
   provider_integration_title: 🤖 공급자 통합
   zhipu_description: '**Zhipu GLM**은 Zhipu AI가 개발한 강력한 중국어 대규모 언어 모델 시리즈로, 다양한 작업에 최첨단 성능을 제공합니다.'
   zhipu_models_title: 사용 가능한 모델
@@ -53,36 +57,51 @@ home:
   zhipu_api_links:
     - '**🇨🇳 중국**: [https://bigmodel.cn/](https://bigmodel.cn/)'
     - '**🌍 국제**: [https://z.ai/model-api](https://z.ai/model-api)'
-  deepseek_description: '[NEEDS TRANSLATION] **DeepSeek** is an advanced AI model series focused on deep reasoning and code understanding, providing exceptional performance for programming tasks.'
-  deepseek_models_title: '[NEEDS TRANSLATION] Available Models'
+  deepseek_description: '**DeepSeek**는 깊은 추론과 코드 이해에 초점을 맞춘 고급 AI 모델 시리즈로, 프로그래밍 작업에 탁월한 성능을 제공합니다.'
+  deepseek_models_title: 사용 가능한 모델
   deepseek_models:
-    - '[NEEDS TRANSLATION] **deepseek-chat**: Versatile model for both complex reasoning and quick responses'
-  deepseek_api_title: '[NEEDS TRANSLATION] Get Your API Key'
+    - '**deepseek-chat**: 복잡한 추론과 빠른 응답 모두에 적합한 다목적 모델'
+  deepseek_api_title: API 키 받기
   deepseek_api_links:
-    - '[NEEDS TRANSLATION] **Platform**: [https://platform.deepseek.com/](https://platform.deepseek.com/)'
-  alibaba_int_description: '[NEEDS TRANSLATION] **Alibaba Cloud Qwen (International)** offers powerful large language models with excellent multilingual capabilities and code generation features.'
-  alibaba_int_api_title: '[NEEDS TRANSLATION] Get Your API Key'
+    - '**플랫폼**: [https://platform.deepseek.com/](https://platform.deepseek.com/)'
+  alibaba_int_description: >-
+    **Alibaba Cloud Qwen (International)**는 뛰어난 다국어 기능과 코드 생성 기능을 갖춘 강력한 대규모 언어
+    모델을 제공합니다.
+  alibaba_int_api_title: API 키 받기
   alibaba_int_api_links:
-    - '[NEEDS TRANSLATION] **🌍 International**: [https://modelstudio.console.alibabacloud.com/](https://modelstudio.console.alibabacloud.com/)'
-  alibaba_description: '[NEEDS TRANSLATION] **Alibaba Cloud Qwen (China)** offers powerful large language models with excellent multilingual capabilities and code generation features.'
-  alibaba_models_title: '[NEEDS TRANSLATION] Available Models'
+    - >-
+      **🌍 국제**:
+      [https://modelstudio.console.alibabacloud.com/](https://modelstudio.console.alibabacloud.com/)
+  alibaba_description: >-
+    **Alibaba Cloud Qwen (China)**는 뛰어난 다국어 기능과 코드 생성 기능을 갖춘 강력한 대규모 언어 모델을
+    제공합니다.
+  alibaba_models_title: 사용 가능한 모델
   alibaba_models:
-    - '[NEEDS TRANSLATION] **qwen3-coder-plus**: Main model for advanced code generation and analysis'
-    - '[NEEDS TRANSLATION] **qwen3-coder-flash**: Fast model for quick code completions and syntax checking'
-  alibaba_api_title: '[NEEDS TRANSLATION] Get Your API Key'
+    - '**qwen3-coder-plus**: 고급 코드 생성과 분석용 메인 모델'
+    - '**qwen3-coder-flash**: 빠른 코드 완성과 구문 검사용 고속 모델'
+  alibaba_api_title: API 키 받기
   alibaba_api_links:
-    - '[NEEDS TRANSLATION] **🇨🇳 China**: [https://bailian.console.aliyun.com/](https://bailian.console.aliyun.com/)'
-  moonshot_description: '[NEEDS TRANSLATION] **Moonshot AI (Kimi)** provides intelligent language models with strong context understanding and conversational abilities.'
-  moonshot_models_title: '[NEEDS TRANSLATION] Available Models'
+    - >-
+      **🇨🇳 중국**:
+      [https://bailian.console.aliyun.com/](https://bailian.console.aliyun.com/)
+  moonshot_description: '**Moonshot AI (Kimi)**는 뛰어난 컨텍스트 이해와 대화 기능을 갖춘 지능형 언어 모델을 제공합니다.'
+  moonshot_models_title: 사용 가능한 모델
   moonshot_models:
-    - '[NEEDS TRANSLATION] **kimi-k2-0905-preview**: Advanced model with excellent instruction-following capabilities'
-  moonshot_api_title: '[NEEDS TRANSLATION] Get Your API Key'
+    - '**kimi-k2-0905-preview**: 탁월한 지시 준수 기능을 갖춘 고급 모델'
+  moonshot_api_title: API 키 받기
   moonshot_api_links:
-    - '[NEEDS TRANSLATION] **Platform**: [https://platform.moonshot.ai/](https://platform.moonshot.ai/)'
+    - '**플랫폼**: [https://platform.moonshot.ai/](https://platform.moonshot.ai/)'
+  grok-code-fast-1_description: ' **xAI Grok Code Fast 1** is xAI''s fast and efficient language model, optimized for coding tasks and rapid development workflows.'
+  grok-code-fast-1_models_title: ' Available Models'
+  grok-code-fast-1_models:
+    - ' **grok-code-fast-1**: Fast and efficient model optimized for coding and development tasks'
+  grok-code-fast-1_api_title: ' Get Your API Key'
+  grok-code-fast-1_api_links:
+    - ' **Platform**: [https://console.x.ai](https://console.x.ai)'
   model_config_title: 모델 구성
   model_config_desc: '도구는 다양한 용도에 최적의 모델을 자동으로 구성합니다:'
-  model_config_main: '**[NEEDS TRANSLATION] Main Model**'
-  model_config_fast: '**[NEEDS TRANSLATION] Fast Model**'
+  model_config_main: '**메인 모델**'
+  model_config_fast: '**고속 모델**'
   model_config_example: '예를 들어 Zhipu GLM의 경우:'
   model_config_example_main: '- 메인 모델: `glm-4.5` - 더 강력하고 복잡한 작업에 적합'
   model_config_example_fast: '- 빠른 모델: `glm-4.5-air` - 더 가볍고 속도 우선'
@@ -133,9 +152,22 @@ home:
   license: 라이선스
   license_text: 이 프로젝트는 MIT 라이선스 하에 라이선스가 부여됩니다 - 자세한 내용은 [LICENSE](LICENSE) 파일을 참조하세요.
   need_help: '**도움이 필요하신가요?** 자세한 가이드와 문제 해결을 위해 전체 문서를 확인하세요.'
-  references_title: '[NEEDS TRANSLATION] References'
-  references_text: '[NEEDS TRANSLATION] Official provider configuration guides for Claude Code integration:'
+  references_title: 참고 자료
+  references_text: 'Claude Code 통합을 위한 공식 제공자 구성 가이드:'
   references_links:
-    - '[DeepSeek Anthropic API Guide](https://api-docs.deepseek.com/guides/anthropic_api)'
-    - '[Alibaba Cloud Model Studio - Claude Code Integration](https://help.aliyun.com/zh/model-studio/claude-code)'
-    - '[Zhipu GLM - Claude Development Guide](https://docs.bigmodel.cn/cn/guide/develop/claude)'
+    - >-
+      [DeepSeek Anthropic API
+      Guide](https://api-docs.deepseek.com/guides/anthropic_api)
+    - >-
+      [Alibaba Cloud Model Studio - Claude Code
+      Integration](https://help.aliyun.com/zh/model-studio/claude-code)
+    - >-
+      [Zhipu GLM - Claude Development
+      Guide](https://docs.bigmodel.cn/cn/guide/develop/claude)
+  grok_code_fast_1_description: '**xAI Grok Code Fast 1**은 xAI의 빠르고 효율적인 언어 모델로, 코딩 작업과 빠른 개발 워크플로에 최적화되었습니다.'
+  grok_code_fast_1_models_title: 사용 가능한 모델
+  grok_code_fast_1_models:
+    - '**grok-code-fast-1**: 코딩과 개발 작업에 최적화된 빠르고 효율적인 모델'
+  grok_code_fast_1_api_title: API 키 받기
+  grok_code_fast_1_api_links:
+    - '**플랫폼**: [https://console.x.ai](https://console.x.ai)'

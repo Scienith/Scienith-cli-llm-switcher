@@ -1,6 +1,10 @@
 home:
-  description: Una herramienta de línea de comandos para cambiar sin problemas entre múltiples proveedores LLM
-  subtitle: '**Cambia entre DeepSeek, Qwen, Zhipu GLM, Kimi** con un solo comando al usar Claude Code o herramientas CLI compatibles.'
+  description: >-
+    Una herramienta de línea de comandos para cambiar sin problemas entre
+    múltiples proveedores LLM
+  subtitle: >-
+    **Cambia entre DeepSeek, Qwen, Zhipu GLM, Kimi** con un solo comando al usar
+    Claude Code o herramientas CLI compatibles.
   prerequisites_title: 📋 Requisitos previos
   prerequisites_desc: 'Antes de instalar, asegúrese de tener Node.js (v16 o posterior) instalado:'
   prerequisites_node_title: Instalar Node.js
@@ -13,7 +17,9 @@ home:
     - '  nvm install node'
     - '  nvm use node'
     - '  ```'
-    - '**Opción 2**: Descargar desde [nodejs.org](https://nodejs.org/) (elegir versión LTS)'
+    - >-
+      **Opción 2**: Descargar desde [nodejs.org](https://nodejs.org/) (elegir
+      versión LTS)
     - ''
     - 'Verificar instalación:'
     - '```bash'
@@ -37,57 +43,110 @@ home:
   why_title: 💡 ¿Por qué elegir LLM Switcher?
   why_isolated_title: 🔒 Entorno de configuración aislado
   why_isolated_items:
-    - '**Sin impacto en Claude Code nativo**: Tu configuración original de Claude permanece intacta'
-    - '**Cambio de proveedor por sesión**: Cada sesión de terminal puede usar diferentes proveedores'
+    - >-
+      **Sin impacto en Claude Code nativo**: Tu configuración original de Claude
+      permanece intacta
+    - >-
+      **Cambio de proveedor por sesión**: Cada sesión de terminal puede usar
+      diferentes proveedores
   why_practices_title: 🎯 Mejores prácticas oficiales
   why_practices_items:
-    - '**Configuraciones recomendadas por proveedores**: Sigue las pautas de integración oficiales de cada proveedor'
-    - '**Configuración de doble modelo Claude Code**: Modelo principal para conversación/planificación/generación de código/razonamiento complejo, modelo rápido (Claude usa Haiku ej. 3.5 Haiku) para búsqueda de archivos/verificación de sintaxis y tareas auxiliares - optimiza inteligentemente rendimiento y costo'
+    - >-
+      **Configuraciones recomendadas por proveedores**: Sigue las pautas de
+      integración oficiales de cada proveedor
+    - >-
+      **Configuración de doble modelo Claude Code**: Modelo principal para
+      conversación/planificación/generación de código/razonamiento complejo,
+      modelo rápido (Claude usa Haiku ej. 3.5 Haiku) para búsqueda de
+      archivos/verificación de sintaxis y tareas auxiliares - optimiza
+      inteligentemente rendimiento y costo
   provider_integration_title: 🤖 Integración de proveedores
-  zhipu_description: '**Zhipu GLM** es una poderosa serie de modelos de lenguaje chino desarrollada por Zhipu AI, que ofrece rendimiento de vanguardia para diversas tareas.'
+  zhipu_description: >-
+    **Zhipu GLM** es una poderosa serie de modelos de lenguaje chino
+    desarrollada por Zhipu AI, que ofrece rendimiento de vanguardia para
+    diversas tareas.
   zhipu_models_title: Modelos disponibles
   zhipu_models:
-    - '**glm-4.5**: Modelo principal para tareas complejas de razonamiento y generación'
+    - >-
+      **glm-4.5**: Modelo principal para tareas complejas de razonamiento y
+      generación
     - '**glm-4.5-air**: Modelo ligero optimizado para respuestas rápidas'
   zhipu_api_title: Obtener tu clave API
   zhipu_api_links:
     - '**🇨🇳 China**: [https://bigmodel.cn/](https://bigmodel.cn/)'
     - '**🌍 Internacional**: [https://z.ai/model-api](https://z.ai/model-api)'
-  deepseek_description: '[NEEDS TRANSLATION] **DeepSeek** is an advanced AI model series focused on deep reasoning and code understanding, providing exceptional performance for programming tasks.'
-  deepseek_models_title: '[NEEDS TRANSLATION] Available Models'
+  deepseek_description: >-
+    **DeepSeek** es una serie avanzada de modelos de IA enfocada en el
+    razonamiento profundo y la comprensión del código, proporcionando un
+    rendimiento excepcional para tareas de programación.
+  deepseek_models_title: Modelos disponibles
   deepseek_models:
-    - '[NEEDS TRANSLATION] **deepseek-chat**: Versatile model for both complex reasoning and quick responses'
-  deepseek_api_title: '[NEEDS TRANSLATION] Get Your API Key'
+    - >-
+      **deepseek-chat**: Modelo versátil para razonamiento complejo y respuestas
+      rápidas
+  deepseek_api_title: Obtener tu clave API
   deepseek_api_links:
-    - '[NEEDS TRANSLATION] **Platform**: [https://platform.deepseek.com/](https://platform.deepseek.com/)'
-  alibaba_int_description: '[NEEDS TRANSLATION] **Alibaba Cloud Qwen (International)** offers powerful large language models with excellent multilingual capabilities and code generation features.'
-  alibaba_int_api_title: '[NEEDS TRANSLATION] Get Your API Key'
+    - >-
+      **Plataforma**:
+      [https://platform.deepseek.com/](https://platform.deepseek.com/)
+  alibaba_int_description: >-
+    **Alibaba Cloud Qwen (International)** ofrece potentes modelos de lenguaje
+    grande con excelentes capacidades multilingües y funciones de generación de
+    código.
+  alibaba_int_api_title: Obtener tu clave API
   alibaba_int_api_links:
-    - '[NEEDS TRANSLATION] **🌍 International**: [https://modelstudio.console.alibabacloud.com/](https://modelstudio.console.alibabacloud.com/)'
-  alibaba_description: '[NEEDS TRANSLATION] **Alibaba Cloud Qwen (China)** offers powerful large language models with excellent multilingual capabilities and code generation features.'
-  alibaba_models_title: '[NEEDS TRANSLATION] Available Models'
+    - >-
+      **🌍 Internacional**:
+      [https://modelstudio.console.alibabacloud.com/](https://modelstudio.console.alibabacloud.com/)
+  alibaba_description: >-
+    **Alibaba Cloud Qwen (China)** ofrece potentes modelos de lenguaje grande
+    con excelentes capacidades multilingües y funciones de generación de código.
+  alibaba_models_title: Modelos disponibles
   alibaba_models:
-    - '[NEEDS TRANSLATION] **qwen3-coder-plus**: Main model for advanced code generation and analysis'
-    - '[NEEDS TRANSLATION] **qwen3-coder-flash**: Fast model for quick code completions and syntax checking'
-  alibaba_api_title: '[NEEDS TRANSLATION] Get Your API Key'
+    - >-
+      **qwen3-coder-plus**: Modelo principal para generación y análisis avanzado
+      de código
+    - >-
+      **qwen3-coder-flash**: Modelo rápido para completaciones rápidas de código
+      y verificación de sintaxis
+  alibaba_api_title: Obtener tu clave API
   alibaba_api_links:
-    - '[NEEDS TRANSLATION] **🇨🇳 China**: [https://bailian.console.aliyun.com/](https://bailian.console.aliyun.com/)'
-  moonshot_description: '[NEEDS TRANSLATION] **Moonshot AI (Kimi)** provides intelligent language models with strong context understanding and conversational abilities.'
-  moonshot_models_title: '[NEEDS TRANSLATION] Available Models'
+    - >-
+      **🇨🇳 China**:
+      [https://bailian.console.aliyun.com/](https://bailian.console.aliyun.com/)
+  moonshot_description: >-
+    **Moonshot AI (Kimi)** proporciona modelos de lenguaje inteligentes con
+    fuerte comprensión contextual y capacidades conversacionales.
+  moonshot_models_title: Modelos disponibles
   moonshot_models:
-    - '[NEEDS TRANSLATION] **kimi-k2-0905-preview**: Advanced model with excellent instruction-following capabilities'
-  moonshot_api_title: '[NEEDS TRANSLATION] Get Your API Key'
+    - >-
+      **kimi-k2-0905-preview**: Modelo avanzado con excelentes capacidades de
+      seguimiento de instrucciones
+  moonshot_api_title: Obtener tu clave API
   moonshot_api_links:
-    - '[NEEDS TRANSLATION] **Platform**: [https://platform.moonshot.ai/](https://platform.moonshot.ai/)'
+    - >-
+      **Plataforma**:
+      [https://platform.moonshot.ai/](https://platform.moonshot.ai/)
+  grok-code-fast-1_description: ' **xAI Grok Code Fast 1** is xAI''s fast and efficient language model, optimized for coding tasks and rapid development workflows.'
+  grok-code-fast-1_models_title: ' Available Models'
+  grok-code-fast-1_models:
+    - ' **grok-code-fast-1**: Fast and efficient model optimized for coding and development tasks'
+  grok-code-fast-1_api_title: ' Get Your API Key'
+  grok-code-fast-1_api_links:
+    - ' **Platform**: [https://console.x.ai](https://console.x.ai)'
   model_config_title: Configuración de modelos
-  model_config_desc: 'La herramienta configura automáticamente modelos óptimos para diferentes usos:'
-  model_config_main: '**[NEEDS TRANSLATION] Main Model**'
-  model_config_fast: '**[NEEDS TRANSLATION] Fast Model**'
+  model_config_desc: >-
+    La herramienta configura automáticamente modelos óptimos para diferentes
+    usos:
+  model_config_main: '**Modelo principal**'
+  model_config_fast: '**Modelo rápido**'
   model_config_example: 'Por ejemplo, Zhipu GLM usa:'
   model_config_example_main: '- Modelo principal: `glm-4.5` - Más potente, adecuado para tareas complejas'
   model_config_example_fast: '- Modelo rápido: `glm-4.5-air` - Más ligero, optimizado para velocidad'
   configuration_title: Configuración
-  configuration_desc: Después de la instalación, necesitas configurar las claves API para los proveedores que deseas usar.
+  configuration_desc: >-
+    Después de la instalación, necesitas configurar las claves API para los
+    proveedores que deseas usar.
   configuration_steps:
     - Copiar la plantilla de configuración
     - Editar el archivo de configuración
@@ -109,14 +168,24 @@ home:
   troubleshooting_title: Solución de problemas
   troubleshooting_common: Problemas comunes
   troubleshooting_tips:
-    - '**Permiso denegado**: Asegúrate de que el script sea ejecutable con `chmod +x bin/llm-switch`'
-    - '**Configuración no encontrada**: Asegúrate de haber copiado y editado `config/providers.ini`'
-    - '**Errores de clave API**: Verifica que tus claves API sean correctas y tengan los permisos adecuados'
-    - '**Integración de shell**: Asegúrate de ejecutar la salida o agregarla a tu perfil de shell'
+    - >-
+      **Permiso denegado**: Asegúrate de que el script sea ejecutable con `chmod
+      +x bin/llm-switch`
+    - >-
+      **Configuración no encontrada**: Asegúrate de haber copiado y editado
+      `config/providers.ini`
+    - >-
+      **Errores de clave API**: Verifica que tus claves API sean correctas y
+      tengan los permisos adecuados
+    - >-
+      **Integración de shell**: Asegúrate de ejecutar la salida o agregarla a tu
+      perfil de shell
   uninstallation_title: Desinstalación
   uninstallation_basic_title: Desinstalación básica (mantiene configuración)
   uninstallation_complete_title: Desinstalación completa (elimina todo)
-  uninstallation_note: 'Nota: Ejecuta `lms status` para ver la ruta del directorio de configuración antes de desinstalar.'
+  uninstallation_note: >-
+    Nota: Ejecuta `lms status` para ver la ruta del directorio de configuración
+    antes de desinstalar.
   uninstallation_commands:
     basic: npm uninstall -g cli-llm-switcher
     macos_linux:
@@ -131,11 +200,34 @@ home:
   contributing: Contribución
   contributing_text: ¡Las contribuciones son bienvenidas! No dudes en enviar un Pull Request.
   license: Licencia
-  license_text: Este proyecto está licenciado bajo la Licencia MIT - consulta el archivo [LICENSE](LICENSE) para más detalles.
-  need_help: '**¿Necesitas ayuda?** Consulta la documentación completa para guías detalladas y solución de problemas.'
-  references_title: '[NEEDS TRANSLATION] References'
-  references_text: '[NEEDS TRANSLATION] Official provider configuration guides for Claude Code integration:'
+  license_text: >-
+    Este proyecto está licenciado bajo la Licencia MIT - consulta el archivo
+    [LICENSE](LICENSE) para más detalles.
+  need_help: >-
+    **¿Necesitas ayuda?** Consulta la documentación completa para guías
+    detalladas y solución de problemas.
+  references_title: Referencias
+  references_text: >-
+    Guías oficiales de configuración de proveedores para integración de Claude
+    Code:
   references_links:
-    - '[DeepSeek Anthropic API Guide](https://api-docs.deepseek.com/guides/anthropic_api)'
-    - '[Alibaba Cloud Model Studio - Claude Code Integration](https://help.aliyun.com/zh/model-studio/claude-code)'
-    - '[Zhipu GLM - Claude Development Guide](https://docs.bigmodel.cn/cn/guide/develop/claude)'
+    - >-
+      [DeepSeek Anthropic API
+      Guide](https://api-docs.deepseek.com/guides/anthropic_api)
+    - >-
+      [Alibaba Cloud Model Studio - Claude Code
+      Integration](https://help.aliyun.com/zh/model-studio/claude-code)
+    - >-
+      [Zhipu GLM - Claude Development
+      Guide](https://docs.bigmodel.cn/cn/guide/develop/claude)
+  grok_code_fast_1_description: >-
+    **xAI Grok Code Fast 1** es el modelo de lenguaje rápido y eficiente de xAI,
+    optimizado para tareas de codificación y workflows de desarrollo rápidos.
+  grok_code_fast_1_models_title: Modelos disponibles
+  grok_code_fast_1_models:
+    - >-
+      **grok-code-fast-1**: Modelo rápido y eficiente optimizado para tareas de
+      codificación y desarrollo
+  grok_code_fast_1_api_title: Obtener tu clave API
+  grok_code_fast_1_api_links:
+    - '**Plataforma**: [https://console.x.ai](https://console.x.ai)'

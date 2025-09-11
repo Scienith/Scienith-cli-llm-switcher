@@ -49,7 +49,8 @@ export const PROVIDER_KEYS = {
   ALIBABACLOUD_INT: 'alibabacloud-int',
   ALIBABACLOUD: 'alibabacloud',
   ZHIPU: 'zhipu',
-  KIMI: 'kimi'
+  KIMI: 'kimi',
+  GROK_CODE_FAST_1: 'grok-code-fast-1'
 } as const;
 
 // Type for provider keys
@@ -64,7 +65,8 @@ export const DEFAULT_PROVIDERS = [
   PROVIDER_KEYS.ALIBABACLOUD_INT,
   PROVIDER_KEYS.ALIBABACLOUD,
   PROVIDER_KEYS.ZHIPU,
-  PROVIDER_KEYS.KIMI
+  PROVIDER_KEYS.KIMI,
+  PROVIDER_KEYS.GROK_CODE_FAST_1
 ];
 
 // Providers available for configuration (only these will show in config command)
@@ -73,7 +75,8 @@ export const CONFIGURABLE_PROVIDERS = [
   PROVIDER_KEYS.ALIBABACLOUD_INT,
   PROVIDER_KEYS.ALIBABACLOUD,
   PROVIDER_KEYS.KIMI,
-  PROVIDER_KEYS.ZHIPU
+  PROVIDER_KEYS.ZHIPU,
+  PROVIDER_KEYS.GROK_CODE_FAST_1
 ];
 
 export const CLI_TOOLS = ['qwen'];
@@ -130,6 +133,16 @@ export const PROVIDER_CONFIGS: Record<string, ProviderConfig> = {
     fastModel: 'kimi-k2-0905-preview',
     apiUrls: ['https://platform.moonshot.ai/'],
     logo: 'moonshot_logo.png'
+  },
+  [PROVIDER_KEYS.GROK_CODE_FAST_1]: {
+    key: PROVIDER_KEYS.GROK_CODE_FAST_1,
+    name: 'Grok Code Fast 1',
+    baseUrl: 'https://api.x.ai',
+    anthropicUrl: 'https://api.x.ai',
+    defaultModel: 'grok-code-fast-1',
+    fastModel: 'grok-code-fast-1',
+    apiUrls: ['https://x.ai/'],
+    logo: 'grok_logo.png'
   }
 };
 

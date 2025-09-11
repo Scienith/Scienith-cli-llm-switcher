@@ -1,11 +1,18 @@
 home:
-  description: Инструмент командной строки для беспрепятственного переключения между несколькими провайдерами LLM
-  subtitle: '**Переключайтесь между DeepSeek, Qwen, Zhipu GLM, Kimi, OpenAI и Groq** одной командой при использовании Claude Code или совместимых CLI инструментов.'
+  description: >-
+    Инструмент командной строки для беспрепятственного переключения между
+    несколькими провайдерами LLM
+  subtitle: >-
+    **Переключайтесь между DeepSeek, Qwen, Zhipu GLM, Kimi, OpenAI и Groq**
+    одной командой при использовании Claude Code или совместимых CLI
+    инструментов.
   prerequisites_title: 📋 Предварительные требования
   prerequisites_desc: 'Перед установкой убедитесь, что установлен Node.js (v16 или новее):'
   prerequisites_node_title: Установка Node.js
   prerequisites_node_options:
-    - '**Вариант 1 (Рекомендуется)**: Используйте nvm для простого управления Node.js'
+    - >-
+      **Вариант 1 (Рекомендуется)**: Используйте nvm для простого управления
+      Node.js
     - '  ```bash'
     - '  # Установить nvm: https://github.com/nvm-sh/nvm#install--update-script'
     - '  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash'
@@ -13,7 +20,9 @@ home:
     - '  nvm install node'
     - '  nvm use node'
     - '  ```'
-    - '**Вариант 2**: Скачать с [nodejs.org](https://nodejs.org/) (выберите LTS версию)'
+    - >-
+      **Вариант 2**: Скачать с [nodejs.org](https://nodejs.org/) (выберите LTS
+      версию)
     - ''
     - 'Проверка установки:'
     - '```bash'
@@ -37,14 +46,27 @@ home:
   why_title: 💡 Почему выбрать LLM Switcher?
   why_isolated_title: 🔒 Изолированная среда конфигурации
   why_isolated_items:
-    - '**Нулевое влияние на нативный Claude Code**: Ваша исходная настройка Claude остается нетронутой'
-    - '**Переключение провайдера по сеансам**: Каждая сессия терминала может использовать разных провайдеров'
+    - >-
+      **Нулевое влияние на нативный Claude Code**: Ваша исходная настройка
+      Claude остается нетронутой
+    - >-
+      **Переключение провайдера по сеансам**: Каждая сессия терминала может
+      использовать разных провайдеров
   why_practices_title: 🎯 Официальные лучшие практики
   why_practices_items:
-    - '**Рекомендованные провайдерами конфигурации**: Следует официальным руководствам интеграции каждого провайдера'
-    - '**Двойная модель конфигурации Claude Code**: Основная модель для диалога/планирования/генерации кода/сложных рассуждений, быстрая модель (Claude использует Haiku, например 3.5 Haiku) для поиска файлов/проверки синтаксиса и вспомогательных задач - интеллектуально оптимизирует производительность и затраты'
+    - >-
+      **Рекомендованные провайдерами конфигурации**: Следует официальным
+      руководствам интеграции каждого провайдера
+    - >-
+      **Двойная модель конфигурации Claude Code**: Основная модель для
+      диалога/планирования/генерации кода/сложных рассуждений, быстрая модель
+      (Claude использует Haiku, например 3.5 Haiku) для поиска файлов/проверки
+      синтаксиса и вспомогательных задач - интеллектуально оптимизирует
+      производительность и затраты
   provider_integration_title: 🤖 Интеграция провайдеров
-  zhipu_description: '**Zhipu GLM** - это мощная серия китайских языковых моделей, разработанная Zhipu AI, предлагающая передовую производительность для различных задач.'
+  zhipu_description: >-
+    **Zhipu GLM** - это мощная серия китайских языковых моделей, разработанная
+    Zhipu AI, предлагающая передовую производительность для различных задач.
   zhipu_models_title: Доступные модели
   zhipu_models:
     - '**glm-4.5**: Основная модель для сложных задач рассуждения и генерации'
@@ -53,41 +75,76 @@ home:
   zhipu_api_links:
     - '**🇨🇳 Китай**: [https://bigmodel.cn/](https://bigmodel.cn/)'
     - '**🌍 Международный**: [https://z.ai/model-api](https://z.ai/model-api)'
-  deepseek_description: '[NEEDS TRANSLATION] **DeepSeek** is an advanced AI model series focused on deep reasoning and code understanding, providing exceptional performance for programming tasks.'
-  deepseek_models_title: '[NEEDS TRANSLATION] Available Models'
+  deepseek_description: >-
+    **DeepSeek** — это продвинутая серия моделей ИИ, ориентированная на глубокий
+    анализ и понимание кода, предоставляющая исключительную производительность
+    для задач программирования.
+  deepseek_models_title: Доступные модели
   deepseek_models:
-    - '[NEEDS TRANSLATION] **deepseek-chat**: Versatile model for both complex reasoning and quick responses'
-  deepseek_api_title: '[NEEDS TRANSLATION] Get Your API Key'
+    - >-
+      **deepseek-chat**: Универсальная модель для сложного рассуждения и
+      быстрого реагирования
+  deepseek_api_title: Получить ключ API
   deepseek_api_links:
-    - '[NEEDS TRANSLATION] **Platform**: [https://platform.deepseek.com/](https://platform.deepseek.com/)'
-  alibaba_int_description: '[NEEDS TRANSLATION] **Alibaba Cloud Qwen (International)** offers powerful large language models with excellent multilingual capabilities and code generation features.'
-  alibaba_int_api_title: '[NEEDS TRANSLATION] Get Your API Key'
+    - >-
+      **Платформа**:
+      [https://platform.deepseek.com/](https://platform.deepseek.com/)
+  alibaba_int_description: >-
+    **Alibaba Cloud Qwen (International)** предлагает мощные большие языковые
+    модели с превосходными многоязычными возможностями и функциями генерации
+    кода.
+  alibaba_int_api_title: Получить ключ API
   alibaba_int_api_links:
-    - '[NEEDS TRANSLATION] **🌍 International**: [https://modelstudio.console.alibabacloud.com/](https://modelstudio.console.alibabacloud.com/)'
-  alibaba_description: '[NEEDS TRANSLATION] **Alibaba Cloud Qwen (China)** offers powerful large language models with excellent multilingual capabilities and code generation features.'
-  alibaba_models_title: '[NEEDS TRANSLATION] Available Models'
+    - >-
+      **🌍 Международный**:
+      [https://modelstudio.console.alibabacloud.com/](https://modelstudio.console.alibabacloud.com/)
+  alibaba_description: >-
+    **Alibaba Cloud Qwen (China)** предлагает мощные большие языковые модели с
+    превосходными многоязычными возможностями и функциями генерации кода.
+  alibaba_models_title: Доступные модели
   alibaba_models:
-    - '[NEEDS TRANSLATION] **qwen3-coder-plus**: Main model for advanced code generation and analysis'
-    - '[NEEDS TRANSLATION] **qwen3-coder-flash**: Fast model for quick code completions and syntax checking'
-  alibaba_api_title: '[NEEDS TRANSLATION] Get Your API Key'
+    - >-
+      **qwen3-coder-plus**: Основная модель для продвинутой генерации и анализа
+      кода
+    - >-
+      **qwen3-coder-flash**: Быстрая модель для быстрого завершения кода и
+      проверки синтаксиса
+  alibaba_api_title: Получить ключ API
   alibaba_api_links:
-    - '[NEEDS TRANSLATION] **🇨🇳 China**: [https://bailian.console.aliyun.com/](https://bailian.console.aliyun.com/)'
-  moonshot_description: '[NEEDS TRANSLATION] **Moonshot AI (Kimi)** provides intelligent language models with strong context understanding and conversational abilities.'
-  moonshot_models_title: '[NEEDS TRANSLATION] Available Models'
+    - >-
+      **🇨🇳 Китай**:
+      [https://bailian.console.aliyun.com/](https://bailian.console.aliyun.com/)
+  moonshot_description: >-
+    **Moonshot AI (Kimi)** предоставляет интеллектуальные языковые модели с
+    сильным пониманием контекста и разговорными способностями.
+  moonshot_models_title: Доступные модели
   moonshot_models:
-    - '[NEEDS TRANSLATION] **kimi-k2-0905-preview**: Advanced model with excellent instruction-following capabilities'
-  moonshot_api_title: '[NEEDS TRANSLATION] Get Your API Key'
+    - >-
+      **kimi-k2-0905-preview**: Продвинутая модель с отличными возможностями
+      следования инструкциям
+  moonshot_api_title: Получить ключ API
   moonshot_api_links:
-    - '[NEEDS TRANSLATION] **Platform**: [https://platform.moonshot.ai/](https://platform.moonshot.ai/)'
+    - >-
+      **Платформа**:
+      [https://platform.moonshot.ai/](https://platform.moonshot.ai/)
+  grok-code-fast-1_description: ' **xAI Grok Code Fast 1** is xAI''s fast and efficient language model, optimized for coding tasks and rapid development workflows.'
+  grok-code-fast-1_models_title: ' Available Models'
+  grok-code-fast-1_models:
+    - ' **grok-code-fast-1**: Fast and efficient model optimized for coding and development tasks'
+  grok-code-fast-1_api_title: ' Get Your API Key'
+  grok-code-fast-1_api_links:
+    - ' **Platform**: [https://console.x.ai](https://console.x.ai)'
   model_config_title: Конфигурация моделей
   model_config_desc: 'Инструмент автоматически настраивает оптимальные модели для разных целей:'
-  model_config_main: '**[NEEDS TRANSLATION] Main Model**'
-  model_config_fast: '**[NEEDS TRANSLATION] Fast Model**'
+  model_config_main: '**Основная модель**'
+  model_config_fast: '**Быстрая модель**'
   model_config_example: 'Например, Zhipu GLM использует:'
   model_config_example_main: '- Основная модель: `glm-4.5` - Более мощная, подходит для сложных задач'
   model_config_example_fast: '- Быстрая модель: `glm-4.5-air` - Более легкая, оптимизирована для скорости'
   configuration_title: Конфигурация
-  configuration_desc: После установки вам нужно настроить API ключи для провайдеров, которых вы хотите использовать.
+  configuration_desc: >-
+    После установки вам нужно настроить API ключи для провайдеров, которых вы
+    хотите использовать.
   configuration_steps:
     - Скопировать шаблон конфигурации
     - Редактировать файл конфигурации
@@ -109,14 +166,24 @@ home:
   troubleshooting_title: Устранение неполадок
   troubleshooting_common: Распространенные проблемы
   troubleshooting_tips:
-    - '**Отказано в доступе**: Убедитесь, что скрипт исполняемый с `chmod +x bin/llm-switch`'
-    - '**Конфигурация не найдена**: Убедитесь, что вы скопировали и отредактировали `config/providers.ini`'
-    - '**Ошибки API ключа**: Проверьте, что ваши API ключи правильные и имеют соответствующие разрешения'
-    - '**Интеграция shell**: Убедитесь, что выполнили вывод или добавили в профиль shell'
+    - >-
+      **Отказано в доступе**: Убедитесь, что скрипт исполняемый с `chmod +x
+      bin/llm-switch`
+    - >-
+      **Конфигурация не найдена**: Убедитесь, что вы скопировали и
+      отредактировали `config/providers.ini`
+    - >-
+      **Ошибки API ключа**: Проверьте, что ваши API ключи правильные и имеют
+      соответствующие разрешения
+    - >-
+      **Интеграция shell**: Убедитесь, что выполнили вывод или добавили в
+      профиль shell
   uninstallation_title: Удаление
   uninstallation_basic_title: Базовое удаление (сохраняет конфигурацию)
   uninstallation_complete_title: Полное удаление (удаляет всё)
-  uninstallation_note: 'Примечание: Запустите `lms status`, чтобы увидеть путь к каталогу конфигурации перед удалением.'
+  uninstallation_note: >-
+    Примечание: Запустите `lms status`, чтобы увидеть путь к каталогу
+    конфигурации перед удалением.
   uninstallation_commands:
     basic: npm uninstall -g cli-llm-switcher
     macos_linux:
@@ -131,11 +198,35 @@ home:
   contributing: Вклад в разработку
   contributing_text: Вклад приветствуется! Пожалуйста, не стесняйтесь отправлять Pull Request.
   license: Лицензия
-  license_text: Этот проект лицензирован под лицензией MIT - см. файл [LICENSE](LICENSE) для подробностей.
-  need_help: '**Нужна помощь?** Ознакомьтесь с полной документацией для подробных руководств и устранения неполадок.'
-  references_title: '[NEEDS TRANSLATION] References'
-  references_text: '[NEEDS TRANSLATION] Official provider configuration guides for Claude Code integration:'
+  license_text: >-
+    Этот проект лицензирован под лицензией MIT - см. файл [LICENSE](LICENSE) для
+    подробностей.
+  need_help: >-
+    **Нужна помощь?** Ознакомьтесь с полной документацией для подробных
+    руководств и устранения неполадок.
+  references_title: Ссылки
+  references_text: >-
+    Официальные руководства по конфигурации провайдеров для интеграции Claude
+    Code:
   references_links:
-    - '[DeepSeek Anthropic API Guide](https://api-docs.deepseek.com/guides/anthropic_api)'
-    - '[Alibaba Cloud Model Studio - Claude Code Integration](https://help.aliyun.com/zh/model-studio/claude-code)'
-    - '[Zhipu GLM - Claude Development Guide](https://docs.bigmodel.cn/cn/guide/develop/claude)'
+    - >-
+      [DeepSeek Anthropic API
+      Guide](https://api-docs.deepseek.com/guides/anthropic_api)
+    - >-
+      [Alibaba Cloud Model Studio - Claude Code
+      Integration](https://help.aliyun.com/zh/model-studio/claude-code)
+    - >-
+      [Zhipu GLM - Claude Development
+      Guide](https://docs.bigmodel.cn/cn/guide/develop/claude)
+  grok_code_fast_1_description: >-
+    **xAI Grok Code Fast 1** — это быстрый и эффективный языковой модель xAI,
+    оптимизированный для задач кодирования и быстрого рабочего процесса
+    разработки.
+  grok_code_fast_1_models_title: Доступные модели
+  grok_code_fast_1_models:
+    - >-
+      **grok-code-fast-1**: Быстрый и эффективный модель, оптимизированный для
+      задач кодирования и разработки
+  grok_code_fast_1_api_title: Получить ключ API
+  grok_code_fast_1_api_links:
+    - '**Платформа**: [https://console.x.ai](https://console.x.ai)'

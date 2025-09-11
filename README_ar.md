@@ -6,7 +6,7 @@
 
 *أداة سطر أوامر للتبديل بسلاسة بين عدة مقدمي خدمة LLM*
 
-[![Version](https://img.shields.io/badge/version-v0.4.0-blue.svg)](https://github.com/Scienith/cli-llm-switcher/releases)
+[![Version](https://img.shields.io/badge/version-v0.3.4-blue.svg)](https://github.com/Scienith/cli-llm-switcher/releases)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 **🌍 Languages**: [English](README.md) | [中文](README_zh.md) | [日本語](README_ja.md) | [한국어](README_ko.md) | [Français](README_fr.md) | [Deutsch](README_de.md) | [Español](README_es.md) | [Русский](README_ru.md) | العربية
@@ -74,11 +74,11 @@ lms run claude
 </div>
 
 ### تكوين النموذج
-- **[NEEDS TRANSLATION] Main Model**: `deepseek-chat`
-- **[NEEDS TRANSLATION] Fast Model**: `deepseek-chat`
+- **النموذج الرئيسي**: `deepseek-chat`
+- **النموذج السريع**: `deepseek-chat`
 
-### [NEEDS TRANSLATION] Get Your API Key
-- [NEEDS TRANSLATION] **Platform**: [https://platform.deepseek.com/](https://platform.deepseek.com/)
+### احصل على مفتاح API الخاص بك
+- **المنصة**: [https://platform.deepseek.com/](https://platform.deepseek.com/)
 
 ---
 
@@ -89,11 +89,11 @@ lms run claude
 </div>
 
 ### تكوين النموذج
-- **[NEEDS TRANSLATION] Main Model**: `qwen3-coder-plus`
-- **[NEEDS TRANSLATION] Fast Model**: `qwen3-coder-flash`
+- **النموذج الرئيسي**: `qwen3-coder-plus`
+- **النموذج السريع**: `qwen3-coder-flash`
 
-### [NEEDS TRANSLATION] Get Your API Key
-- [NEEDS TRANSLATION] **🌍 International**: [https://modelstudio.console.alibabacloud.com/](https://modelstudio.console.alibabacloud.com/)
+### احصل على مفتاح API الخاص بك
+- **🌍 دولي**: [https://modelstudio.console.alibabacloud.com/](https://modelstudio.console.alibabacloud.com/)
 
 ---
 
@@ -104,11 +104,11 @@ lms run claude
 </div>
 
 ### تكوين النموذج
-- **[NEEDS TRANSLATION] Main Model**: `qwen3-coder-plus`
-- **[NEEDS TRANSLATION] Fast Model**: `qwen3-coder-flash`
+- **النموذج الرئيسي**: `qwen3-coder-plus`
+- **النموذج السريع**: `qwen3-coder-flash`
 
-### [NEEDS TRANSLATION] Get Your API Key
-- [NEEDS TRANSLATION] **🇨🇳 China**: [https://bailian.console.aliyun.com/](https://bailian.console.aliyun.com/)
+### احصل على مفتاح API الخاص بك
+- **🇨🇳 الصين**: [https://bailian.console.aliyun.com/](https://bailian.console.aliyun.com/)
 
 ---
 
@@ -119,11 +119,11 @@ lms run claude
 </div>
 
 ### تكوين النموذج
-- **[NEEDS TRANSLATION] Main Model**: `kimi-k2-0905-preview`
-- **[NEEDS TRANSLATION] Fast Model**: `kimi-k2-0905-preview`
+- **النموذج الرئيسي**: `kimi-k2-0905-preview`
+- **النموذج السريع**: `kimi-k2-0905-preview`
 
-### [NEEDS TRANSLATION] Get Your API Key
-- [NEEDS TRANSLATION] **Platform**: [https://platform.moonshot.ai/](https://platform.moonshot.ai/)
+### احصل على مفتاح API الخاص بك
+- **المنصة**: [https://platform.moonshot.ai/](https://platform.moonshot.ai/)
 
 ---
 
@@ -134,12 +134,27 @@ lms run claude
 </div>
 
 ### تكوين النموذج
-- **[NEEDS TRANSLATION] Main Model**: `glm-4.5`
-- **[NEEDS TRANSLATION] Fast Model**: `glm-4.5-air`
+- **النموذج الرئيسي**: `glm-4.5`
+- **النموذج السريع**: `glm-4.5-air`
 
 ### احصل على مفتاح API الخاص بك
 - **🇨🇳 الصين**: [https://bigmodel.cn/](https://bigmodel.cn/)
 - **🌍 دولي**: [https://z.ai/model-api](https://z.ai/model-api)
+
+---
+
+### Grok Code Fast 1
+
+<div align="center">
+<img src="https://raw.githubusercontent.com/Scienith/cli-llm-switcher/main/assets/images/logo/grok_logo.png" alt="Grok Code Fast 1" width="200">
+</div>
+
+### تكوين النموذج
+- **النموذج الرئيسي**: `grok-code-fast-1`
+- **النموذج السريع**: `grok-code-fast-1`
+
+###  Get Your API Key
+-  **Platform**: [https://console.x.ai](https://console.x.ai)
 
 ---
 
@@ -183,9 +198,9 @@ rmdir /s /q "%USERPROFILE%\.llm-switch"
 
 هذا المشروع مرخص تحت رخصة MIT - انظر ملف [LICENSE](LICENSE) للتفاصيل.
 
-## [NEEDS TRANSLATION] References
+## المراجع
 
-[NEEDS TRANSLATION] Official provider configuration guides for Claude Code integration:
+دليل تكوين مزود رسمي لدمج Claude Code:
 
 - [DeepSeek Anthropic API Guide](https://api-docs.deepseek.com/guides/anthropic_api)
 - [Alibaba Cloud Model Studio - Claude Code Integration](https://help.aliyun.com/zh/model-studio/claude-code)

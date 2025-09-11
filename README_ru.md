@@ -6,7 +6,7 @@
 
 *Инструмент командной строки для беспрепятственного переключения между несколькими провайдерами LLM*
 
-[![Version](https://img.shields.io/badge/version-v0.4.0-blue.svg)](https://github.com/Scienith/cli-llm-switcher/releases)
+[![Version](https://img.shields.io/badge/version-v0.3.4-blue.svg)](https://github.com/Scienith/cli-llm-switcher/releases)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 **🌍 Languages**: [English](README.md) | [中文](README_zh.md) | [日本語](README_ja.md) | [한국어](README_ko.md) | [Français](README_fr.md) | [Deutsch](README_de.md) | [Español](README_es.md) | Русский | [العربية](README_ar.md)
@@ -74,11 +74,11 @@ lms run claude
 </div>
 
 ### Конфигурация моделей
-- **[NEEDS TRANSLATION] Main Model**: `deepseek-chat`
-- **[NEEDS TRANSLATION] Fast Model**: `deepseek-chat`
+- **Основная модель**: `deepseek-chat`
+- **Быстрая модель**: `deepseek-chat`
 
-### [NEEDS TRANSLATION] Get Your API Key
-- [NEEDS TRANSLATION] **Platform**: [https://platform.deepseek.com/](https://platform.deepseek.com/)
+### Получить ключ API
+- **Платформа**: [https://platform.deepseek.com/](https://platform.deepseek.com/)
 
 ---
 
@@ -89,11 +89,11 @@ lms run claude
 </div>
 
 ### Конфигурация моделей
-- **[NEEDS TRANSLATION] Main Model**: `qwen3-coder-plus`
-- **[NEEDS TRANSLATION] Fast Model**: `qwen3-coder-flash`
+- **Основная модель**: `qwen3-coder-plus`
+- **Быстрая модель**: `qwen3-coder-flash`
 
-### [NEEDS TRANSLATION] Get Your API Key
-- [NEEDS TRANSLATION] **🌍 International**: [https://modelstudio.console.alibabacloud.com/](https://modelstudio.console.alibabacloud.com/)
+### Получить ключ API
+- **🌍 Международный**: [https://modelstudio.console.alibabacloud.com/](https://modelstudio.console.alibabacloud.com/)
 
 ---
 
@@ -104,11 +104,11 @@ lms run claude
 </div>
 
 ### Конфигурация моделей
-- **[NEEDS TRANSLATION] Main Model**: `qwen3-coder-plus`
-- **[NEEDS TRANSLATION] Fast Model**: `qwen3-coder-flash`
+- **Основная модель**: `qwen3-coder-plus`
+- **Быстрая модель**: `qwen3-coder-flash`
 
-### [NEEDS TRANSLATION] Get Your API Key
-- [NEEDS TRANSLATION] **🇨🇳 China**: [https://bailian.console.aliyun.com/](https://bailian.console.aliyun.com/)
+### Получить ключ API
+- **🇨🇳 Китай**: [https://bailian.console.aliyun.com/](https://bailian.console.aliyun.com/)
 
 ---
 
@@ -119,11 +119,11 @@ lms run claude
 </div>
 
 ### Конфигурация моделей
-- **[NEEDS TRANSLATION] Main Model**: `kimi-k2-0905-preview`
-- **[NEEDS TRANSLATION] Fast Model**: `kimi-k2-0905-preview`
+- **Основная модель**: `kimi-k2-0905-preview`
+- **Быстрая модель**: `kimi-k2-0905-preview`
 
-### [NEEDS TRANSLATION] Get Your API Key
-- [NEEDS TRANSLATION] **Platform**: [https://platform.moonshot.ai/](https://platform.moonshot.ai/)
+### Получить ключ API
+- **Платформа**: [https://platform.moonshot.ai/](https://platform.moonshot.ai/)
 
 ---
 
@@ -134,12 +134,27 @@ lms run claude
 </div>
 
 ### Конфигурация моделей
-- **[NEEDS TRANSLATION] Main Model**: `glm-4.5`
-- **[NEEDS TRANSLATION] Fast Model**: `glm-4.5-air`
+- **Основная модель**: `glm-4.5`
+- **Быстрая модель**: `glm-4.5-air`
 
 ### Получить API ключ
 - **🇨🇳 Китай**: [https://bigmodel.cn/](https://bigmodel.cn/)
 - **🌍 Международный**: [https://z.ai/model-api](https://z.ai/model-api)
+
+---
+
+### Grok Code Fast 1
+
+<div align="center">
+<img src="https://raw.githubusercontent.com/Scienith/cli-llm-switcher/main/assets/images/logo/grok_logo.png" alt="Grok Code Fast 1" width="200">
+</div>
+
+### Конфигурация моделей
+- **Основная модель**: `grok-code-fast-1`
+- **Быстрая модель**: `grok-code-fast-1`
+
+###  Get Your API Key
+-  **Platform**: [https://console.x.ai](https://console.x.ai)
 
 ---
 
@@ -183,9 +198,9 @@ rmdir /s /q "%USERPROFILE%\.llm-switch"
 
 Этот проект лицензирован под лицензией MIT - см. файл [LICENSE](LICENSE) для подробностей.
 
-## [NEEDS TRANSLATION] References
+## Ссылки
 
-[NEEDS TRANSLATION] Official provider configuration guides for Claude Code integration:
+Официальные руководства по конфигурации провайдеров для интеграции Claude Code:
 
 - [DeepSeek Anthropic API Guide](https://api-docs.deepseek.com/guides/anthropic_api)
 - [Alibaba Cloud Model Studio - Claude Code Integration](https://help.aliyun.com/zh/model-studio/claude-code)

@@ -1,6 +1,6 @@
 {
   "name": "cli-llm-switcher",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Claude Code LLM switcher - Switch between DeepSeek, Qwen, Zhipu GLM, Kimi, OpenAI models for Claude Code CLI",
   "bin": {
     "llm-switch": "./bin/llm-switch",

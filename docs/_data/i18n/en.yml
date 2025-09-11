@@ -79,6 +79,13 @@ home:
   moonshot_api_title: Get Your API Key
   moonshot_api_links:
     - '**Platform**: [https://platform.moonshot.ai/](https://platform.moonshot.ai/)'
+  grok-code-fast-1_description: '**Grok Code Fast 1** is xAI''s fast and efficient language model, optimized for coding tasks and rapid development workflows.'
+  grok-code-fast-1_models_title: Available Models
+  grok-code-fast-1_models:
+    - '**grok-code-fast-1**: Fast and efficient model optimized for coding and development tasks'
+  grok-code-fast-1_api_title: Get Your API Key
+  grok-code-fast-1_api_links:
+    - '**Platform**: [https://console.x.ai](https://console.x.ai)'
   model_config_title: Model Configuration
   model_config_desc: 'The tool automatically configures optimal models for different purposes:'
   model_config_main: '**Main Model**'
